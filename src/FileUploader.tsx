@@ -68,36 +68,36 @@ class FileUploader extends Component<{}, State> {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <Drawer
-          className={this.getIsDrawerOpen()}
-          variant="permanent"
-          open={this.state.isDrawerOpen}
-        >
-          <div>
-            <IconButton onClick={this.handleDrawerToggle}>
-              <ChevronLeftIcon />
-            </IconButton>
-          </div>
-          <Divider />
-          <List>{mainListItems}</List>
-        </Drawer>
-        <header>
-          <h1>Promoter Analysis</h1>
-        </header>
-        <section>
-          <p>
-            Upload a csv of your NPS data. It should have the NPS scare in the
-            first column, the NPS comments in the second column, and have tags
-            in the other columns.
-          </p>
-          <Button
-            variant="contained"
-            color="primary"
-            startIcon={<CloudUploadIcon />}
-            onClick={this.uploadHandler}
+        <section className="page">
+          <Drawer
+            className={this.getIsDrawerOpen()}
+            variant="permanent"
+            open={this.state.isDrawerOpen}
           >
-            Analyze
-          </Button>
+            <div>
+              <IconButton onClick={this.handleDrawerToggle}>
+                <ChevronLeftIcon />
+              </IconButton>
+            </div>
+            <Divider />
+            <List>{mainListItems}</List>
+          </Drawer>
+          <section className="main">
+            <div>
+              Upload a csv of your NPS data. It should have the NPS scare in the
+              first column, the NPS comments in the second column, and have tags
+              in the other columns.
+            </div>
+            <Button
+              className="uploadButton"
+              variant="contained"
+              color="primary"
+              startIcon={<CloudUploadIcon />}
+              onClick={this.uploadHandler}
+            >
+              Analyze
+            </Button>
+          </section>
         </section>
       </section>
     );
