@@ -1,0 +1,11 @@
+.openDrawer {
+  position: "relative";
+  display: block;
+  transition: all 0.25s;
+  overflow: hidden;
+}
+
+.closeDrawer {
+  display: none;
+  transition: all 0.25s;
+}
