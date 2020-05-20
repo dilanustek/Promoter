@@ -118,16 +118,7 @@ class FileUploader extends Component<{}, State> {
               first column, the NPS comments in the second column, and have tags
               in the other columns.
             </div>
-            <Button
-              className="uploadButton"
-              variant="contained"
-              color="primary"
-              startIcon={<CloudUploadIcon />}
-              onClick={this.uploadHandler}
-            >
-              Analyze
-            </Button>
-            <div className="App">
+            <div className="uploadSection">
               <input
                 className="csv-input"
                 type="file"
@@ -139,7 +130,14 @@ class FileUploader extends Component<{}, State> {
                 onChange={this.handleChange}
               />
               <p />
-              <button onClick={this.importCSV}> Upload now!</button>
+              <Button
+                variant="contained"
+                color="primary"
+                startIcon={<CloudUploadIcon />}
+                onClick={this.importCSV}
+              >
+                Analyze
+              </Button>
             </div>
           </section>
         </section>
