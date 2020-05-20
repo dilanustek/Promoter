@@ -19,16 +19,25 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems } from "./ListItems";
 import "./FileUploader.css";
+import Papa from "papaparse";
+import { type } from "os";
 
 interface State {
   isFileUploaded: boolean;
   isDrawerOpen: boolean;
+  csvFile: File | null;
+}
+
+interface NPSEntry {
+  score: number;
+  comment: string;
 }
 
 class FileUploader extends Component<{}, State> {
   state: State = {
     isFileUploaded: false,
     isDrawerOpen: false,
+    csvFile: null,
   };
 
   uploadHandler = () => {
@@ -43,6 +52,27 @@ class FileUploader extends Component<{}, State> {
     if (this.state.isDrawerOpen) {
       return "openDrawer";
     } else return "closeDrawer";
+  }
+
+  handleChange = (event: any) => {
+    this.setState({
+      csvFile: event.target.files[0],
+    });
+  };
+
+  importCSV = () => {
+    const csvFile = this.state.csvFile;
+    if (csvFile) {
+      Papa.parse(csvFile, {
+        complete: this.updateData,
+        header: true,
+      });
+    }
+  };
+
+  updateData(result: Papa.ParseResult) {
+    var data = result.data;
+    console.log(data);
   }
 
   render() {
@@ -84,7 +114,7 @@ class FileUploader extends Component<{}, State> {
           </Drawer>
           <section className="main">
             <div>
-              Upload a csv of your NPS data. It should have the NPS scare in the
+              Upload a CSV of your NPS data. It should have the NPS scare in the
               first column, the NPS comments in the second column, and have tags
               in the other columns.
             </div>
@@ -97,6 +127,20 @@ class FileUploader extends Component<{}, State> {
             >
               Analyze
             </Button>
+            <div className="App">
+              <input
+                className="csv-input"
+                type="file"
+                // ref={input => {
+                //   this.state.csvFile = input;
+                // }}
+                name="file"
+                placeholder={"placeholder text"}
+                onChange={this.handleChange}
+              />
+              <p />
+              <button onClick={this.importCSV}> Upload now!</button>
+            </div>
           </section>
         </section>
       </section>
