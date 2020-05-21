@@ -25,23 +25,20 @@ import { type } from "os";
 interface State {
   isFileUploaded: boolean;
   isDrawerOpen: boolean;
-  csvFile: File | null;
+  allNPS: NPSEntry[] | null;
 }
 
 interface NPSEntry {
-  score: number;
-  comment: string;
+  Score: number;
+  Bucket: String;
+  Comment: string;
 }
 
 class FileUploader extends Component<{}, State> {
   state: State = {
     isFileUploaded: false,
     isDrawerOpen: false,
-    csvFile: null,
-  };
-
-  uploadHandler = () => {
-    console.log("uploading file...");
+    allNPS: null,
   };
 
   handleDrawerToggle = () => {
@@ -55,13 +52,7 @@ class FileUploader extends Component<{}, State> {
   }
 
   handleChange = (event: any) => {
-    this.setState({
-      csvFile: event.target.files[0],
-    });
-  };
-
-  importCSV = () => {
-    const csvFile = this.state.csvFile;
+    const csvFile = event.target.files[0];
     if (csvFile) {
       Papa.parse(csvFile, {
         complete: this.updateData,
@@ -70,10 +61,16 @@ class FileUploader extends Component<{}, State> {
     }
   };
 
-  updateData(result: Papa.ParseResult) {
-    var data = result.data;
-    console.log(data);
-  }
+  updateData = (result: Papa.ParseResult) => {
+    const data: NPSEntry[] = result.data;
+    const allEntries = data.filter((entry) => entry.Comment != "");
+    console.log(allEntries);
+
+    this.setState({
+      isFileUploaded: true,
+      allNPS: allEntries,
+    });
+  };
 
   render() {
     return (
@@ -130,14 +127,14 @@ class FileUploader extends Component<{}, State> {
                 onChange={this.handleChange}
               />
               <p />
-              <Button
+              {/* <Button
                 variant="contained"
                 color="primary"
                 startIcon={<CloudUploadIcon />}
                 onClick={this.importCSV}
               >
                 Analyze
-              </Button>
+              </Button> */}
             </div>
           </section>
         </section>
