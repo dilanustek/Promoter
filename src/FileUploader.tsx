@@ -1,26 +1,26 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
-import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import AppBar from "@material-ui/core/AppBar";
 import Drawer from "@material-ui/core/Drawer";
-import Box from "@material-ui/core/Box";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems } from "./ListItems";
 import "./FileUploader.css";
 import Papa from "papaparse";
-import { type } from "os";
+// import { type } from "os";
+// import { Link } from "react-router-dom";
+// import Button from "@material-ui/core/Button";
+// import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+// import Box from "@material-ui/core/Box";
+// import Grid from "@material-ui/core/Grid";
+// import Paper from "@material-ui/core/Paper";
+// import Container from "@material-ui/core/Container";
 
 interface State {
   isFileUploaded: boolean;
@@ -64,10 +64,7 @@ class FileUploader extends Component<{}, State> {
 
   parseData = (result: Papa.ParseResult) => {
     const data = result.data;
-    const commentFullData = data.filter((entry) => entry.Comment != "");
-
-    const keys = Object.keys(commentFullData);
-
+    const commentFullData = data.filter((entry) => entry.Comment !== "");
     let parsedData: NPSEntry[] = [];
 
     for (let i = 0; i < commentFullData.length; i++) {
@@ -81,16 +78,24 @@ class FileUploader extends Component<{}, State> {
         bucket = "Detractor";
       }
 
-      const tags = Object.keys(commentFullData[i]);
-      const filteredTags = tags.filter(
-        (tag) => tag != "Score" && tag != "Bucket" && tag != "Comment"
+      const availableTags = Object.keys(commentFullData[i]);
+      // const filteredTags = availableTags.filter(
+      //   (tag) => tag !== "Score" && tag !== "Bucket" && tag !== "Comment"
+      // );
+      const labelledTags = availableTags.filter(
+        (tag) =>
+          commentFullData[i][tag] !== "" &&
+          tag !== "Score" &&
+          tag !== "Bucket" &&
+          tag !== "Comment"
       );
+      console.log(labelledTags);
 
       var newEntry: NPSEntry = {
         score: scoreNum,
         comment: commentFullData[i].Comment,
         bucket: bucket,
-        tags: filteredTags,
+        tags: labelledTags,
       };
 
       parsedData.push(newEntry);
