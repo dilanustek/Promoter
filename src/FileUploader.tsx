@@ -29,9 +29,10 @@ interface State {
 }
 
 interface NPSEntry {
-  Score: number;
-  Bucket: String;
-  Comment: string;
+  score: number;
+  bucket: string;
+  comment: string;
+  tags: string[] | null;
 }
 
 class FileUploader extends Component<{}, State> {
@@ -55,20 +56,51 @@ class FileUploader extends Component<{}, State> {
     const csvFile = event.target.files[0];
     if (csvFile) {
       Papa.parse(csvFile, {
-        complete: this.updateData,
+        complete: this.parseData,
         header: true,
       });
     }
   };
 
-  updateData = (result: Papa.ParseResult) => {
-    const data: NPSEntry[] = result.data;
-    const allEntries = data.filter((entry) => entry.Comment != "");
-    console.log(allEntries);
+  parseData = (result: Papa.ParseResult) => {
+    const data = result.data;
+    const commentFullData = data.filter((entry) => entry.Comment != "");
+
+    const keys = Object.keys(commentFullData);
+
+    let parsedData: NPSEntry[] = [];
+
+    for (let i = 0; i < commentFullData.length; i++) {
+      var bucket = "";
+      const scoreNum = parseInt(commentFullData[i].Score);
+      if (scoreNum >= 9) {
+        bucket = "Promoter";
+      } else if (scoreNum >= 7) {
+        bucket = "Passive";
+      } else if (scoreNum < 7) {
+        bucket = "Detractor";
+      }
+
+      const tags = Object.keys(commentFullData[i]);
+      const filteredTags = tags.filter(
+        (tag) => tag != "Score" && tag != "Bucket" && tag != "Comment"
+      );
+
+      var newEntry: NPSEntry = {
+        score: scoreNum,
+        comment: commentFullData[i].Comment,
+        bucket: bucket,
+        tags: filteredTags,
+      };
+
+      parsedData.push(newEntry);
+    }
+
+    console.log(parsedData);
 
     this.setState({
       isFileUploaded: true,
-      allNPS: allEntries,
+      allNPS: parsedData,
     });
   };
 
