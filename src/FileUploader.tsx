@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import NPSEntry from "./NPSHelpers";
 import AppBar from "@material-ui/core/AppBar";
 import Drawer from "@material-ui/core/Drawer";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -28,14 +29,11 @@ interface State {
   allNPS: NPSEntry[] | null;
 }
 
-interface NPSEntry {
-  score: number;
-  bucket: string;
-  comment: string;
-  tags: string[] | null;
+interface Props {
+  dataHandler: (allNPS: NPSEntry[]) => void;
 }
 
-class FileUploader extends Component<{}, State> {
+class FileUploader extends Component<Props, State> {
   state: State = {
     isFileUploaded: false,
     isDrawerOpen: false,
@@ -105,8 +103,9 @@ class FileUploader extends Component<{}, State> {
 
     this.setState({
       isFileUploaded: true,
-      allNPS: parsedData,
     });
+
+    this.props.dataHandler(parsedData);
   };
 
   render() {
