@@ -70,13 +70,6 @@ class FileUploader extends Component<Props, State> {
       const availableKeys = Object.keys(commentFullData[i]);
 
       const tagKeys = getTagKeys(availableKeys, commentFullData[i]);
-      // const tagKeys = availableKeys.filter(
-      //   (key) =>
-      //     commentFullData[i][key] !== "" &&
-      //     key !== "Score" &&
-      //     key !== "Bucket" &&
-      //     key !== "Comment"
-      // );
 
       var newEntry: NPSEntry = {
         score: scoreNum,

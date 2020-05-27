@@ -13,7 +13,7 @@ class PopularTags extends Component<Props, {}> {
         <div className="bucket">
           <h3> Promoters :) </h3>
           <div className="commonTags">
-            {findCommonTags("Promoter", this.props.allNPS, 5)}
+            {(this.props.allNPS)? findCommonTags("Promoter", this.props.allNPS, 5) : null}
           </div>
         </div>
         <div className="bucket">

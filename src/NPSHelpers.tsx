@@ -59,9 +59,20 @@ export function findCommonTags(
 
   console.log(filteredBucket);
 
-  const sizeofTags = Object.keys;
-  // const tagCounts =
-  // for (let i = 0; filteredBucket.length; i++) {
+  let tagCounts: { [tag: string]: number } = {};
+  for (let i = 0; i < filteredBucket.length; i++) {
+    const tags = filteredBucket[i].tags;
 
-  // }
+    if (tags) {
+      for (let j = 0; j < tags?.length; j++) {
+        const currentTag = tags[j];
+        if (currentTag in tagCounts) {
+          tagCounts[currentTag]++;
+        } else {
+          tagCounts[currentTag] = 1;
+        }
+      }
+    }
+  }
+  console.log(tagCounts);
 }
