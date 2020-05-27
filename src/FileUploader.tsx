@@ -77,9 +77,6 @@ class FileUploader extends Component<Props, State> {
       }
 
       const availableTags = Object.keys(commentFullData[i]);
-      // const filteredTags = availableTags.filter(
-      //   (tag) => tag !== "Score" && tag !== "Bucket" && tag !== "Comment"
-      // );
       const labelledTags = availableTags.filter(
         (tag) =>
           commentFullData[i][tag] !== "" &&
