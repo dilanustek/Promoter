@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NPSEntry, bucketFiller } from "./NPSHelpers";
+import { NPSEntry, bucketFiller, getTagKeys } from "./NPSHelpers";
 import AppBar from "@material-ui/core/AppBar";
 import Drawer from "@material-ui/core/Drawer";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -67,21 +67,22 @@ class FileUploader extends Component<Props, State> {
 
     for (let i = 0; i < commentFullData.length; i++) {
       const scoreNum = parseInt(commentFullData[i].Score);
-      const availableTags = Object.keys(commentFullData[i]);
+      const availableKeys = Object.keys(commentFullData[i]);
 
-      const labelledTags = availableTags.filter(
-        (tag) =>
-          commentFullData[i][tag] !== "" &&
-          tag !== "Score" &&
-          tag !== "Bucket" &&
-          tag !== "Comment"
-      );
+      const tagKeys = getTagKeys(availableKeys, commentFullData[i]);
+      // const tagKeys = availableKeys.filter(
+      //   (key) =>
+      //     commentFullData[i][key] !== "" &&
+      //     key !== "Score" &&
+      //     key !== "Bucket" &&
+      //     key !== "Comment"
+      // );
 
       var newEntry: NPSEntry = {
         score: scoreNum,
         comment: commentFullData[i].Comment,
         bucket: bucketFiller(scoreNum),
-        tags: labelledTags,
+        tags: tagKeys,
       };
 
       parsedData.push(newEntry);

@@ -37,3 +37,31 @@ export function scoreCalculator(allNPS: NPSEntry[] | null) {
     return Math.round(percentPromoters - percentDetractors);
   } else return 0;
 }
+
+export function getTagKeys(availableKeys: string[], entry: any) {
+  return availableKeys.filter(
+    (tag) =>
+      entry[tag] !== "" &&
+      tag !== "Score" &&
+      tag !== "Bucket" &&
+      tag !== "Comment"
+  );
+}
+
+export function findCommonTags(
+  bucketName: string,
+  allNPS: NPSEntry[] | null,
+  topXTags: number
+) {
+  if (!allNPS) return "";
+
+  const filteredBucket = allNPS.filter((entry) => entry.bucket === bucketName);
+
+  console.log(filteredBucket);
+
+  const sizeofTags = Object.keys;
+  // const tagCounts =
+  // for (let i = 0; filteredBucket.length; i++) {
+
+  // }
+}
