@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import NPSEntry from "./NPSHelpers";
+import { NPSEntry } from "./NPSHelpers";
 import FileUploader from "./FileUploader";
 import NPSstats from "./NPSstats";
 // import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
