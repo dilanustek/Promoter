@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NPSEntry from "./NPSHelpers";
+import { NPSEntry, bucketFiller } from "./NPSHelpers";
 import AppBar from "@material-ui/core/AppBar";
 import Drawer from "@material-ui/core/Drawer";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -66,17 +66,9 @@ class FileUploader extends Component<Props, State> {
     let parsedData: NPSEntry[] = [];
 
     for (let i = 0; i < commentFullData.length; i++) {
-      var bucket = "";
       const scoreNum = parseInt(commentFullData[i].Score);
-      if (scoreNum >= 9) {
-        bucket = "Promoter";
-      } else if (scoreNum >= 7) {
-        bucket = "Passive";
-      } else if (scoreNum < 7) {
-        bucket = "Detractor";
-      }
-
       const availableTags = Object.keys(commentFullData[i]);
+
       const labelledTags = availableTags.filter(
         (tag) =>
           commentFullData[i][tag] !== "" &&
@@ -84,12 +76,11 @@ class FileUploader extends Component<Props, State> {
           tag !== "Bucket" &&
           tag !== "Comment"
       );
-      console.log(labelledTags);
 
       var newEntry: NPSEntry = {
         score: scoreNum,
         comment: commentFullData[i].Comment,
-        bucket: bucket,
+        bucket: bucketFiller(scoreNum),
         tags: labelledTags,
       };
 

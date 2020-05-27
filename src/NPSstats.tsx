@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Score from "./Score";
-import NPSEntry from "./NPSHelpers";
+import { NPSEntry } from "./NPSHelpers";
 
 interface Props {
   allNPS: NPSEntry[] | null;
