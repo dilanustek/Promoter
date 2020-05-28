@@ -79,7 +79,10 @@ export function findCommonTags(
 
   let sortable: [string, number][] = [];
   for (let tag in tagCounts) {
-    sortable.push([tag, tagCounts[tag]]);
+    const percentCountInBucket = Math.round(
+      (tagCounts[tag] / filteredBucket.length) * 100
+    );
+    sortable.push([tag, percentCountInBucket]);
   }
 
   sortable.sort((a, b) => b[1] - a[1]);
@@ -92,7 +95,7 @@ export function findCommonTags(
   for (let i = 0; i < topX.length; i++) {
     row.push(
       <li>
-        {topX[i][0]} -> {topX[i][1]}
+        {topX[i][0]} -> {topX[i][1]} %
       </li>
     );
   }
