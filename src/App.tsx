@@ -21,7 +21,7 @@ class App extends Component<{}, State> {
 
   render() {
     return (
-      <div>
+      <div className="page">
         {/* <CssBaseline />
       <Router>
         <Switch>

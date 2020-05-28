@@ -10,12 +10,6 @@
   transition: all 0.25s;
 }
 
-.page {
-  margin-top: 75px;
-  display: flex;
-  justify-content: center;
-}
-
 .main {
   padding: 12px;
   width: 400px;

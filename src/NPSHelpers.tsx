@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface NPSEntry {
   score: number;
   bucket: string;
@@ -59,13 +61,13 @@ export function findCommonTags(
 
   console.log(filteredBucket);
 
-  let tagCounts: { [tag: string]: number } = {};
-  for (let i = 0; i < filteredBucket.length; i++) {
-    const tags = filteredBucket[i].tags;
+  const tagCounts: { [tag: string]: number } = {};
+  for (let entryIndex in filteredBucket) {
+    const tags = filteredBucket[entryIndex].tags;
 
     if (tags) {
-      for (let j = 0; j < tags?.length; j++) {
-        const currentTag = tags[j];
+      for (let tagIndex in tags) {
+        const currentTag = tags[tagIndex];
         if (currentTag in tagCounts) {
           tagCounts[currentTag]++;
         } else {
@@ -74,5 +76,26 @@ export function findCommonTags(
       }
     }
   }
-  console.log(tagCounts);
+
+  let sortable: [string, number][] = [];
+  for (let tag in tagCounts) {
+    sortable.push([tag, tagCounts[tag]]);
+  }
+
+  sortable.sort((a, b) => b[1] - a[1]);
+
+  const topX = sortable.slice(0, topXTags);
+  console.log(topX);
+
+  const row = [];
+  //for (let tag in topX) {
+  for (let i = 0; i < topX.length; i++) {
+    row.push(
+      <li>
+        {topX[i][0]} -> {topX[i][1]}
+      </li>
+    );
+  }
+
+  return <ul>{row}</ul>;
 }

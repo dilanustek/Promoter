@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Score from "./Score";
 import { NPSEntry } from "./NPSHelpers";
+import "./NPSstats.css";
 import PopularTags from "./PopularTags";
 
 interface Props {
