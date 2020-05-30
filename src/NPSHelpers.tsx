@@ -2,12 +2,14 @@ import React from "react";
 
 export interface NPSEntry {
   score: number;
-  bucket: string;
+  bucket: Bucket;
   comment: string;
   tags: string[] | null;
 }
 
-export function bucketFiller(score: number) {
+export type Bucket = "Promoter" | "Passive" | "Detractor";
+
+export function bucketFiller(score: number): Bucket {
   if (score >= 9) {
     return "Promoter";
   } else if (score >= 7) {
@@ -50,18 +52,18 @@ export function getTagKeys(availableKeys: string[], entry: any) {
   );
 }
 
-function filterByBucket(bucketName: string, allNPS: NPSEntry[]) {
-  return allNPS.filter((entry) => entry.bucket === bucketName);
+function filterByBucket(bucket: Bucket, allNPS: NPSEntry[]) {
+  return allNPS.filter((entry) => entry.bucket === bucket);
 }
 
 export function findCommonTags(
-  bucketName: string,
+  bucket: Bucket,
   allNPS: NPSEntry[] | null,
   topXTags: number
 ) {
   if (!allNPS) return "";
 
-  const filteredBucket = filterByBucket(bucketName, allNPS);
+  const filteredBucket = filterByBucket(bucket, allNPS);
 
   const tagCounts: { [tag: string]: number } = {};
   for (let entryIndex in filteredBucket) {
@@ -93,7 +95,7 @@ export function findCommonTags(
 }
 
 export function findCommentsFromBucketTag(
-  bucket: string,
+  bucket: Bucket,
   tag: string,
   allNPS: NPSEntry[] | null,
   topX: number

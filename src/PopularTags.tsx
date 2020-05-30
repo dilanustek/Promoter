@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NPSEntry, findCommonTags } from "./NPSHelpers";
+import { NPSEntry, Bucket, findCommonTags } from "./NPSHelpers";
 import "./popularTags.css";
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
 }
 
 class PopularTags extends Component<Props, {}> {
-  handlePopularTags = (bucket: string) => {
+  handlePopularTags = (bucket: Bucket) => {
     const commonTags = findCommonTags(bucket, this.props.allNPS, 5);
     if (commonTags) {
       const row = [];

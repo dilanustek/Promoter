@@ -1,14 +1,14 @@
 import React, { Component } from "react";
-import { NPSEntry, findCommentsFromBucketTag } from "./NPSHelpers";
+import { NPSEntry, Bucket, findCommentsFromBucketTag } from "./NPSHelpers";
 
 interface Props {
   tag: string;
-  bucket: string;
+  bucket: Bucket;
   allNPS: NPSEntry[] | null;
 }
 
 class CustomerComments extends Component<Props, {}> {
-  handleComments(bucket: string, tag: string, allNPS: NPSEntry[] | null) {
+  handleComments(bucket: Bucket, tag: string, allNPS: NPSEntry[] | null) {
     const comments = findCommentsFromBucketTag(bucket, tag, allNPS, 5);
     if (comments) {
       const row = [];
