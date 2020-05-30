@@ -50,6 +50,10 @@ export function getTagKeys(availableKeys: string[], entry: any) {
   );
 }
 
+function filterByBucket(bucketName: string, allNPS: NPSEntry[]) {
+  return allNPS.filter((entry) => entry.bucket === bucketName);
+}
+
 export function findCommonTags(
   bucketName: string,
   allNPS: NPSEntry[] | null,
@@ -57,9 +61,7 @@ export function findCommonTags(
 ) {
   if (!allNPS) return "";
 
-  const filteredBucket = allNPS.filter((entry) => entry.bucket === bucketName);
-
-  console.log(filteredBucket);
+  const filteredBucket = filterByBucket(bucketName, allNPS);
 
   const tagCounts: { [tag: string]: number } = {};
   for (let entryIndex in filteredBucket) {
@@ -87,18 +89,29 @@ export function findCommonTags(
 
   sortable.sort((a, b) => b[1] - a[1]);
 
-  const topX = sortable.slice(0, topXTags);
-  console.log(topX);
+  return sortable.slice(0, topXTags);
+}
 
-  const row = [];
-  //for (let tag in topX) {
-  for (let i = 0; i < topX.length; i++) {
-    row.push(
-      <li>
-        {topX[i][0]} -> {topX[i][1]} %
-      </li>
+export function findCommentsFromBucketTag(
+  bucket: string,
+  tag: string,
+  allNPS: NPSEntry[] | null,
+  topX: number
+) {
+  if (allNPS) {
+    console.log("allNPS = ", allNPS);
+    const filteredComments = allNPS.filter(
+      (entry) => entry.bucket === bucket && entry.tags?.includes(tag)
     );
-  }
+    console.log("filtered comments" + filteredComments);
+    const topEntries = filteredComments.slice(0, topX);
 
-  return <ul>{row}</ul>;
+    const comments: string[] = [];
+    for (let entry of topEntries) {
+      comments.push(entry.comment);
+    }
+    console.log(comments);
+    return comments;
+  }
+  return null;
 }

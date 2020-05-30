@@ -91,6 +91,7 @@ class FileUploader extends Component<Props, State> {
   };
 
   render() {
+    console.log("uploader");
     return (
       <section className="uploadFile">
         <AppBar position="absolute">

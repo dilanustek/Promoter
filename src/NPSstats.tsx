@@ -3,6 +3,7 @@ import Score from "./Score";
 import { NPSEntry } from "./NPSHelpers";
 import "./NPSstats.css";
 import PopularTags from "./PopularTags";
+import CustomerComments from "./CustomerComments";
 
 interface Props {
   allNPS: NPSEntry[] | null;
@@ -15,6 +16,11 @@ class NPSstats extends Component<Props, {}> {
         <h1>NPS Analysis Results</h1>
         <Score allNPS={this.props.allNPS} />
         <PopularTags allNPS={this.props.allNPS} />
+        <CustomerComments
+          tag="Neutral"
+          bucket="Detractor"
+          allNPS={this.props.allNPS}
+        />
       </section>
     );
   }
