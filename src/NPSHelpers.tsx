@@ -101,18 +101,15 @@ export function findCommentsFromBucketTag(
   topX: number
 ) {
   if (allNPS && tag && bucket) {
-    console.log("allNPS = ", allNPS);
     const filteredComments = allNPS.filter(
       (entry) => entry.bucket === bucket && entry.tags?.includes(tag)
     );
-    console.log("filtered comments" + filteredComments);
     const topEntries = filteredComments.slice(0, topX);
 
     const comments: string[] = [];
     for (let entry of topEntries) {
       comments.push(entry.comment);
     }
-    console.log(comments);
     return comments;
   }
   return null;

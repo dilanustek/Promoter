@@ -20,7 +20,6 @@ class CustomerComments extends Component<Props, {}> {
         row.push(<li key={i}>{comments[i]}</li>);
       }
 
-      console.log(row);
       return <ul>{row}</ul>;
     }
   }

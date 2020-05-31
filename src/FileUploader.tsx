@@ -14,6 +14,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems } from "./ListItems";
 import "./FileUploader.css";
 import Papa from "papaparse";
+import csvData from "./nps.json";
 // import { type } from "os";
 // import { Link } from "react-router-dom";
 // import Button from "@material-ui/core/Button";
@@ -54,44 +55,53 @@ class FileUploader extends Component<Props, State> {
     const csvFile = event.target.files[0];
     if (csvFile) {
       Papa.parse(csvFile, {
-        complete: this.parseData,
+        complete: this.papaParseData,
         header: true,
       });
     }
   };
 
-  parseData = (result: Papa.ParseResult) => {
+  papaParseData = (result: Papa.ParseResult) => {
     const data = result.data;
-    const commentFullData = data.filter((entry) => entry.Comment !== "");
+    this.parseData(data);
+  };
+
+  parseData(data: any) {
+    if (csvData) data = csvData;
+
+    const commentFullData = data.filter((entry: any) => entry.Comment !== "");
     let parsedData: NPSEntry[] = [];
 
-    for (let i = 0; i < commentFullData.length; i++) {
-      const scoreNum = parseInt(commentFullData[i].Score);
-      const availableKeys = Object.keys(commentFullData[i]);
+    for (const entry of commentFullData) {
+      const scoreNum =
+        typeof entry.score == "number" ? entry.Score : parseInt(entry.Score);
 
-      const tagKeys = getTagKeys(availableKeys, commentFullData[i]);
+      const availableKeys = Object.keys(entry);
+      const tagKeys = getTagKeys(availableKeys, entry);
 
-      var newEntry: NPSEntry = {
-        score: scoreNum,
-        comment: commentFullData[i].Comment,
-        bucket: bucketFiller(scoreNum),
-        tags: tagKeys,
-      };
-
-      parsedData.push(newEntry);
+      if (entry.Comment) {
+        const newEntry: NPSEntry = {
+          score: entry.Score,
+          comment: entry.Comment,
+          bucket: bucketFiller(entry.Score),
+          tags: tagKeys,
+        };
+        parsedData.push(newEntry);
+      }
     }
-
-    console.log(parsedData);
 
     this.setState({
       isFileUploaded: true,
     });
 
     this.props.dataHandler(parsedData);
-  };
+  }
+
+  componentDidMount() {
+    this.parseData(null);
+  }
 
   render() {
-    console.log("uploader");
     return (
       <section className="uploadFile">
         <AppBar position="absolute">
