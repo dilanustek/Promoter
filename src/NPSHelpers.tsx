@@ -95,12 +95,12 @@ export function findCommonTags(
 }
 
 export function findCommentsFromBucketTag(
-  bucket: Bucket,
-  tag: string,
+  bucket: Bucket | null,
+  tag: string | null,
   allNPS: NPSEntry[] | null,
   topX: number
 ) {
-  if (allNPS) {
+  if (allNPS && tag && bucket) {
     console.log("allNPS = ", allNPS);
     const filteredComments = allNPS.filter(
       (entry) => entry.bucket === bucket && entry.tags?.includes(tag)

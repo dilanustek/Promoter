@@ -4,7 +4,14 @@ import "./popularTags.css";
 
 interface Props {
   allNPS: NPSEntry[] | null;
+  tagBucketHandler: (bucket: Bucket, tag: string) => void;
+  // need a callback function that will give tag & bucket up to NPSStats,
+  // it will call the customer comment with the right tag & bucket
+  // check with  Antoine if doesn't work
 }
+// sum = (x,y) => x+y
+// double = (x) => sum(x,x)
+// increment = (x) => sum(x,1)
 
 class PopularTags extends Component<Props, {}> {
   handlePopularTags = (bucket: Bucket) => {
@@ -13,7 +20,12 @@ class PopularTags extends Component<Props, {}> {
       const row = [];
       for (let i = 0; i < commonTags.length; i++) {
         row.push(
-          <li key={i} onClick={() => console.log("click")}>
+          <li
+            key={i}
+            onClick={() =>
+              this.props.tagBucketHandler(bucket, commonTags[i][0])
+            }
+          >
             {commonTags[i][0]} -> {commonTags[i][1]} %
           </li>
         );
