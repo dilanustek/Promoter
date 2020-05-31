@@ -1,9 +1,25 @@
 import React, { Component } from "react";
 import Score from "./Score";
 import { NPSEntry, Bucket } from "./NPSHelpers";
-import "./NPSstats.css";
+// import "./NPSstats.css";
 import PopularTags from "./PopularTags";
 import CustomerComments from "./CustomerComments";
+import { styled } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Container from "@material-ui/core/Container";
+import Paper from "@material-ui/core/Paper";
+
+const MyContainer = styled(Container)({
+  paddingTop: 4 * 8,
+  paddingBottom: 4 * 8,
+});
+
+const MyPaper = styled(Paper)({
+  padding: 2 * 8,
+  display: "flex",
+  overflow: "auto",
+  flexDirection: "column",
+});
 
 interface Props {
   allNPS: NPSEntry[] | null;
@@ -29,19 +45,35 @@ class NPSstats extends Component<Props, {}> {
 
   render() {
     return (
-      <section className="npsstats">
-        <h1>NPS Analysis Results</h1>
-        <Score allNPS={this.props.allNPS} />
-        <PopularTags
-          allNPS={this.props.allNPS}
-          tagBucketHandler={this.tagBucketHandler}
-        />
-        <CustomerComments
-          tag={this.state.clickedTag}
-          bucket={this.state.clickedBucket}
-          allNPS={this.props.allNPS}
-        />
-      </section>
+      <MyContainer maxWidth="lg">
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <h1>NPS Analysis Results</h1>
+          </Grid>
+          <Grid item xs={12}>
+            <MyPaper>
+              <Score allNPS={this.props.allNPS} />
+            </MyPaper>
+          </Grid>
+          <Grid item xs={12}>
+            <MyPaper>
+              <PopularTags
+                allNPS={this.props.allNPS}
+                tagBucketHandler={this.tagBucketHandler}
+              />
+            </MyPaper>
+          </Grid>
+          <Grid item xs={12}>
+            <MyPaper>
+              <CustomerComments
+                tag={this.state.clickedTag}
+                bucket={this.state.clickedBucket}
+                allNPS={this.props.allNPS}
+              />
+            </MyPaper>
+          </Grid>
+        </Grid>
+      </MyContainer>
     );
   }
 }

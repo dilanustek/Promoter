@@ -20,9 +20,6 @@ import csvData from "./nps.json";
 // import Button from "@material-ui/core/Button";
 // import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 // import Box from "@material-ui/core/Box";
-// import Grid from "@material-ui/core/Grid";
-// import Paper from "@material-ui/core/Paper";
-// import Container from "@material-ui/core/Container";
 
 interface State {
   isFileUploaded: boolean;
