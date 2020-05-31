@@ -33,7 +33,7 @@ class CustomerComments extends Component<Props, {}> {
           <b>Bucket:</b> {this.props.bucket}
         </div>
         <div>
-          <b>Tag:</b> {this.props.tag}{" "}
+          <b>Tag:</b> {this.props.tag}
         </div>
         <div className="comments">
           {this.handleComments(
