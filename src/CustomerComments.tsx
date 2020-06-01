@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NPSEntry, Bucket, findCommentsFromBucketTag } from "./NPSHelpers";
+import Title from "./Title";
 
 interface Props {
   tag: string | null;
@@ -27,7 +28,7 @@ class CustomerComments extends Component<Props, {}> {
   render() {
     return (
       <div className="customerComments">
-        <h2>Customer Comments</h2>
+        <Title> Customer Comments </Title>
         <div>
           <b>Bucket:</b> {this.props.bucket}
         </div>

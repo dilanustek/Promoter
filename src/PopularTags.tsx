@@ -55,11 +55,9 @@ class PopularTags extends Component<Props, {}> {
             <ListItemIcon>
               <LocalOffer style={this.styleIconByBucket(bucket)} />
             </ListItemIcon>
-            <ListItemText>
-              <text>{tag}</text>
-            </ListItemText>
-            <ListItemSecondaryAction>
-              <text className="freqText">{frequency}%</text>
+            <ListItemText>{tag}</ListItemText>
+            <ListItemSecondaryAction className="freqText">
+              {frequency}%
             </ListItemSecondaryAction>
           </ListItem>
         );
