@@ -1,6 +1,12 @@
 import React, { Component } from "react";
-import { NPSEntry, Bucket, findCommentsFromBucketTag } from "./NPSHelpers";
+import {
+  NPSEntry,
+  Bucket,
+  findCommentsFromBucketTag,
+  styleIconByBucket,
+} from "./NPSHelpers";
 import Title from "./Title";
+import LocalOffer from "@material-ui/icons/LocalOffer";
 
 interface Props {
   tag: string | null;
@@ -33,7 +39,8 @@ class CustomerComments extends Component<Props, {}> {
           <b>Bucket:</b> {this.props.bucket}
         </div>
         <div>
-          <b>Tag:</b> {this.props.tag}
+          <LocalOffer style={styleIconByBucket(this.props.bucket)} />
+          {this.props.tag}
         </div>
         <div className="comments">
           {this.handleComments(

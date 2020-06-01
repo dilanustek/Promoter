@@ -1,4 +1,4 @@
-import React from "react";
+import { green, grey, red, blue } from "@material-ui/core/colors";
 
 export interface NPSEntry {
   score: number;
@@ -117,4 +117,14 @@ export function findCommentsFromBucketTag(
     return comments;
   }
   return null;
+}
+
+export function styleIconByBucket(bucket: Bucket | null) {
+  if (bucket === "Promoter") {
+    return { color: green[500] };
+  } else if (bucket === "Passive") {
+    return { color: blue[500] };
+  } else if (bucket === "Detractor") {
+    return { color: red[500] };
+  } else return { color: grey[500] };
 }
