@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NPSEntry, scoreCalculator } from "./NPSHelpers";
 import Typography from "@material-ui/core/Typography";
-import Title from "./TItle";
+import Title from "./Title";
 
 interface Props {
   allNPS: NPSEntry[] | null;

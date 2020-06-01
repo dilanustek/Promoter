@@ -60,6 +60,8 @@ class NPSstats extends Component<Props, {}> {
               <PopularTags
                 allNPS={this.props.allNPS}
                 tagBucketHandler={this.tagBucketHandler}
+                clickedBucket={this.state.clickedBucket}
+                clickedTag={this.state.clickedTag}
               />
             </MyPaper>
           </Grid>

@@ -1,59 +1,78 @@
 import React, { Component } from "react";
 import { NPSEntry, Bucket, findCommonTags } from "./NPSHelpers";
 import "./popularTags.css";
+import Title from "./Title";
+import { styled } from "@material-ui/core/styles";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import LocalOffer from "@material-ui/icons/LocalOffer";
 
 interface Props {
   allNPS: NPSEntry[] | null;
   tagBucketHandler: (bucket: Bucket, tag: string) => void;
-  // need a callback function that will give tag & bucket up to NPSStats,
-  // it will call the customer comment with the right tag & bucket
-  // check with  Antoine if doesn't work
+  clickedBucket: Bucket | null;
+  clickedTag: string | null;
 }
-// sum = (x,y) => x+y
-// double = (x) => sum(x,x)
-// increment = (x) => sum(x,1)
 
 class PopularTags extends Component<Props, {}> {
   handlePopularTags = (bucket: Bucket) => {
     const commonTags = findCommonTags(bucket, this.props.allNPS, 5);
     if (commonTags) {
-      const row = [];
+      const rows = [];
       for (let i = 0; i < commonTags.length; i++) {
-        row.push(
-          <li
+        const tag = commonTags[i][0];
+        const frequency = commonTags[i][1];
+
+        rows.push(
+          <ListItem
             key={i}
-            onClick={() =>
-              this.props.tagBucketHandler(bucket, commonTags[i][0])
+            button
+            selected={
+              this.props.clickedTag === tag &&
+              this.props.clickedBucket === bucket
             }
+            onClick={() => {
+              this.props.tagBucketHandler(bucket, tag);
+            }}
           >
-            {commonTags[i][0]} -> {commonTags[i][1]} %
-          </li>
+            <ListItemIcon>
+              <LocalOffer />
+            </ListItemIcon>
+            <ListItemText>
+              {tag} -> {frequency} %
+            </ListItemText>
+          </ListItem>
         );
       }
 
-      return <ul>{row}</ul>;
+      return rows;
     }
   };
 
   render() {
     return (
-      <div className="bucketSections">
-        <div className="bucket">
-          <h3> Promoters :) </h3>
-          <div className="commonTags">
-            {this.props.allNPS ? this.handlePopularTags("Promoter") : null}
+      <div>
+        <Title> Popular Tags </Title>
+        <div className="bucketSections">
+          <div className="bucket">
+            <h3> Promoters :) </h3>
+            <List>
+              {this.props.allNPS ? this.handlePopularTags("Promoter") : null}
+            </List>
           </div>
-        </div>
-        <div className="bucket">
-          <h3> Passives :| </h3>
-          <div className="commonTags">
-            {this.props.allNPS ? this.handlePopularTags("Passive") : null}
+          <div className="bucket">
+            <h3> Passives :| </h3>
+            <List>
+              {this.props.allNPS ? this.handlePopularTags("Passive") : null}
+            </List>
           </div>
-        </div>
-        <div className="bucket">
-          <h3> Detractors :(</h3>
-          <div className="commonTags">
-            {this.props.allNPS ? this.handlePopularTags("Detractor") : null}
+          <div className="bucket">
+            <h3> Detractors :(</h3>
+            <List>
+              {this.props.allNPS ? this.handlePopularTags("Detractor") : null}
+            </List>
           </div>
         </div>
       </div>

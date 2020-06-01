@@ -15,11 +15,6 @@ import { mainListItems } from "./ListItems";
 import "./FileUploader.css";
 import Papa from "papaparse";
 import csvData from "./nps.json";
-// import { type } from "os";
-// import { Link } from "react-router-dom";
-// import Button from "@material-ui/core/Button";
-// import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-// import Box from "@material-ui/core/Box";
 
 interface State {
   isFileUploaded: boolean;
