@@ -59,7 +59,7 @@ class PopularTags extends Component<Props, {}> {
               <text>{tag}</text>
             </ListItemText>
             <ListItemSecondaryAction>
-              <text>{frequency}%</text>
+              <text className="freqText">{frequency}%</text>
             </ListItemSecondaryAction>
           </ListItem>
         );
