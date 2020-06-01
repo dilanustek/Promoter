@@ -14,7 +14,7 @@ import LocalOffer from "@material-ui/icons/LocalOffer";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
 import MoodBadIcon from "@material-ui/icons/MoodBad";
-import { Typography } from "@material-ui/core";
+import { ListItemSecondaryAction } from "@material-ui/core";
 
 interface Props {
   allNPS: NPSEntry[] | null;
@@ -55,12 +55,12 @@ class PopularTags extends Component<Props, {}> {
             <ListItemIcon>
               <LocalOffer style={this.styleIconByBucket(bucket)} />
             </ListItemIcon>
-            <ListItemText className="tagFreq">
+            <ListItemText>
               <text>{tag}</text>
             </ListItemText>
-            <ListItemText className="tagFreq">
+            <ListItemSecondaryAction>
               <text>{frequency}%</text>
-            </ListItemText>
+            </ListItemSecondaryAction>
           </ListItem>
         );
       }
