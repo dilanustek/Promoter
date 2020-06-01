@@ -3,11 +3,17 @@ import { NPSEntry, Bucket, findCommonTags } from "./NPSHelpers";
 import "./popularTags.css";
 import Title from "./Title";
 import { styled } from "@material-ui/core/styles";
+import { green } from "@material-ui/core/colors";
+import { red } from "@material-ui/core/colors";
+import { blue } from "@material-ui/core/colors";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import LocalOffer from "@material-ui/icons/LocalOffer";
+import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
+import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
+import MoodBadIcon from "@material-ui/icons/MoodBad";
 
 interface Props {
   allNPS: NPSEntry[] | null;
@@ -17,6 +23,14 @@ interface Props {
 }
 
 class PopularTags extends Component<Props, {}> {
+  styleIconByBucket(bucket: Bucket) {
+    if (bucket === "Promoter") {
+      return { color: green[500] };
+    } else if (bucket === "Passive") {
+      return { color: blue[500] };
+    } else return { color: red[500] };
+  }
+
   handlePopularTags = (bucket: Bucket) => {
     const commonTags = findCommonTags(bucket, this.props.allNPS, 5);
     if (commonTags) {
@@ -38,7 +52,7 @@ class PopularTags extends Component<Props, {}> {
             }}
           >
             <ListItemIcon>
-              <LocalOffer />
+              <LocalOffer style={this.styleIconByBucket(bucket)} />
             </ListItemIcon>
             <ListItemText>
               {tag} -> {frequency} %
@@ -57,19 +71,30 @@ class PopularTags extends Component<Props, {}> {
         <Title> Popular Tags </Title>
         <div className="bucketSections">
           <div className="bucket">
-            <h3> Promoters :) </h3>
+            <div className="bucketHeader">
+              <InsertEmoticonIcon style={this.styleIconByBucket("Promoter")} />
+              <h3>Promoters</h3>
+            </div>
             <List>
               {this.props.allNPS ? this.handlePopularTags("Promoter") : null}
             </List>
           </div>
           <div className="bucket">
-            <h3> Passives :| </h3>
+            <div className="bucketHeader">
+              <SentimentSatisfiedIcon
+                style={this.styleIconByBucket("Passive")}
+              />
+              <h3>Passives </h3>
+            </div>
             <List>
               {this.props.allNPS ? this.handlePopularTags("Passive") : null}
             </List>
           </div>
           <div className="bucket">
-            <h3> Detractors :(</h3>
+            <div className="bucketHeader">
+              <MoodBadIcon style={this.styleIconByBucket("Detractor")} />
+              <h3>Detractors</h3>
+            </div>
             <List>
               {this.props.allNPS ? this.handlePopularTags("Detractor") : null}
             </List>
