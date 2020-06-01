@@ -14,6 +14,7 @@ import LocalOffer from "@material-ui/icons/LocalOffer";
 import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
 import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
 import MoodBadIcon from "@material-ui/icons/MoodBad";
+import { Typography } from "@material-ui/core";
 
 interface Props {
   allNPS: NPSEntry[] | null;
@@ -54,8 +55,11 @@ class PopularTags extends Component<Props, {}> {
             <ListItemIcon>
               <LocalOffer style={this.styleIconByBucket(bucket)} />
             </ListItemIcon>
-            <ListItemText>
-              {tag} -> {frequency} %
+            <ListItemText className="tagFreq">
+              <text>{tag}</text>
+            </ListItemText>
+            <ListItemText className="tagFreq">
+              <text>{frequency}%</text>
             </ListItemText>
           </ListItem>
         );
@@ -72,8 +76,11 @@ class PopularTags extends Component<Props, {}> {
         <div className="bucketSections">
           <div className="bucket">
             <div className="bucketHeader">
-              <InsertEmoticonIcon style={this.styleIconByBucket("Promoter")} />
-              <h3>Promoters</h3>
+              <InsertEmoticonIcon
+                className="tagIcon"
+                style={this.styleIconByBucket("Promoter")}
+              />
+              <h3 className="bucketTitle">Promoters</h3>
             </div>
             <List>
               {this.props.allNPS ? this.handlePopularTags("Promoter") : null}
@@ -82,9 +89,10 @@ class PopularTags extends Component<Props, {}> {
           <div className="bucket">
             <div className="bucketHeader">
               <SentimentSatisfiedIcon
+                className="tagIcon"
                 style={this.styleIconByBucket("Passive")}
               />
-              <h3>Passives </h3>
+              <h3 className="bucketTitle">Passives </h3>
             </div>
             <List>
               {this.props.allNPS ? this.handlePopularTags("Passive") : null}
@@ -92,8 +100,11 @@ class PopularTags extends Component<Props, {}> {
           </div>
           <div className="bucket">
             <div className="bucketHeader">
-              <MoodBadIcon style={this.styleIconByBucket("Detractor")} />
-              <h3>Detractors</h3>
+              <MoodBadIcon
+                className="tagIcon"
+                style={this.styleIconByBucket("Detractor")}
+              />
+              <h3 className="bucketTitle">Detractors</h3>
             </div>
             <List>
               {this.props.allNPS ? this.handlePopularTags("Detractor") : null}

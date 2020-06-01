@@ -3,6 +3,17 @@
   justify-content: space-between;
 }
 
-.bucket {
-  padding: 12px;
+.bucketHeader {
+  display: flex;
+  align-items: center;
+}
+
+.tagIcon {
+  padding-left: 16px;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.bucketTitle {
+  padding-left: 32px;
 }
