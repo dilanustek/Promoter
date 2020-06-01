@@ -4,9 +4,20 @@ import {
   Bucket,
   findCommentsFromBucketTag,
   styleIconByBucket,
+  emoticonByBucket,
 } from "./NPSHelpers";
 import Title from "./Title";
 import LocalOffer from "@material-ui/icons/LocalOffer";
+import ChatOutlinedIcon from "@material-ui/icons/ChatOutlined";
+import "./CustomerComments.css";
+import {
+  ListItemText,
+  ListItemAvatar,
+  ListItemIcon,
+  ListItem,
+  List,
+  Divider,
+} from "@material-ui/core";
 
 interface Props {
   tag: string | null;
@@ -22,12 +33,25 @@ class CustomerComments extends Component<Props, {}> {
   ) {
     const comments = findCommentsFromBucketTag(bucket, tag, allNPS, 5);
     if (comments) {
-      const row = [];
+      const rows = [];
       for (let i = 0; i < comments?.length; i++) {
-        row.push(<li key={i}>{comments[i]}</li>);
+        rows.push(
+          <div key={i}>
+            <ListItem key={i}>
+              <ListItemIcon>
+                <ChatOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText>{comments[i]}</ListItemText>
+            </ListItem>
+            <Divider
+              // variant="inset"
+              component="li"
+            />
+          </div>
+        );
       }
 
-      return <ul>{row}</ul>;
+      return rows;
     }
   }
 
@@ -35,20 +59,23 @@ class CustomerComments extends Component<Props, {}> {
     return (
       <div className="customerComments">
         <Title> Customer Comments </Title>
-        <div>
-          <b>Bucket:</b> {this.props.bucket}
+        <div className="filterRow">
+          <div className="rowIcon">{emoticonByBucket(this.props.bucket)}</div>
+          <b>{this.props.bucket}</b>
         </div>
-        <div>
-          <LocalOffer style={styleIconByBucket(this.props.bucket)} />
-          {this.props.tag}
+        <div className="filterRow">
+          <div className="rowIcon">
+            <LocalOffer style={styleIconByBucket(this.props.bucket)} />
+          </div>
+          <b>{this.props.tag}</b>
         </div>
-        <div className="comments">
+        <List>
           {this.handleComments(
             this.props.bucket,
             this.props.tag,
             this.props.allNPS
           )}
-        </div>
+        </List>
       </div>
     );
   }

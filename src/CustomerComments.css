@@ -1,0 +1,10 @@
+.filterRow {
+  padding-left: 16px;
+  padding-top: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.rowIcon {
+  padding-right: 36px;
+}

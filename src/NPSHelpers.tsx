@@ -1,4 +1,9 @@
+import React from "react";
 import { green, grey, red, blue } from "@material-ui/core/colors";
+import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
+import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
+import MoodBadIcon from "@material-ui/icons/MoodBad";
+import Face from "@material-ui/icons/Face";
 
 export interface NPSEntry {
   score: number;
@@ -127,4 +132,14 @@ export function styleIconByBucket(bucket: Bucket | null) {
   } else if (bucket === "Detractor") {
     return { color: red[500] };
   } else return { color: grey[500] };
+}
+
+export function emoticonByBucket(bucket: Bucket | null) {
+  if (bucket === "Promoter") {
+    return <InsertEmoticonIcon style={styleIconByBucket(bucket)} />;
+  } else if (bucket === "Passive") {
+    return <SentimentSatisfiedIcon style={styleIconByBucket(bucket)} />;
+  } else if (bucket === "Detractor") {
+    return <MoodBadIcon style={styleIconByBucket(bucket)} />;
+  } else return <Face style={styleIconByBucket(bucket)} />;
 }
