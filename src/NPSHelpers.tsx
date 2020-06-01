@@ -48,7 +48,11 @@ export function getTagKeys(availableKeys: string[], entry: any) {
       entry[tag] !== "" &&
       tag !== "Score" &&
       tag !== "Bucket" &&
-      tag !== "Comment"
+      tag !== "Comment" &&
+      tag !== "Very positive" &&
+      tag !== "Somewhat positive" &&
+      tag !== "Neutral" &&
+      tag !== "Negative"
   );
 }
 

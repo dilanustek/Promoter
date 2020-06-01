@@ -116,7 +116,7 @@ class FileUploader extends Component<Props, State> {
             </IconButton>
           </Toolbar>
         </AppBar>
-        <section className="page">
+        <section className="drawer">
           <Drawer
             className={this.getIsDrawerOpen()}
             variant="permanent"

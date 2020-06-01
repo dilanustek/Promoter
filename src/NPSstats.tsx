@@ -14,12 +14,12 @@ const MyContainer = styled(Container)({
   paddingBottom: 4 * 8,
 });
 
-const MyPaper = styled(Paper)({
-  padding: 2 * 8,
+const MyPaper = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(2),
   display: "flex",
   overflow: "auto",
   flexDirection: "column",
-});
+}));
 
 interface Props {
   allNPS: NPSEntry[] | null;
