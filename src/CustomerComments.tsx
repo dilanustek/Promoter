@@ -61,13 +61,15 @@ class CustomerComments extends Component<Props, {}> {
         <Title> Customer Comments </Title>
         <div className="filterRow">
           <div className="rowIcon">{emoticonByBucket(this.props.bucket)}</div>
-          <b>{this.props.bucket}</b>
+          Customer type:
+          <b className="filterRowSpace">{this.props.bucket}</b>
         </div>
         <div className="filterRow">
           <div className="rowIcon">
             <LocalOffer style={styleIconByBucket(this.props.bucket)} />
           </div>
-          <b>{this.props.tag}</b>
+          Feedback tag:
+          <b className="filterRowSpace">{this.props.tag}</b>
         </div>
         <List>
           {this.handleComments(
