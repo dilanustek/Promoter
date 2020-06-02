@@ -18,6 +18,7 @@ import {
   List,
   Divider,
 } from "@material-ui/core";
+import { grey } from "@material-ui/core/colors";
 
 interface Props {
   tag: string | null;
@@ -55,6 +56,18 @@ class CustomerComments extends Component<Props, {}> {
     }
   }
 
+  getStringByEmptyState(stringToShow: Bucket | string | null) {
+    if (stringToShow) {
+      return <b>{stringToShow}</b>;
+    } else {
+      return (
+        <p style={{ color: grey[500] }}>
+          Click on a tag above to view comments
+        </p>
+      );
+    }
+  }
+
   render() {
     return (
       <div className="customerComments">
@@ -62,14 +75,25 @@ class CustomerComments extends Component<Props, {}> {
         <div className="filterRow">
           <div className="rowIcon">{emoticonByBucket(this.props.bucket)}</div>
           Customer type:
-          <b className="filterRowSpace">{this.props.bucket}</b>
+          <div className="filterRowSpace">
+            {this.getStringByEmptyState(this.props.bucket)}
+            {/* {this.props.bucket ? (
+              <b>{this.props.bucket}</b>
+            ) : (
+              <p style={{ color: grey[500] }}>
+                Click on a tag above to view comments
+              </p>
+            )} */}
+          </div>
         </div>
         <div className="filterRow">
           <div className="rowIcon">
             <LocalOffer style={styleIconByBucket(this.props.bucket)} />
           </div>
           Feedback tag:
-          <b className="filterRowSpace">{this.props.tag}</b>
+          <div className="filterRowSpace">
+            {this.getStringByEmptyState(this.props.tag)}
+          </div>
         </div>
         <List>
           {this.handleComments(
