@@ -44,8 +44,8 @@ class NPSBarChart extends Component<Props, {}> {
       <div className="NPSBarChart">
         {this.props.allNPS ? (
           <BarChart
-            width={500}
-            height={200}
+            width={350}
+            height={150}
             data={this.handleBarChartData()}
             margin={{
               top: 5,
@@ -59,7 +59,7 @@ class NPSBarChart extends Component<Props, {}> {
             <XAxis type="number" />
             <YAxis type="category" dataKey="name" />
             <Tooltip />
-            <Bar dataKey="numUsers" fill="#8884d8" />
+            <Bar background label dataKey="numUsers" fill="#8884d8" />
           </BarChart>
         ) : null}
       </div>
