@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Score from "./Score";
 import { NPSEntry, Bucket } from "./NPSHelpers";
-// import "./NPSstats.css";
+import "./NPSstats.css";
 import PopularTags from "./PopularTags";
 import CustomerComments from "./CustomerComments";
 import { styled } from "@material-ui/core/styles";
@@ -51,13 +51,13 @@ class NPSstats extends Component<Props, {}> {
           <Grid item xs={12}>
             <h1>NPS Analysis Results</h1>
           </Grid>
-          <Grid item xs={12}>
-            <MyPaper>
+          <Grid item xs={12} md={3} lg={3}>
+            <MyPaper className="fixedHeightPaper">
               <Score allNPS={this.props.allNPS} />
             </MyPaper>
           </Grid>
-          <Grid item xs={12}>
-            <MyPaper>
+          <Grid item xs={12} md={9} lg={9}>
+            <MyPaper className="fixedHeightPaper">
               <NPSBarChart allNPS={this.props.allNPS} />
             </MyPaper>
           </Grid>
