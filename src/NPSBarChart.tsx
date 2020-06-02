@@ -53,11 +53,11 @@ class NPSBarChart extends Component<Props, {}> {
               left: 20,
               bottom: 5,
             }}
-            // layout="vertical"
+            layout="vertical"
           >
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
+            <XAxis type="number" />
+            <YAxis type="category" dataKey="name" />
             <Tooltip />
             <Bar dataKey="numUsers" fill="#8884d8" />
           </BarChart>
