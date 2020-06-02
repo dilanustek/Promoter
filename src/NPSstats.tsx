@@ -8,6 +8,7 @@ import { styled } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
+import NPSBarChart from "./NPSBarChart";
 
 const MyContainer = styled(Container)({
   paddingTop: 4 * 8,
@@ -53,6 +54,11 @@ class NPSstats extends Component<Props, {}> {
           <Grid item xs={12}>
             <MyPaper>
               <Score allNPS={this.props.allNPS} />
+            </MyPaper>
+          </Grid>
+          <Grid item xs={12}>
+            <MyPaper>
+              <NPSBarChart allNPS={this.props.allNPS} />
             </MyPaper>
           </Grid>
           <Grid item xs={12}>

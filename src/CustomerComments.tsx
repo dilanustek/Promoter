@@ -19,6 +19,8 @@ import {
   Divider,
 } from "@material-ui/core";
 import { grey } from "@material-ui/core/colors";
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
 
 interface Props {
   tag: string | null;
@@ -77,13 +79,6 @@ class CustomerComments extends Component<Props, {}> {
           Customer type:
           <div className="filterRowSpace">
             {this.getStringByEmptyState(this.props.bucket)}
-            {/* {this.props.bucket ? (
-              <b>{this.props.bucket}</b>
-            ) : (
-              <p style={{ color: grey[500] }}>
-                Click on a tag above to view comments
-              </p>
-            )} */}
           </div>
         </div>
         <div className="filterRow">
