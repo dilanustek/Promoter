@@ -25,7 +25,6 @@ class NPSBarChart extends Component<Props, {}> {
     console.log(numPromoters + " " + numPassives + " " + numDetractors);
 
     const data = {
-      labels: ["Number of Users"],
       datasets: [
         {
           label: "Promoters",
@@ -63,9 +62,8 @@ class NPSBarChart extends Component<Props, {}> {
       onClick: this.barClickHandler,
       tooltips: {
         displayColors: true,
-        callbacks: {
-          mode: "x",
-        },
+        mode: "nearest",
+        titleFontSize: 0,
       },
       //   scales: {
       //     xAxes: [
