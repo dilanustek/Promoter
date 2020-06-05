@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NPSEntry, Bucket } from "./NPSHelpers";
-import { HorizontalBar, Bar } from "react-chartjs-2";
-import { green, grey, red, blue } from "@material-ui/core/colors";
+import { HorizontalBar } from "react-chartjs-2";
+import { green, red, blue } from "@material-ui/core/colors";
 
 interface Props {
   allNPS: NPSEntry[] | null;
@@ -23,34 +23,6 @@ class NPSBarChart extends Component<Props, {}> {
       } else numDetractors++;
     }
     console.log(numPromoters + " " + numPassives + " " + numDetractors);
-
-    // const dataObj = [
-    //   { name: "Promoters", numUsers: numPromoters },
-    //   { name: "Passives", numUsers: numPassives },
-    //   { name: "Detractors", numUsers: numDetractors },
-    // ];
-
-    // const data = {
-    //   labels: ["Promoters", "Passives", "Detractors"],
-    //   datasets: [
-    //     {
-    //       label: "NPS Scores",
-    //       fill: false,
-    //       backgroundColor: "rgba(75,192,192,0.4)",
-    //       borderColor: "rgba(75,192,192,1)",
-    //       pointBorderColor: "rgba(75,192,192,1)",
-    //       pointBackgroundColor: "#fff",
-    //       pointBorderWidth: 1,
-    //       pointHoverRadius: 5,
-    //       pointHoverBackgroundColor: "rgba(75,192,192,1)",
-    //       pointHoverBorderColor: "rgba(220,220,220,1)",
-    //       pointHoverBorderWidth: 2,
-    //       pointRadius: 1,
-    //       pointHitRadius: 10,
-    //       data: [numPromoters, numPassives, numDetractors],
-    //     },
-    //   ],
-    // };
 
     const data = {
       labels: ["Number of Users"],
@@ -79,11 +51,11 @@ class NPSBarChart extends Component<Props, {}> {
     return data;
   }
 
-  barClickHandler = (datasetIndex: number) => {
-    console.log(datasetIndex);
-    const buckets: Bucket[] = ["Promoter", "Passive", "Detractor"];
-
-    this.props.tagBucketHandler(buckets[datasetIndex], null);
+  barClickHandler = (event: any) => {
+    if (event) {
+      const buckets: Bucket[] = ["Promoter", "Passive", "Detractor"];
+      this.props.tagBucketHandler(buckets[event._datasetIndex], null);
+    }
   };
 
   render() {
@@ -91,9 +63,9 @@ class NPSBarChart extends Component<Props, {}> {
       onClick: this.barClickHandler,
       tooltips: {
         displayColors: true,
-        // callbacks: {
-        //   mode: "x",
-        // },
+        callbacks: {
+          mode: "x",
+        },
       },
       //   scales: {
       //     xAxes: [
@@ -155,7 +127,7 @@ class NPSBarChart extends Component<Props, {}> {
             width={100}
             height={16}
             options={options}
-            getElementAtEvent={(e) => this.barClickHandler(e[0]._datasetIndex)}
+            getElementAtEvent={(e) => this.barClickHandler(e[0])}
           />
         ) : null}
       </div>
