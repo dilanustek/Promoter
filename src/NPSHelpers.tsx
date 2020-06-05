@@ -126,11 +126,11 @@ export function findCommentsFromBucketTag(
 
 export function styleIconByBucket(bucket: Bucket | null) {
   if (bucket === "Promoter") {
-    return { color: green[500] };
+    return { color: green[400] };
   } else if (bucket === "Passive") {
-    return { color: blue[500] };
+    return { color: blue[300] };
   } else if (bucket === "Detractor") {
-    return { color: red[500] };
+    return { color: red[400] };
   } else return { color: grey[500] };
 }
 

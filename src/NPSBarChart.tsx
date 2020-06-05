@@ -1,15 +1,7 @@
 import React, { Component } from "react";
 import { NPSEntry, Bucket } from "./NPSHelpers";
-import {
-  BarChart,
-  Bar,
-  Cell,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-} from "recharts";
+import { HorizontalBar, Bar } from "react-chartjs-2";
+import { green, grey, red, blue } from "@material-ui/core/colors";
 
 interface Props {
   allNPS: NPSEntry[] | null;
@@ -31,36 +23,136 @@ class NPSBarChart extends Component<Props, {}> {
     }
     console.log(numPromoters + " " + numPassives + " " + numDetractors);
 
-    const dataObj = [
-      { name: "Promoters", numUsers: numPromoters },
-      { name: "Passives", numUsers: numPassives },
-      { name: "Detractors", numUsers: numDetractors },
-    ];
-    return dataObj;
+    // const dataObj = [
+    //   { name: "Promoters", numUsers: numPromoters },
+    //   { name: "Passives", numUsers: numPassives },
+    //   { name: "Detractors", numUsers: numDetractors },
+    // ];
+
+    // const data = {
+    //   labels: ["Promoters", "Passives", "Detractors"],
+    //   datasets: [
+    //     {
+    //       label: "NPS Scores",
+    //       fill: false,
+    //       backgroundColor: "rgba(75,192,192,0.4)",
+    //       borderColor: "rgba(75,192,192,1)",
+    //       pointBorderColor: "rgba(75,192,192,1)",
+    //       pointBackgroundColor: "#fff",
+    //       pointBorderWidth: 1,
+    //       pointHoverRadius: 5,
+    //       pointHoverBackgroundColor: "rgba(75,192,192,1)",
+    //       pointHoverBorderColor: "rgba(220,220,220,1)",
+    //       pointHoverBorderWidth: 2,
+    //       pointRadius: 1,
+    //       pointHitRadius: 10,
+    //       data: [numPromoters, numPassives, numDetractors],
+    //     },
+    //   ],
+    // };
+
+    const data = {
+      labels: ["Number of Users"],
+      datasets: [
+        {
+          label: "Promoters",
+          backgroundColor: green[400],
+          //   hoverBackgroundColor: "rgba(46,185,235,1)",
+          data: [numPromoters],
+        },
+        {
+          label: "Passives",
+          backgroundColor: blue[300],
+          //   hoverBackgroundColor: "rgba(46,185,235,1)",
+          data: [numPassives],
+        },
+        {
+          label: "Detractors",
+          backgroundColor: red[400],
+          //   hoverBackgroundColor: "rgba(46,185,235,1)",
+          data: [numDetractors],
+        },
+      ],
+    };
+
+    return data;
   }
 
+  barClickHandler = () => {
+    console.log("bar clicked");
+  };
+
   render() {
+    const options = {
+      onClick: this.barClickHandler,
+      tooltips: {
+        displayColors: true,
+        // callbacks: {
+        //   mode: "x",
+        // },
+      },
+      //   scales: {
+      //     xAxes: [
+      //       {
+      //         stacked: true,
+      //         gridLines: {
+      //           display: false,
+      //         },
+      //       },
+      //     ],
+      //     yAxes: [
+      //       {
+      //         stacked: true,
+      //         ticks: {
+      //           beginAtZero: true,
+      //         },
+      //         type: "linear",
+      //       },
+      //     ],
+      //   },
+      scales: {
+        xAxes: [
+          {
+            ticks: {
+              beginAtZero: true,
+              fontFamily: "'Open Sans Bold', sans-serif",
+              fontSize: 11,
+            },
+            scaleLabel: {
+              display: false,
+            },
+            gridLines: {},
+            stacked: true,
+          },
+        ],
+        yAxes: [
+          {
+            gridLines: {
+              display: false,
+              color: "#fff",
+              zeroLineColor: "#fff",
+              zeroLineWidth: 0,
+            },
+            ticks: {
+              fontFamily: "'Open Sans Bold', sans-serif",
+              fontSize: 11,
+            },
+            stacked: true,
+          },
+        ],
+      },
+    };
+
     return (
       <div className="NPSBarChart">
         {this.props.allNPS ? (
-          <BarChart
-            width={350}
-            height={150}
+          <HorizontalBar
             data={this.handleBarChartData()}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-            layout="vertical"
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis type="number" />
-            <YAxis type="category" dataKey="name" />
-            <Tooltip />
-            <Bar background label dataKey="numUsers" fill="#8884d8" />
-          </BarChart>
+            width={100}
+            height={16}
+            options={options}
+            getElementAtEvent={(e) => console.log(e)}
+          />
         ) : null}
       </div>
     );
