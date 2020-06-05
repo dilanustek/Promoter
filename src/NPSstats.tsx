@@ -37,7 +37,7 @@ class NPSstats extends Component<Props, {}> {
     clickedTag: null,
   };
 
-  tagBucketHandler = (bucket: Bucket, tag: string) => {
+  tagBucketHandler = (bucket: Bucket, tag: string | null) => {
     this.setState({
       clickedBucket: bucket,
       clickedTag: tag,
@@ -58,7 +58,10 @@ class NPSstats extends Component<Props, {}> {
           </Grid>
           <Grid item xs={12} md={9} lg={9}>
             <MyPaper className="fixedHeightPaper">
-              <NPSBarChart allNPS={this.props.allNPS} />
+              <NPSBarChart
+                allNPS={this.props.allNPS}
+                tagBucketHandler={this.tagBucketHandler}
+              />
             </MyPaper>
           </Grid>
           <Grid item xs={12}>

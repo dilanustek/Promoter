@@ -109,10 +109,16 @@ export function findCommentsFromBucketTag(
   allNPS: NPSEntry[] | null,
   topX: number
 ) {
-  if (allNPS && tag && bucket) {
-    const filteredComments = allNPS.filter(
-      (entry) => entry.bucket === bucket && entry.tags?.includes(tag)
-    );
+  if (allNPS && bucket) {
+    let filteredComments;
+
+    if (tag) {
+      filteredComments = allNPS.filter(
+        (entry) => entry.bucket === bucket && entry.tags?.includes(tag)
+      );
+    } else {
+      filteredComments = filterByBucket(bucket, allNPS);
+    }
     const topEntries = filteredComments.slice(0, topX);
 
     const comments: string[] = [];
@@ -121,6 +127,7 @@ export function findCommentsFromBucketTag(
     }
     return comments;
   }
+
   return null;
 }
 
