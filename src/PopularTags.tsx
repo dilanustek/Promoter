@@ -3,21 +3,16 @@ import {
   NPSEntry,
   Bucket,
   findCommonTags,
-  emoticonByBucket,
   styleIconByBucket,
   titleEmoticonByBucket,
 } from "./NPSHelpers";
 import "./popularTags.css";
 import Title from "./Title";
-import { styled } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import LocalOffer from "@material-ui/icons/LocalOffer";
-import InsertEmoticonIcon from "@material-ui/icons/InsertEmoticon";
-import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
-import MoodBadIcon from "@material-ui/icons/MoodBad";
 import { ListItemSecondaryAction } from "@material-ui/core";
 
 interface Props {
