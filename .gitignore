@@ -22,3 +22,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 promoter.code-workspace
+
+# data
+/src/nps.csv
+/src/nps.json
