@@ -40,16 +40,14 @@ class CustomerComments extends Component<Props, {}> {
       for (let i = 0; i < comments?.length; i++) {
         rows.push(
           <div key={i}>
+            <Divider variant="inset" component="li" />
+
             <ListItem key={i}>
               <ListItemIcon>
                 <ChatOutlinedIcon />
               </ListItemIcon>
               <ListItemText>{comments[i]}</ListItemText>
             </ListItem>
-            <Divider
-              // variant="inset"
-              component="li"
-            />
           </div>
         );
       }

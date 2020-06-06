@@ -141,6 +141,34 @@ export function styleIconByBucket(bucket: Bucket | null) {
   } else return { color: grey[500] };
 }
 
+export function titleEmoticonByBucket(bucket: Bucket | null) {
+  if (bucket === "Promoter") {
+    return (
+      <InsertEmoticonIcon
+        className="tagIcon"
+        style={{ color: green[400], fontSize: 32 }}
+      />
+    );
+  } else if (bucket === "Passive") {
+    return (
+      <SentimentSatisfiedIcon
+        className="tagIcon"
+        style={{ color: blue[300], fontSize: 32 }}
+      />
+    );
+  } else if (bucket === "Detractor") {
+    return (
+      <MoodBadIcon
+        className="tagIcon"
+        style={{ color: red[400], fontSize: 32 }}
+      />
+    );
+  } else
+    return (
+      <Face className="tagIcon" style={{ color: grey[500], fontSize: 32 }} />
+    );
+}
+
 export function emoticonByBucket(bucket: Bucket | null) {
   if (bucket === "Promoter") {
     return <InsertEmoticonIcon style={styleIconByBucket(bucket)} />;

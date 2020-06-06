@@ -3,7 +3,9 @@ import {
   NPSEntry,
   Bucket,
   findCommonTags,
+  emoticonByBucket,
   styleIconByBucket,
+  titleEmoticonByBucket,
 } from "./NPSHelpers";
 import "./popularTags.css";
 import Title from "./Title";
@@ -76,10 +78,7 @@ class PopularTags extends Component<Props, {}> {
         <div className="bucketSections">
           <div className="bucket">
             <div className="bucketHeader">
-              <InsertEmoticonIcon
-                className="tagIcon"
-                style={styleIconByBucket("Promoter")}
-              />
+              {titleEmoticonByBucket("Promoter")}
               <h3 className="bucketTitle">Promoters</h3>
             </div>
             <List>
@@ -88,10 +87,7 @@ class PopularTags extends Component<Props, {}> {
           </div>
           <div className="bucket">
             <div className="bucketHeader">
-              <SentimentSatisfiedIcon
-                className="tagIcon"
-                style={styleIconByBucket("Passive")}
-              />
+              {titleEmoticonByBucket("Passive")}
               <h3 className="bucketTitle">Passives </h3>
             </div>
             <List>
@@ -100,10 +96,7 @@ class PopularTags extends Component<Props, {}> {
           </div>
           <div className="bucket">
             <div className="bucketHeader">
-              <MoodBadIcon
-                className="tagIcon"
-                style={styleIconByBucket("Detractor")}
-              />
+              {titleEmoticonByBucket("Detractor")}
               <h3 className="bucketTitle">Detractors</h3>
             </div>
             <List>

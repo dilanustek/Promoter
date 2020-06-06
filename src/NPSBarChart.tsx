@@ -108,8 +108,8 @@ class NPSBarChart extends Component<Props, {}> {
               zeroLineWidth: 0,
             },
             ticks: {
-              fontFamily: "'Open Sans Bold', sans-serif",
-              fontSize: 11,
+              //   fontFamily: "'Open Sans Bold', sans-serif",
+              //   fontSize: 11,
             },
             stacked: true,
           },
@@ -123,7 +123,7 @@ class NPSBarChart extends Component<Props, {}> {
           <HorizontalBar
             data={this.handleBarChartData()}
             width={100}
-            height={16}
+            height={13}
             options={options}
             getElementAtEvent={(e) => this.barClickHandler(e[0])}
           />

@@ -9,13 +9,14 @@
 }
 
 .tagIcon {
-  padding-left: 16px;
+  padding-left: 10px;
   display: inline-flex;
   flex-shrink: 0;
 }
 
 .bucketTitle {
   padding-left: 32px;
+  font-size: 22px;
 }
 
 .freqText {
