@@ -34,9 +34,7 @@ class CommentListItem extends Component<Props, State> {
 
   getCommentWithButton() {
     if (this.props.entry.comment.length > this.maxCommentLen) {
-      // too long
       if (this.state.showLong) {
-        //shw long
         return (
           <ListItemText>
             {this.props.entry.comment}
@@ -46,7 +44,6 @@ class CommentListItem extends Component<Props, State> {
           </ListItemText>
         );
       } else {
-        // show short
         return (
           <ListItemText>
             {this.props.entry.comment.slice(0, this.maxCommentLen)}...
@@ -57,31 +54,9 @@ class CommentListItem extends Component<Props, State> {
         );
       }
     } else {
-      //not too long. no button
       return <ListItemText>{this.props.entry.comment}</ListItemText>;
     }
   }
-
-  // getExpandIcon() {
-  //   if (this.props.entry.comment.length > this.maxCommentLen) {
-  //     if (this.state.showLong) {
-  //       return <ExpandLess onClick={this.handleExpandClick} />;
-  //     } else {
-  //       return <ExpandMore onClick={this.handleExpandClick} />;
-  //     }
-  //   } else return null;
-  // }
-
-  // getText() {
-  //   if (
-  //     this.props.entry.comment.length > this.maxCommentLen &&
-  //     !this.state.showLong
-  //   ) {
-  //     return this.props.entry.comment.slice(0, this.maxCommentLen);
-  //   } else {
-  //     return this.props.entry.comment;
-  //   }
-  // }
 
   render() {
     return (
