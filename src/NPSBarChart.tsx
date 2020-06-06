@@ -22,7 +22,6 @@ class NPSBarChart extends Component<Props, {}> {
         numPassives++;
       } else numDetractors++;
     }
-    console.log(numPromoters + " " + numPassives + " " + numDetractors);
 
     const data = {
       datasets: [

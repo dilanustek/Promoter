@@ -26,7 +26,6 @@ export function bucketFiller(score: number): Bucket {
 
 export function scoreCalculator(allNPS: NPSEntry[] | null) {
   if (allNPS) {
-    // let sumNPS = 0;
     let numPromoters = 0;
     let numDetractors = 0;
 
@@ -36,12 +35,10 @@ export function scoreCalculator(allNPS: NPSEntry[] | null) {
       } else if (allNPS[i].bucket === "Detractor") {
         numDetractors++;
       }
-      // sumNPS += allNPS[i].score;
     }
 
     const percentPromoters = (numPromoters / allNPS.length) * 100;
     const percentDetractors = (numDetractors / allNPS.length) * 100;
-    // const avgScore = sumNPS / allNPS.length;
 
     return Math.round(percentPromoters - percentDetractors);
   } else return 0;

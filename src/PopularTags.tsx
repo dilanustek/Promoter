@@ -28,14 +28,6 @@ interface Props {
 }
 
 class PopularTags extends Component<Props, {}> {
-  // styleIconByBucket(bucket: Bucket) {
-  //   if (bucket === "Promoter") {
-  //     return { color: green[500] };
-  //   } else if (bucket === "Passive") {
-  //     return { color: blue[500] };
-  //   } else return { color: red[500] };
-  // }
-
   handlePopularTags = (bucket: Bucket) => {
     const commonTags = findCommonTags(bucket, this.props.allNPS, 5);
     if (commonTags) {
