@@ -28,19 +28,16 @@ class NPSBarChart extends Component<Props, {}> {
         {
           label: "Promoters",
           backgroundColor: green[400],
-          //   hoverBackgroundColor: "rgba(46,185,235,1)",
           data: [numPromoters],
         },
         {
           label: "Passives",
           backgroundColor: blue[200],
-          //   hoverBackgroundColor: "rgba(46,185,235,1)",
           data: [numPassives],
         },
         {
           label: "Detractors",
           backgroundColor: red[400],
-          //   hoverBackgroundColor: "rgba(46,185,235,1)",
           data: [numDetractors],
         },
       ],
@@ -64,25 +61,6 @@ class NPSBarChart extends Component<Props, {}> {
         mode: "nearest",
         titleFontSize: 0,
       },
-      //   scales: {
-      //     xAxes: [
-      //       {
-      //         stacked: true,
-      //         gridLines: {
-      //           display: false,
-      //         },
-      //       },
-      //     ],
-      //     yAxes: [
-      //       {
-      //         stacked: true,
-      //         ticks: {
-      //           beginAtZero: true,
-      //         },
-      //         type: "linear",
-      //       },
-      //     ],
-      //   },
       scales: {
         xAxes: [
           {
@@ -105,10 +83,6 @@ class NPSBarChart extends Component<Props, {}> {
               color: "#fff",
               zeroLineColor: "#fff",
               zeroLineWidth: 0,
-            },
-            ticks: {
-              //   fontFamily: "'Open Sans Bold', sans-serif",
-              //   fontSize: 11,
             },
             stacked: true,
           },
