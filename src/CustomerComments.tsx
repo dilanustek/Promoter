@@ -47,12 +47,16 @@ class CustomerComments extends Component<Props, {}> {
 
   getStringByEmptyState(stringToShow: Bucket | string | null) {
     if (stringToShow) {
-      return <b>{stringToShow}</b>;
+      return (
+        <span>
+          <b>{stringToShow}</b>
+        </span>
+      );
     } else {
       return (
-        <p style={{ color: grey[500] }}>
+        <span style={{ color: grey[500] }}>
           Click on a tag above to view comments
-        </p>
+        </span>
       );
     }
   }
