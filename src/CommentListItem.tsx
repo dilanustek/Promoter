@@ -65,10 +65,6 @@ class CommentListItem extends Component<Props, State> {
           <ChatOutlinedIcon />
         </ListItemIcon>
         {this.getCommentWithButton()}
-        {/* <ListItemText>{this.getText()}</ListItemText> */}
-        {/* <ListItemSecondaryAction>
-          {this.getExpandIcon()}
-        </ListItemSecondaryAction> */}
       </ListItem>
     );
   }
