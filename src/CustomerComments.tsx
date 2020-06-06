@@ -7,20 +7,11 @@ import {
   emoticonByBucket,
 } from "./NPSHelpers";
 import Title from "./Title";
+import CommentListItem from "./CommentListItem";
 import LocalOffer from "@material-ui/icons/LocalOffer";
-import ChatOutlinedIcon from "@material-ui/icons/ChatOutlined";
 import "./CustomerComments.css";
-import {
-  ListItemText,
-  ListItemAvatar,
-  ListItemIcon,
-  ListItem,
-  List,
-  Divider,
-} from "@material-ui/core";
+import { List, Divider } from "@material-ui/core";
 import { grey } from "@material-ui/core/colors";
-import ExpandLess from "@material-ui/icons/ExpandLess";
-import ExpandMore from "@material-ui/icons/ExpandMore";
 
 interface Props {
   tag: string | null;
@@ -41,13 +32,7 @@ class CustomerComments extends Component<Props, {}> {
         rows.push(
           <div key={i}>
             <Divider variant="inset" component="li" />
-
-            <ListItem key={i}>
-              <ListItemIcon>
-                <ChatOutlinedIcon />
-              </ListItemIcon>
-              <ListItemText>{comments[i]}</ListItemText>
-            </ListItem>
+            <CommentListItem commentObj={comments[i]} />
           </div>
         );
       }

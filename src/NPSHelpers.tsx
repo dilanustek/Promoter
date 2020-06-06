@@ -109,6 +109,7 @@ export function findCommentsFromBucketTag(
   allNPS: NPSEntry[] | null,
   topX: number
 ) {
+  const maxCommentLen = 330;
   if (allNPS && bucket) {
     let filteredComments;
 
@@ -121,9 +122,20 @@ export function findCommentsFromBucketTag(
     }
     const topEntries = filteredComments.slice(0, topX);
 
-    const comments: string[] = [];
+    const comments: {
+      short: string | null;
+      long: string;
+    }[] = [];
+
     for (let entry of topEntries) {
-      comments.push(entry.comment);
+      let shortenedComment = null;
+
+      if (entry.comment.length > maxCommentLen) {
+        shortenedComment = entry.comment.slice(0, maxCommentLen);
+      }
+
+      const comment = { short: shortenedComment, long: entry.comment };
+      comments.push(comment);
     }
     return comments;
   }
@@ -153,7 +165,7 @@ export function titleEmoticonByBucket(bucket: Bucket | null) {
     return (
       <SentimentSatisfiedIcon
         className="tagIcon"
-        style={{ color: blue[300], fontSize: 32 }}
+        style={{ color: blue[200], fontSize: 32 }}
       />
     );
   } else if (bucket === "Detractor") {

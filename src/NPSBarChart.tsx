@@ -34,7 +34,7 @@ class NPSBarChart extends Component<Props, {}> {
         },
         {
           label: "Passives",
-          backgroundColor: blue[300],
+          backgroundColor: blue[200],
           //   hoverBackgroundColor: "rgba(46,185,235,1)",
           data: [numPassives],
         },
