@@ -6,6 +6,7 @@ import MoodBadIcon from "@material-ui/icons/MoodBad";
 import Face from "@material-ui/icons/Face";
 
 export interface NPSEntry {
+  id: number;
   score: number;
   bucket: Bucket;
   comment: string;
@@ -106,7 +107,6 @@ export function findCommentsFromBucketTag(
   allNPS: NPSEntry[] | null,
   topX: number
 ) {
-  const maxCommentLen = 330;
   if (allNPS && bucket) {
     let filteredComments;
 
@@ -119,22 +119,7 @@ export function findCommentsFromBucketTag(
     }
     const topEntries = filteredComments.slice(0, topX);
 
-    const comments: {
-      short: string | null;
-      long: string;
-    }[] = [];
-
-    for (let entry of topEntries) {
-      let shortenedComment = null;
-
-      if (entry.comment.length > maxCommentLen) {
-        shortenedComment = entry.comment.slice(0, maxCommentLen);
-      }
-
-      const comment = { short: shortenedComment, long: entry.comment };
-      comments.push(comment);
-    }
-    return comments;
+    return topEntries;
   }
 
   return null;

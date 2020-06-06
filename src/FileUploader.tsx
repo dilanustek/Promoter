@@ -64,15 +64,16 @@ class FileUploader extends Component<Props, State> {
     const commentFullData = data.filter((entry: any) => entry.Comment !== "");
     let parsedData: NPSEntry[] = [];
 
-    for (const entry of commentFullData) {
-      const scoreNum =
-        typeof entry.score == "number" ? entry.Score : parseInt(entry.Score);
+    for (let i = 0; i < commentFullData.length; i++) {
+      const entry = commentFullData[i];
+      //const scoreNum = typeof entry.Score == "number" ? entry.Score : parseInt(entry.Score);
 
       const availableKeys = Object.keys(entry);
       const tagKeys = getTagKeys(availableKeys, entry);
 
       if (entry.Comment) {
         const newEntry: NPSEntry = {
+          id: i,
           score: entry.Score,
           comment: entry.Comment,
           bucket: bucketFiller(entry.Score),

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import ChatOutlinedIcon from "@material-ui/icons/ChatOutlined";
+import { NPSEntry } from "./NPSHelpers";
 
 import {
   ListItemText,
@@ -11,7 +12,7 @@ import {
 } from "@material-ui/core";
 
 interface Props {
-  commentObj: { short: string | null; long: string };
+  entry: NPSEntry;
 }
 
 interface State {
@@ -22,6 +23,7 @@ class CommentListItem extends Component<Props, State> {
   state: State = {
     showLong: false,
   };
+  maxCommentLen = 330;
 
   handleExpandClick = () => {
     this.setState({
@@ -30,7 +32,7 @@ class CommentListItem extends Component<Props, State> {
   };
 
   getExpandIcon() {
-    if (this.props.commentObj.short) {
+    if (this.props.entry.comment.length > this.maxCommentLen) {
       if (this.state.showLong) {
         return <ExpandLess onClick={this.handleExpandClick} />;
       } else {
@@ -40,9 +42,14 @@ class CommentListItem extends Component<Props, State> {
   }
 
   getText() {
-    if (this.props.commentObj.short && !this.state.showLong)
-      return this.props.commentObj.short;
-    else return this.props.commentObj.long;
+    if (
+      this.props.entry.comment.length > this.maxCommentLen &&
+      !this.state.showLong
+    ) {
+      return this.props.entry.comment.slice(0, this.maxCommentLen);
+    } else {
+      return this.props.entry.comment;
+    }
   }
 
   render() {

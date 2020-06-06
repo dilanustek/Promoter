@@ -30,9 +30,9 @@ class CustomerComments extends Component<Props, {}> {
       const rows = [];
       for (let i = 0; i < comments?.length; i++) {
         rows.push(
-          <div key={i}>
+          <div key={comments[i].id}>
             <Divider variant="inset" component="li" />
-            <CommentListItem commentObj={comments[i]} />
+            <CommentListItem entry={comments[i]} />
           </div>
         );
       }
