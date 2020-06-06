@@ -55,6 +55,7 @@ class NPSBarChart extends Component<Props, {}> {
 
   render() {
     const options = {
+      animation: { duration: 1500 },
       onClick: this.barClickHandler,
       tooltips: {
         displayColors: true,
