@@ -25,14 +25,18 @@ class CustomerComments extends Component<Props, {}> {
     tag: string | null,
     allNPS: NPSEntry[] | null
   ) {
-    const comments = findCommentsFromBucketTag(bucket, tag, allNPS, 5);
-    if (comments) {
+    const comments = findCommentsFromBucketTag(bucket, tag, allNPS);
+
+    const maxCommentsShown = 5;
+    const topXComments = comments?.slice(0, maxCommentsShown);
+
+    if (topXComments) {
       const rows = [];
-      for (let i = 0; i < comments?.length; i++) {
+      for (let i = 0; i < topXComments?.length; i++) {
         rows.push(
-          <div key={comments[i].id}>
+          <div key={topXComments[i].id}>
             <Divider variant="inset" component="li" />
-            <CommentListItem entry={comments[i]} />
+            <CommentListItem entry={topXComments[i]} />
           </div>
         );
       }

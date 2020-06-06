@@ -104,24 +104,17 @@ export function findCommonTags(
 export function findCommentsFromBucketTag(
   bucket: Bucket | null,
   tag: string | null,
-  allNPS: NPSEntry[] | null,
-  topX: number
+  allNPS: NPSEntry[] | null
 ) {
   if (allNPS && bucket) {
-    let filteredComments;
-
     if (tag) {
-      filteredComments = allNPS.filter(
+      return allNPS.filter(
         (entry) => entry.bucket === bucket && entry.tags?.includes(tag)
       );
     } else {
-      filteredComments = filterByBucket(bucket, allNPS);
+      return filterByBucket(bucket, allNPS);
     }
-    const topEntries = filteredComments.slice(0, topX);
-
-    return topEntries;
   }
-
   return null;
 }
 
