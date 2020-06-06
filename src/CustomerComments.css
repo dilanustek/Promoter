@@ -12,3 +12,14 @@
 .filterRowSpace {
   padding-left: 8px;
 }
+
+.expand {
+  padding-left: 10px;
+  cursor: pointer;
+  color: grey;
+}
+
+.expand:hover {
+  color: blue;
+  text-decoration: underline;
+}
