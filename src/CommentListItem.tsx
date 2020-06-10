@@ -1,16 +1,9 @@
 import React, { Component } from "react";
-import ExpandLess from "@material-ui/icons/ExpandLess";
-import ExpandMore from "@material-ui/icons/ExpandMore";
 import ChatOutlinedIcon from "@material-ui/icons/ChatOutlined";
 import { NPSEntry } from "./NPSHelpers";
 import "./CustomerComments.css";
 
-import {
-  ListItemText,
-  ListItemIcon,
-  ListItem,
-  ListItemSecondaryAction,
-} from "@material-ui/core";
+import { ListItemText, ListItemIcon, ListItem } from "@material-ui/core";
 
 interface Props {
   entry: NPSEntry;

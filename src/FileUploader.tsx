@@ -14,7 +14,7 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import { mainListItems } from "./ListItems";
 import "./FileUploader.css";
 import Papa from "papaparse";
-import csvData from "./nps.json";
+import csvData from "./NPSsample.json";
 
 interface State {
   isFileUploaded: boolean;
@@ -71,7 +71,7 @@ class FileUploader extends Component<Props, State> {
       const availableKeys = Object.keys(entry);
       const tagKeys = getTagKeys(availableKeys, entry);
 
-      if (entry.Comment) {
+      if (entry.Comment && tagKeys.length > 0) {
         const newEntry: NPSEntry = {
           id: i,
           score: entry.Score,

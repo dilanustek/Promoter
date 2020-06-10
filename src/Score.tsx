@@ -15,6 +15,7 @@ class Score extends Component<Props, {}> {
         <Typography component="p" variant="h4">
           {scoreCalculator(this.props.allNPS)}
         </Typography>
+        <Typography>{this.props.allNPS?.length} entries analyzed</Typography>
       </div>
     );
   }
