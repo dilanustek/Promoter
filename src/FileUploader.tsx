@@ -3,7 +3,8 @@ import { NPSEntry, bucketFiller, getTagKeys } from "./NPSHelpers";
 import "./FileUploader.css";
 import Papa from "papaparse";
 import csvData from "./NPSsample.json";
-import Backdrop from "@material-ui/core/Backdrop";
+import Modal from "@material-ui/core/Modal";
+import { Divider } from "@material-ui/core";
 
 interface State {
   isFileUploaded: boolean;
@@ -67,37 +68,44 @@ class FileUploader extends Component<Props, State> {
     this.props.dataHandler(parsedData);
   }
 
-  // componentDidMount() {
-  //   this.parseData(null);
-  // }
-
   render() {
     return (
-      <Backdrop className="backdrop" open={this.props.isUploadOpen}>
-        <section className="uploadFile">
-          <div>
-            Upload a CSV of your NPS data. It should have the NPS scare in the
-            first column, the NPS comments in the second column, and have tags
-            in the other columns.
-          </div>
-          <div className="uploadSection">
-            <input
-              className="csv-input"
-              type="file"
-              name="file"
-              placeholder={"placeholder text"}
-              onChange={this.handleChange}
-            />
-            <p />
-          </div>
-        </section>
-        <section>
-          Or
-          <button onClick={() => this.parseData(csvData)}>
-            see demo data!
-          </button>
-        </section>
-      </Backdrop>
+      <Modal
+        className="modalBackdrop"
+        open={this.props.isUploadOpen}
+        // onClose={this.handleChange}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        <div className="modal">
+          <section className="uploadFile">
+            <div>
+              Upload a CSV of your NPS data. It should have the NPS scare in the
+              first column, the NPS comments in the second column, and have tags
+              in the other columns.
+            </div>
+            <div className="uploadSection">
+              <input
+                className="csv-input"
+                type="file"
+                name="file"
+                placeholder={"placeholder text"}
+                onChange={this.handleChange}
+              />
+              <p />
+            </div>
+          </section>
+          <div className="vl"></div>
+          <section className="demo">
+            <div>
+              <div>Or </div>
+              <button onClick={() => this.parseData(csvData)}>
+                see demo data!
+              </button>
+            </div>
+          </section>
+        </div>
+      </Modal>
     );
   }
 }

@@ -12,3 +12,35 @@
   margin-top: 50px;
   width: 140px;
 }
+
+.modalBackdrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background-color: white;
+  padding: 40px;
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+}
+
+.uploadFile {
+  flex: 1;
+  padding-right: 15px;
+}
+
+.demo {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  padding-left: 15px;
+}
+
+.vl {
+  border-left: 2px solid;
+  color: grey;
+  height: 200px;
+}
