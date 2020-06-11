@@ -3,6 +3,7 @@ import { NPSEntry, bucketFiller, getTagKeys } from "./NPSHelpers";
 import "./FileUploader.css";
 import Papa from "papaparse";
 import csvData from "./NPSsample.json";
+import Backdrop from "@material-ui/core/Backdrop";
 
 interface State {
   isFileUploaded: boolean;
@@ -11,6 +12,7 @@ interface State {
 
 interface Props {
   dataHandler: (allNPS: NPSEntry[]) => void;
+  isUploadOpen: boolean;
 }
 
 class FileUploader extends Component<Props, State> {
@@ -35,14 +37,13 @@ class FileUploader extends Component<Props, State> {
   };
 
   parseData(data: any) {
-    if (csvData) data = csvData;
-
     const commentFullData = data.filter((entry: any) => entry.Comment !== "");
     let parsedData: NPSEntry[] = [];
 
     for (let i = 0; i < commentFullData.length; i++) {
       const entry = commentFullData[i];
-      //const scoreNum = typeof entry.Score == "number" ? entry.Score : parseInt(entry.Score);
+      const scoreNum =
+        typeof entry.Score == "number" ? entry.Score : parseInt(entry.Score);
 
       const availableKeys = Object.keys(entry);
       const tagKeys = getTagKeys(availableKeys, entry);
@@ -50,9 +51,9 @@ class FileUploader extends Component<Props, State> {
       if (entry.Comment && tagKeys.length > 0) {
         const newEntry: NPSEntry = {
           id: i,
-          score: entry.Score,
+          score: scoreNum,
           comment: entry.Comment,
-          bucket: bucketFiller(entry.Score),
+          bucket: bucketFiller(scoreNum),
           tags: tagKeys,
         };
         parsedData.push(newEntry);
@@ -66,14 +67,14 @@ class FileUploader extends Component<Props, State> {
     this.props.dataHandler(parsedData);
   }
 
-  componentDidMount() {
-    this.parseData(null);
-  }
+  // componentDidMount() {
+  //   this.parseData(null);
+  // }
 
   render() {
     return (
-      <section className="uploadFile">
-        <section className="main">
+      <Backdrop className="backdrop" open={this.props.isUploadOpen}>
+        <section className="uploadFile">
           <div>
             Upload a CSV of your NPS data. It should have the NPS scare in the
             first column, the NPS comments in the second column, and have tags
@@ -90,7 +91,13 @@ class FileUploader extends Component<Props, State> {
             <p />
           </div>
         </section>
-      </section>
+        <section>
+          Or
+          <button onClick={() => this.parseData(csvData)}>
+            see demo data!
+          </button>
+        </section>
+      </Backdrop>
     );
   }
 }

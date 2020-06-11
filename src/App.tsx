@@ -7,22 +7,26 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
-import Badge from "@material-ui/core/Badge";
 import MenuIcon from "@material-ui/icons/Menu";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import BackupIcon from "@material-ui/icons/Backup";
 
 interface State {
   allNPS: NPSEntry[] | null;
+  isUploadOpen: boolean;
 }
 
 class App extends Component<{}, State> {
   state: State = {
     allNPS: null,
+    isUploadOpen: true,
   };
 
   dataHandler = (allNPS: NPSEntry[]) => {
-    this.setState({ allNPS: allNPS });
+    this.setState({ allNPS: allNPS, isUploadOpen: false });
+  };
+
+  uploadClickHandler = () => {
+    this.setState({ isUploadOpen: true });
   };
 
   render() {
@@ -42,14 +46,19 @@ class App extends Component<{}, State> {
             >
               Dashboard
             </Typography>
-            <IconButton color="inherit">
+            <IconButton color="inherit" onClick={this.uploadClickHandler}>
               <BackupIcon style={{ fontSize: 30 }} />
             </IconButton>
           </Toolbar>
         </AppBar>
         <div className="page">
-          <FileUploader dataHandler={this.dataHandler} />
-          <NPSstats allNPS={this.state.allNPS} />
+          <FileUploader
+            dataHandler={this.dataHandler}
+            isUploadOpen={this.state.isUploadOpen}
+          />
+          {this.state.isUploadOpen === false ? (
+            <NPSstats allNPS={this.state.allNPS} />
+          ) : null}
         </div>
       </section>
     );
