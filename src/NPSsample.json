@@ -21,7 +21,7 @@
 		"ID": 6,
 		"DATE": "May 21, 2020",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " The app sucks, i cant put my password and it asking me to put my password as of number but no letters, I'm unable to choose seat. Why can't I use my email, i hate using my username that starts(that was giving by Turkish airlines) with TK and some random numbers.",
 		"ID": 8,
@@ -53,7 +53,7 @@
 		"ID": 16,
 		"DATE": "March 5, 2020",
 		"Score": 2,
-		"sign-login": "x",
+		"sign-in process": "x",
 		"number not work": "x"
 	},{
 		"Comment": " Some features are not working at all, profile update is not possible,it gives always same error",
@@ -107,13 +107,13 @@
 		"ID": 34,
 		"DATE": "March 15, 2020",
 		"Score": 2,
-		"sign-login": "x"
+		"sign-in process": "x"
 	},{
 		"Comment": " Keeps generating an error on check-in saying \"A paid seat cannot be processed free of charge. Try again after 5 minutes\". Been receiving this error since December 2019.",
 		"ID": 36,
 		"DATE": "January 13, 2020",
 		"Score": 4,
-		" proceed": "x",
+		" can't proceed": "x",
 		"choose seat": "x"
 	},{
 		"Comment": " Useless app. Flights not booked though the app are not listed my flights but as a secondary \"saved reservations\", couldn't choose seats, entering personal data was a joke. I reccomend to use their site instead.",
@@ -137,7 +137,7 @@
 		"ID": 44,
 		"DATE": "June 13, 2019",
 		"Score": 2,
-		"sign-login": "x"
+		"sign-in process": "x"
 	},{
 		"Comment": " Never seen such a terrible airline app interface",
 		"ID": 46,
@@ -155,7 +155,7 @@
 		"ID": 50,
 		"DATE": "July 11, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": "Very useful if you travel a lot with Turkish Airlines. The only part I think could be improved is if they made it possible to check in directly from the \"My Flights\" section instead of having to go to the \"Check in\" section and type the PNR number. Or at least fix the problem about not being abla to check in to \"My Flights\" under the \"Check in\"👍",
 		"ID": 52,
@@ -167,7 +167,7 @@
 		"ID": 54,
 		"DATE": "November 4, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": "Push advertising, and disrespectful lack of notification options. This app pushed an advertising notification on my phone. The only option is to turn off all notifications, including flights.  I am uninstalling this app and will only put it back when there are separate notification settings for ads and flight notifications.",
 		"ID": 56,
@@ -184,7 +184,7 @@
 		"ID": 60,
 		"DATE": "August 3, 2019",
 		"Score": 2,
-		"sign-login": "x",
+		"sign-in process": "x",
 		"language": "x"
 	},{
 		"Comment": "Awful service during covid-19 pandemic they were selling ticket but had no intention to fly each time they were cancelling my flight and rebook agian. The question is if they cancel flight because of covid-19 then what they sell ticket to people. When you call them they have to respect to customers non what so ever. Total rubbish",
@@ -205,7 +205,7 @@
 		"Score": 4,
 		"slow": "x",
 		"boarding pass": "x",
-		" proceed": "x",
+		" can't proceed": "x",
 		"reschedule": "x"
 	},{
 		"Comment": " I would like to unsubscribe from your email but all the time i click unsub its always direct me to buy a flight ticket its the most annoying thing that you do not people to choose either we would like to receive your annoying email or just to choose unsubscribe",
@@ -230,7 +230,7 @@
 		"ID": 74,
 		"DATE": "November 19, 2019",
 		"Score": 4,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Had this app installed for about a week and all it does is spam ads as notifications. There's no way to disable the ads so I had to disable ALL notifications from this app entirely. I'll reenable the notifications when I fly so I can check in and get the boarding pass.",
 		"ID": 76,
@@ -241,7 +241,7 @@
 		"ID": 78,
 		"DATE": "July 31, 2019",
 		"Score": 2,
-		"bug": "x"
+		"too many bugs": "x"
 	},{
 		"Comment": " Great app for booking flights! The Miles & Smiles part though could use some love. Claiming of miles doesn't work, stops with error messages (like having to chose specific format for flights, even though there's only a pull down menu and fields accept numbers only).",
 		"ID": 80,
@@ -253,25 +253,25 @@
 		"ID": 82,
 		"DATE": "May 17, 2019",
 		"Score": 2,
-		"sign-login": "x"
+		"sign-in process": "x"
 	},{
 		"Comment": " So many bugs. Never been able to do anything on this app. Always shows technical errors!!",
 		"ID": 84,
 		"DATE": "December 21, 2019",
 		"Score": 2,
-		"bug": "x"
+		"too many bugs": "x"
 	},{
 		"Comment": "Meal selection does not sync with the system. I have gluten-free meal assigned under my profile, but most of the time the plane does not have gluten-free meal on board. Other people eat their regular meals during flight whereas I look at them with hunger. Stupid syncing bug that has not been fixed for months!!!!",
 		"ID": 86,
 		"DATE": "October 16, 2018",
 		"Score": 10,
-		"bug": "x"
+		"too many bugs": "x"
 	},{
 		"Comment": " very complicated app. can not sign in and keeps asking for membership number which I have forgotten. I can not reset the password. every time I need to check the flight I have enter all data again. so inconvenient.",
 		"ID": 88,
 		"DATE": "March 13, 2019",
 		"Score": 2,
-		"sign-login": "x",
+		"sign-in process": "x",
 		"check in ": "x",
 		"easy": "v"
 	},{
@@ -395,7 +395,7 @@
 		"ID": 130,
 		"DATE": "December 19, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Poorly designed app (includes their website and customer services who cannot speak proper English). Difficult to understand, not easy to navigate and certainly non user friendly.",
 		"ID": 132,
@@ -407,13 +407,13 @@
 		"ID": 134,
 		"DATE": "August 29, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Sometime you have to sign on again because somehow it logs you out after time.",
 		"ID": 136,
 		"DATE": "January 12, 2020",
 		"Score": 8,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " They used to give free booze on transatlantic flights. I think they stopped. What a shame",
 		"ID": 138,
@@ -451,7 +451,7 @@
 		"ID": 150,
 		"DATE": "July 2, 2019",
 		"Score": 4,
-		" proceed": "x",
+		" can't proceed": "x",
 		"check in ": "x"
 	},{
 		"Comment": " This app is ok, some stuff missing, the interface lags, but it's sufficient for what it is. Visually, it's nice.",
@@ -470,14 +470,14 @@
 		"ID": 156,
 		"DATE": "October 17, 2019",
 		"Score": 2,
-		" proceed": "x",
+		" can't proceed": "x",
 		"poor app": "x"
 	},{
 		"Comment": " Not useful. I can not to get check-in. Because, the time of flight changed, and I can not agree. Unexpected error.",
 		"ID": 158,
 		"DATE": "November 15, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " unreliable, lacks basic features, can't save our link your ticket. can't use to create boarding pass. totally useless",
 		"ID": 160,
@@ -495,7 +495,7 @@
 		"ID": 164,
 		"DATE": "September 26, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " I was forced to use this app, the check-in via browser (Firefox) was not possible. Quiet inconvenient and unsophisticated app.",
 		"ID": 166,
@@ -549,7 +549,7 @@
 		"ID": 182,
 		"DATE": "September 29, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Very easy and helpfull. It is save the time and money. Everything is in your hand ! Love it.",
 		"ID": 184,
@@ -576,13 +576,13 @@
 		"ID": 190,
 		"DATE": "September 23, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " After clicking the \"Search Flight\" button, the application closes itself. Thanks THY for being professional...:(",
 		"ID": 192,
 		"DATE": "October 12, 2019",
 		"Score": 2,
-		" proceed": "x",
+		" can't proceed": "x",
 		"miles": "x"
 	},{
 		"Comment": " Claim for missing miles doesn't work. Get error about format of flight number which app gives no option to correct",
@@ -609,20 +609,20 @@
 		"DATE": "January 7, 2019",
 		"Score": 2,
 		"boarding pass": "x",
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Cant check in. It says: \" We are unable to process your request. Please try again later\".",
 		"ID": 202,
 		"DATE": "August 3, 2019",
 		"Score": 2,
-		" proceed": "x",
+		" can't proceed": "x",
 		"check in ": "x"
 	},{
 		"Comment": " Piece of garbage, doesn't work on Samsung S9, it refuses to let me type my mile no.",
 		"ID": 204,
 		"DATE": "February 23, 2019",
 		"Score": 2,
-		"sign-login": "x"
+		"sign-in process": "x"
 	},{
 		"Comment": " practical app but why there isn't any option for changing a seat reservation niether on your site nor the app? how to change seat before the flight?",
 		"ID": 206,
@@ -652,7 +652,7 @@
 		"ID": 214,
 		"DATE": "October 13, 2018",
 		"Score": 4,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " If I could I would put a zero. The worst ever it won't allow you to get information about your changed reservation codes it wont allow you to confirm the new flights given. it's a useless waste of phone space",
 		"ID": 216,
@@ -664,7 +664,7 @@
 		"ID": 218,
 		"DATE": "April 15, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " app has evolved good over time, now showing gate info for your flight! very welcome addition",
 		"ID": 220,
@@ -676,7 +676,7 @@
 		"ID": 222,
 		"DATE": "October 23, 2018",
 		"Score": 10,
-		" proceed": "x",
+		" can't proceed": "x",
 		"easy": "x",
 		"fast": "x"
 	},{
@@ -709,8 +709,8 @@
 		"ID": 232,
 		"DATE": "July 8, 2019",
 		"Score": 2,
-		" proceed": "x",
-		"sign-login": "x"
+		" can't proceed": "x",
+		"sign-in process": "x"
 	},{
 		"Comment": " There is no multi-cities option booking, hence 1 star.",
 		"ID": 234,
@@ -735,13 +735,13 @@
 		"DATE": "May 4, 2019",
 		"Score": 2,
 		"slow": "x",
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " unable to process the request but it works on PC",
 		"ID": 242,
 		"DATE": "July 6, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Fantastic Experience throughout the App with all the information you need!!!😃👍",
 		"ID": 244,
@@ -781,7 +781,7 @@
 		"ID": 256,
 		"DATE": "November 20, 2019",
 		"Score": 2,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " rubbish app and Rubbish airline. nothing works. onlone check in doesn't work. i called the Custimer services and the operator was so rude. she said she isn't there to help me. first and last time to use this rubbish airline.",
 		"ID": 258,
@@ -815,7 +815,7 @@
 		"ID": 268,
 		"DATE": "October 1, 2018",
 		"Score": 10,
-		"bug": "x"
+		"too many bugs": "x"
 	},{
 		"Comment": " Excellent app! booked my flight easily. I definetly recommend it",
 		"ID": 270,
@@ -860,7 +860,7 @@
 		"DATE": "October 4, 2018",
 		"Score": 10,
 		"easy": "x",
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " Easy to log on for seat assignment. Will not give me boarding pass.",
 		"ID": 286,
@@ -877,20 +877,20 @@
 		"ID": 290,
 		"DATE": "October 13, 2018",
 		"Score": 4,
-		"bug": "x"
+		"too many bugs": "x"
 	},{
 		"Comment": " fast, straightforward. can book in moments.",
 		"ID": 292,
 		"DATE": "July 30, 2019",
 		"Score": 10,
-		" proceed": "x",
+		" can't proceed": "x",
 		"fast": "x"
 	},{
 		"Comment": " Noot well developed or designed, often and repeatedly doesnt ring up premium seat prices when info is put in .",
 		"ID": 294,
 		"DATE": "March 22, 2019",
 		"Score": 6,
-		" proceed": "x",
+		" can't proceed": "x",
 		"design": "x"
 	},{
 		"Comment": " I won't use Turkish anymore. They kept changing my flight many times I'm completely confused when or what time my flight will be. Now I have to call them only to be told to call back again few hours before my flight. Very stressful and poor customer service.",
@@ -929,7 +929,7 @@
 		"ID": 308,
 		"DATE": "March 19, 2019",
 		"Score": 10,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " TK are a rip off. They have cut the amount of air-miles by 50% making it pointless being a \"Miles and Smiles\" member.",
 		"ID": 310,
@@ -940,7 +940,7 @@
 		"ID": 312,
 		"DATE": "June 22, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Worst management ever stay far the maximum from it I wish i could put minus 5 stars :@",
 		"ID": 314,
@@ -951,7 +951,7 @@
 		"ID": 316,
 		"DATE": "October 17, 2018",
 		"Score": 10,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": "Malaysia 🇲🇾🇲🇾 Malaysians 'MALAY ' Ampang FRIENDS Give Your Language Turkish 🇹🇷 World's 🗺️ License World's Work Working PLAY Bank WORLD and World's Business Work Business WORLD WWW SHA jORE NASHA US ' EVERY Time's Open World's (!) Some mi my myanma Street Settings View OF COM (!) UNITED STATES Street Settings View OF COM (!) UNITED kingdom Street Settings View OF COM (!) is Street Settings View OF COM",
 		"ID": 318,
@@ -962,7 +962,7 @@
 		"ID": 320,
 		"DATE": "October 5, 2018",
 		"Score": 10,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " Nice app, but a hit and miss regarding check in. Sadly ☹️",
 		"ID": 322,
@@ -996,7 +996,7 @@
 		"ID": 332,
 		"DATE": "October 3, 2018",
 		"Score": 10,
-		" proceed": "x",
+		" can't proceed": "x",
 		"interface lags": "x"
 	},{
 		"Comment": " too easy to use this app and saves time.I can definitely suggest to everybody. Thanks",
@@ -1013,7 +1013,7 @@
 		"ID": 338,
 		"DATE": "April 12, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Easy check in with Passport scanning facility",
 		"ID": 340,
@@ -1025,14 +1025,14 @@
 		"ID": 342,
 		"DATE": "March 9, 2020",
 		"Score": 2,
-		" proceed": "x",
+		" can't proceed": "x",
 		"check in ": "x"
 	},{
 		"Comment": " This is very useful, online takes 4ever thnx for the app! :))))",
 		"ID": 344,
 		"DATE": "November 6, 2018",
 		"Score": 10,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " Great app. Well thought out, easy to use.",
 		"ID": 346,
@@ -1082,14 +1082,14 @@
 		"ID": 362,
 		"DATE": "October 8, 2018",
 		"Score": 8,
-		" proceed": "x",
+		" can't proceed": "x",
 		"easy": "x"
 	},{
 		"Comment": " Significantly higher prices compared to websites like Skyscanner. THY is scamming people big time through their official app.",
 		"ID": 364,
 		"DATE": "September 26, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Ne yaparsan yap \"we are unable to process your request\" yazıyor ...",
 		"ID": 366,
@@ -1159,7 +1159,7 @@
 		"DATE": "September 28, 2018",
 		"Score": 10,
 		"easy": "x",
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " Its better to give a clear price amount of fight ticket",
 		"ID": 390,
@@ -1170,7 +1170,7 @@
 		"ID": 392,
 		"DATE": "February 20, 2019",
 		"Score": 2,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " Totally disgusting. As their Airlines.",
 		"ID": 394,
@@ -1187,7 +1187,7 @@
 		"ID": 398,
 		"DATE": "December 13, 2019",
 		"Score": 2,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " Why Arabic language not available in this app?",
 		"ID": 400,
@@ -1199,7 +1199,7 @@
 		"ID": 402,
 		"DATE": "March 4, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " amazing and easy to use",
 		"ID": 404,
@@ -1266,13 +1266,13 @@
 		"ID": 426,
 		"DATE": "January 4, 2020",
 		"Score": 2,
-		"bug": "x"
+		"too many bugs": "x"
 	},{
 		"Comment": " a waste of space...what is the point of an airline app that doesn't save reservations..",
 		"ID": 428,
 		"DATE": "May 26, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Excellent and aggressive app",
 		"ID": 430,
@@ -1318,7 +1318,7 @@
 		"DATE": "December 27, 2019",
 		"Score": 10,
 		"easy": "x",
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " It is a great app. I can do whatever I need.",
 		"ID": 446,
@@ -1400,7 +1400,7 @@
 		"DATE": "June 29, 2019",
 		"Score": 10,
 		"easy": "x",
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " Bad service & flying is terrable .",
 		"ID": 476,
@@ -1411,7 +1411,7 @@
 		"ID": 478,
 		"DATE": "September 23, 2019",
 		"Score": 4,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Great . Much better than previous app",
 		"ID": 480,
@@ -1476,13 +1476,13 @@
 		"ID": 502,
 		"DATE": "March 12, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " not enough saved recent destinations",
 		"ID": 504,
 		"DATE": "March 25, 2019",
 		"Score": 4,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " Good fly good food thank you Turkish airline",
 		"ID": 506,
@@ -1499,7 +1499,7 @@
 		"ID": 510,
 		"DATE": "July 29, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Useful and Quick",
 		"ID": 512,
@@ -1512,7 +1512,7 @@
 		"ID": 514,
 		"DATE": "December 2, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Fantastic App for Tickets Worldwide",
 		"ID": 516,
@@ -1538,7 +1538,7 @@
 		"ID": 524,
 		"DATE": "September 23, 2019",
 		"Score": 10,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " Cabin staff is not freindly; they are impolite and so angry!",
 		"ID": 526,
@@ -1561,7 +1561,7 @@
 		"ID": 532,
 		"DATE": "May 22, 2019",
 		"Score": 4,
-		"sign-login": "x"
+		"sign-in process": "x"
 	},{
 		"Comment": " not good as your site",
 		"ID": 534,
@@ -1895,7 +1895,7 @@
 		"ID": 662,
 		"DATE": "October 3, 2018",
 		"Score": 10,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " I feel satisfied with Turkish",
 		"ID": 664,
@@ -1906,7 +1906,7 @@
 		"ID": 666,
 		"DATE": "November 8, 2019",
 		"Score": 2,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " Very good service provaider.",
 		"ID": 668,
@@ -1953,13 +1953,13 @@
 		"ID": 684,
 		"DATE": "July 8, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " i cant fix my birth date",
 		"ID": 686,
 		"DATE": "March 30, 2019",
 		"Score": 4,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Works well. Yeah.",
 		"ID": 688,
@@ -1990,7 +1990,7 @@
 		"ID": 698,
 		"DATE": "April 29, 2019",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " I love Turkish airlines",
 		"ID": 700,
@@ -2223,7 +2223,7 @@
 		"ID": 788,
 		"DATE": "May 21, 2020",
 		"Score": 4,
-		"sign-login": "x"
+		"sign-in process": "x"
 	},{
 		"Comment": "Caution!......in these times of the pandemic there are businesses taking advantage of travel restrictions and offering cheap flights and then cancelling without offering a refund...so, they make their money and you can get a travel voucher which you might never use and still faced with purchasing a ticket on another airlines.....even travel agencies are on board with this...everyone makes money and you are out of luck!",
 		"ID": 790,
@@ -2274,7 +2274,7 @@
 		"ID": 808,
 		"DATE": "April 3, 2020",
 		"Score": 8,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " Excellent",
 		"ID": 810,
@@ -2491,7 +2491,7 @@
 		"ID": 894,
 		"DATE": "October 30, 2019",
 		"Score": 10,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " horrible app",
 		"ID": 896,
@@ -3235,13 +3235,13 @@
 		"ID": 1190,
 		"DATE": "August 28, 2018",
 		"Score": 4,
-		"sign-login": "x"
+		"sign-in process": "x"
 	},{
 		"Comment": " Doesn't work half the time, UI not optimized for all phone types. Needs \\noptimizations.",
 		"ID": 1192,
 		"DATE": "August 20, 2018",
 		"Score": 6,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Miles smiles la odeme yap Sonra git miles smilea numarasi yaz. Yetmedi ucus numarasini bilemeyecek kadar saf olsun (yahu bileti senden aldim ucusun numarasi sende yok mu?l) sonra bilet numarasi sor? Sahi bilet numarasi nerede??? Sonra ad soyad sor turkce karakterde cuvalla!!!! Yeniden yazdir bileti ...Full ReviewMiles smiles la odeme yap Sonra git miles smilea numarasi yaz. Yetmedi ucus numarasini bilemeyecek kadar saf olsun (yahu bileti senden aldim ucusun numarasi sende yok mu?l) sonra bilet numarasi sor? Sahi bilet numarasi nerede??? Sonra ad soyad sor turkce karakterde cuvalla!!!! Yeniden yazdir bileti bulamadim de. Sahi uygulamayi tesekkurle mi yazdirdiniz? Yazilimcilariniz para almiyor mu???",
 		"ID": 1194,
@@ -3259,13 +3259,13 @@
 		"DATE": "August 28, 2018",
 		"Score": 10,
 		"easy": "x",
-		"bug": "x"
+		"too many bugs": "x"
 	},{
 		"Comment": " Bad ui, waste of time",
 		"ID": 1200,
 		"DATE": "August 18, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Best Turkish Airline they give very good food good service and the service people are very nice very respectable only the counter have a problem",
 		"ID": 1202,
@@ -3288,7 +3288,7 @@
 		"DATE": "September 10, 2018",
 		"Score": 10,
 		"easy": "x",
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " UX sometimes feel like webpage instead of native Android app. Works fine \\nthough.",
 		"ID": 1210,
@@ -3304,7 +3304,7 @@
 		"ID": 1214,
 		"DATE": "August 27, 2018",
 		"Score": 6,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Good...but it could be better!",
 		"ID": 1216,
@@ -3423,7 +3423,7 @@
 		"ID": 1258,
 		"DATE": "August 19, 2018",
 		"Score": 10,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " Thanks THY",
 		"ID": 1260,
@@ -3832,7 +3832,7 @@
 		"ID": 1418,
 		"DATE": "August 12, 2018",
 		"Score": 2,
-		"sign-login": "x",
+		"sign-in process": "x",
 		"number not work": "x"
 	},{
 		"Comment": " After they changed my flight departure time, I cant reserve a seat through \\nthis app neither through full website because there is a pop up message \\nabout the departure time change confirmation....I cant confirm it through \\nonline. But it should be simple.",
@@ -3851,8 +3851,8 @@
 		"ID": 1424,
 		"DATE": "July 26, 2018",
 		"Score": 8,
-		" proceed": "x",
-		"bug": "x"
+		" can't proceed": "x",
+		"too many bugs": "x"
 	},{
 		"Comment": " After a few updates it become more slow.",
 		"ID": 1426,
@@ -3947,7 +3947,7 @@
 		"ID": 1458,
 		"DATE": "July 22, 2018",
 		"Score": 8,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Turkish Airlines...... and others..... That's it",
 		"ID": 1460,
@@ -4081,27 +4081,27 @@
 		"ID": 1510,
 		"DATE": "June 15, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Waste! Does not recognize TK ID and locks up account! Later they e-mailed \\noffer to call to Turkey to unlock account! Waste of money!!!",
 		"ID": 1512,
 		"DATE": "May 29, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " This is the most terrible application I used. The same for the website as \\nwell. Can not login with valid credentials, where as site works by it.",
 		"ID": 1514,
 		"DATE": "June 29, 2018",
 		"Score": 2,
-		" proceed": "x",
-		"sign-login": "x",
+		" can't proceed": "x",
+		"sign-in process": "x",
 		"miles": "x"
 	},{
 		"Comment": " This app became useless after an upgrade and my finger login stopped \\nworking, wont show u flight tracker anymore, it disappointed me",
 		"ID": 1516,
 		"DATE": "May 31, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Book, pay for and change flight tickets quickly and easily. I've booked \\nseveral flights through this app but what really made me write this review \\nwas that I just changed my (flexible) ticket for a different flight in \\nunder a minute. Very impressed.",
 		"ID": 1518,
@@ -4115,7 +4115,7 @@
 		"DATE": "June 23, 2018",
 		"Score": 2,
 		"boarding pass": "x",
-		" proceed": "x",
+		" can't proceed": "x",
 		"miles": "x"
 	},{
 		"Comment": " Odemeyi yaparken sorun cikardi. Islemi tekrar etmek istedigimde fiyat $100 \\nartmisti. Aciliyetim oldugu icin almak zorundaydim. Uygulamayi bir daha \\nkullanmicagim kesin.",
@@ -4142,19 +4142,19 @@
 		"ID": 1530,
 		"DATE": "June 28, 2018",
 		"Score": 2,
-		"sign-login": "x"
+		"sign-in process": "x"
 	},{
 		"Comment": " Does not work properly",
 		"ID": 1532,
 		"DATE": "July 4, 2018",
 		"Score": 2,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " Wonderful app.. everything you need is there",
 		"ID": 1534,
 		"DATE": "July 6, 2018",
 		"Score": 10,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Surprisingly good... I do enjoy it...",
 		"ID": 1536,
@@ -4180,8 +4180,8 @@
 		"ID": 1544,
 		"DATE": "May 6, 2018",
 		"Score": 4,
-		" proceed": "x",
-		"sign-login": "x",
+		" can't proceed": "x",
+		"sign-in process": "x",
 		"language": "x"
 	},{
 		"Comment": " why it is over 100MB app, making it humble and slow, eating not only memory \\nbut also our precious time.. previous version was more stable...",
@@ -4189,13 +4189,13 @@
 		"DATE": "April 28, 2018",
 		"Score": 2,
 		"slow": "x",
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " I'm using the app for airmiles but I cannot seem to sign in any more. Every \\ntime I try I get a message that its locked. I spoke to Turkish Airlines \\ntold me I need a specific department probably in Turkey great. I'm not even \\ntravelling to Turkey 🇹🇷",
 		"ID": 1548,
 		"DATE": "May 10, 2018",
 		"Score": 6,
-		"sign-login": "x"
+		"sign-in process": "x"
 	},{
 		"Comment": " Too many updates that are NOT backwards compatible - as soon as an update \\nis released, earlier versions are unusable.",
 		"ID": 1550,
@@ -4213,7 +4213,7 @@
 		"ID": 1554,
 		"DATE": "May 15, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Good app to keep track of ticket fares and also search on the largest served airline destination base to plan ur next trip being a crazy about travel traveller",
 		"ID": 1556,
@@ -4236,7 +4236,7 @@
 		"ID": 1562,
 		"DATE": "May 21, 2018",
 		"Score": 2,
-		"sign-login": "x"
+		"sign-in process": "x"
 	},{
 		"Comment": " compared to other airlines this is a must app",
 		"ID": 1564,
@@ -4273,20 +4273,20 @@
 		"ID": 1576,
 		"DATE": "April 18, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Completely useless. Unable to add trip. App keeps closing at same point. Supplied feedback multiple times but got no response.",
 		"ID": 1578,
 		"DATE": "April 10, 2018",
 		"Score": 2,
-		" proceed": "x",
+		" can't proceed": "x",
 		"multi-flight": "x"
 	},{
 		"Comment": " I fill all the information, it says Successful and then enters a loop and asks that I fill it again, cannot check in. Useless",
 		"ID": 1580,
 		"DATE": "March 26, 2018",
 		"Score": 2,
-		" proceed": "x",
+		" can't proceed": "x",
 		"check in ": "x"
 	},{
 		"Comment": " İstanbul için sadece Atatürk havalimanı araması yapamıyorum. Sabiha Gökçen Havalimanı var ama Atatürk Havalimanı yok.",
@@ -4354,14 +4354,14 @@
 		"ID": 1606,
 		"DATE": "March 7, 2018",
 		"Score": 2,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " App is not too bad looking but it gets stuck very often. However the new webpage is a total failure. It is impossible to buy tickets and is extremely confusing.",
 		"ID": 1608,
 		"DATE": "March 15, 2018",
 		"Score": 6,
 		"slow": "x",
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": "Much user friendlier than the previous generation. I like that it syncs my reservations as I book them, letting me select a seat/meal. Easy flight search and booking interface. Great that they added fingerprint login, seamless login within a second. Next - I am expecting more integration i to other apps eg calendar, maps",
 		"ID": 1610,
@@ -4390,7 +4390,7 @@
 		"ID": 1618,
 		"DATE": "March 7, 2018",
 		"Score": 8,
-		"bug": "x"
+		"too many bugs": "x"
 	},{
 		"Comment": " I don't know about the previous app, but this app is good, interface and the experience is nice",
 		"ID": 1620,
@@ -4424,20 +4424,20 @@
 		"ID": 1630,
 		"DATE": "January 26, 2018",
 		"Score": 2,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " 15% discount could be a good deal with a new App.  But getting through this App is impossible: selecting dates is torture, it doesn't recognizes my FFP, and then when finally reaching the payment page, there is no a button for 15% discount.  Waste of time. The flight is not booked.",
 		"ID": 1632,
 		"DATE": "January 20, 2018",
 		"Score": 2,
-		" proceed": "x",
+		" can't proceed": "x",
 		"apply discount": "x"
 	},{
 		"Comment": " Pretty useless. Has technical errors when you add a passenger. Can't recognise frequent flyer numbers.. doesn't give any discounts as advertised.  Waste of valuable time...",
 		"ID": 1634,
 		"DATE": "January 19, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " This Airline and its app is the worst, I am on business class I tried to switch dates from the 22nd to the 20th, the app charged me for the full price of new reservation as economy and also deleted my business reservation completely, even though I am eligible for refund. I swear no one in Turkish ai...Full ReviewThis Airline and its app is the worst, I am on business class I tried to switch dates from the 22nd to the 20th, the app charged me for the full price of new reservation as economy and also deleted my business reservation completely, even though I am eligible for refund. I swear no one in Turkish airlines customer service helped me to get this issued fixed. They told me I lost my business class and my money.  Be warned, I swear I had horrible anxiety from it especially that my flight is 14 hours on plane, they kept hanging up phone on me. I opened complain ticket they did not help me, I opened an objection, they pass it to higher level customer service who refused to even do anything about it.  Three agents on the ground before my flight admitted that Turkish airlines system made a mistake, they called customer service who refuse to discuss it.  *If you have enough evidence against this LOL-Customer-Services. Call your bank and open an objection case, attach evidence files with your tickets and request refund.  *Turkish airlines do not follow their policy. Their website and app is full of bugs and errors, their system will take your money in a fault request. No one would help you there. Be warned!",
 		"ID": 1636,
@@ -4511,7 +4511,7 @@
 		"ID": 1662,
 		"DATE": "February 8, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " very very poor app !! I can't book my flight !! i had to use my laptop",
 		"ID": 1664,
@@ -4598,7 +4598,7 @@
 		"ID": 1694,
 		"DATE": "January 2, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": "It is worse than before, keeps reminding me to update it when i click on it, i can open it only from Google play page. I can't change my address because city of Rovigo doesn't exist on the list of italian cities. A mongoloid teenager could have done a better job. Just gets my blood pressure up. Not even one star really....",
 		"ID": 1696,
@@ -4610,14 +4610,14 @@
 		"ID": 1698,
 		"DATE": "December 25, 2017",
 		"Score": 2,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " Not working properly. Address for USA for instance can't find my city. What good is making me make a selection, i am capable writing it myself. Whoever's the develepor, he or she needs more training.",
 		"ID": 1700,
 		"DATE": "January 13, 2018",
 		"Score": 4,
-		" proceed": "x",
-		"efficiant": "x"
+		" can't proceed": "x",
+		"efficient": "x"
 	},{
 		"Comment": " its rubbish! much preferred the older version!! hate the way it throws you back to the first screen when you want to check a different date!!",
 		"ID": 1702,
@@ -4639,13 +4639,13 @@
 		"ID": 1708,
 		"DATE": "January 8, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " It doesn't work. Not fit for purpose and creates multiple errors. Why was it released?!! Incompetence!",
 		"ID": 1710,
 		"DATE": "January 8, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Hopeless just like it's customer service. Worst new app I have tried. Shame on TK",
 		"ID": 1712,
@@ -4695,7 +4695,7 @@
 		"ID": 1728,
 		"DATE": "December 28, 2017",
 		"Score": 2,
-		"sign-login": "x",
+		"sign-in process": "x",
 		"number not work": "x"
 	},{
 		"Comment": " Eskisi daha iyiydi hic olmasa bug yoktu..",
@@ -4766,7 +4766,7 @@
 		"ID": 1754,
 		"DATE": "December 29, 2017",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Remember me...ÇALIŞMIYOR  Kayıtlı kişi icin işlem yaparken...HIC BIR BILGIYI  KAYITLARDAN ALIP FORMA KOYMUYOR. En garibi zaten Miles and Smiles numarası ile girmişken...UCUS KARTINA MIL NUMARASINI ISLEMIYOR.  Eski app kısıtlıydı ama çatır çatır çalışıyordu yaw! Bu nasıl bir facia?",
 		"ID": 1756,
@@ -4783,7 +4783,7 @@
 		"ID": 1760,
 		"DATE": "December 15, 2017",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " I think you developers are retarded and i think once in a while you should test it yourselves, it's the worst airline app i have came across. And you are Turkish airlines. Not no name airlines.",
 		"ID": 1762,
@@ -4794,7 +4794,7 @@
 		"ID": 1764,
 		"DATE": "December 22, 2017",
 		"Score": 2,
-		" proceed": "x",
+		" can't proceed": "x",
 		"interface lags": "x"
 	},{
 		"Comment": " Bu uygulamayi yazan beyinsiz takiminin isine son verilmeli, uygulamaya ne email, ne telefon, ne de TK numarasi ile  girilemedigi gibi sifremi unuttum bölümünde bunların hicbirini kabul etmiyor, ya arkadaş hicmi test yapmazsiniz hicmi yorumlari okumazsiniz, avrupanin en iyi havayolu bu kadar kötü bir...Full ReviewBu uygulamayi yazan beyinsiz takiminin isine son verilmeli, uygulamaya ne email, ne telefon, ne de TK numarasi ile  girilemedigi gibi sifremi unuttum bölümünde bunların hicbirini kabul etmiyor, ya arkadaş hicmi test yapmazsiniz hicmi yorumlari okumazsiniz, avrupanin en iyi havayolu bu kadar kötü bir uygulamayı nasil yayinlar.",
@@ -4806,19 +4806,19 @@
 		"ID": 1768,
 		"DATE": "December 21, 2017",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " This is the worst app I have ever used! Just the sign up process was painful!",
 		"ID": 1770,
 		"DATE": "December 14, 2017",
 		"Score": 2,
-		"sign-login": "x"
+		"sign-in process": "x"
 	},{
 		"Comment": " This app is horrible.  The new app doesn't let you do anything.  It requires certain responses.  Worst app.  I won't use Turkish airlines because of it.  I'll use other airlines",
 		"ID": 1772,
 		"DATE": "December 23, 2017",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Uygulamayi her actigimda brand new app i indirmelisiniz diyor ve google play e yonlendiriyor (indirmeme ragmen). Daha sonra google playden open deyip acabiliyorum. Hic mi test etmediniz..",
 		"ID": 1774,
@@ -4834,7 +4834,7 @@
 		"ID": 1778,
 		"DATE": "December 7, 2017",
 		"Score": 2,
-		"sign-login": "x"
+		"sign-in process": "x"
 	},{
 		"Comment": " Sacmalik, online check in de isim kisminda karakter limiti var. Tam ismimi giremiyorum. Sonraki sekmeye atlama kismi da calismiyor. Ayrica arayuz cok koootu, anlamiyorum neyi yana kaydirmam gerektigini. -_- Galaxy S6 Edge",
 		"ID": 1780,
@@ -4845,7 +4845,7 @@
 		"ID": 1782,
 		"DATE": "December 20, 2017",
 		"Score": 4,
-		"sign-login": "x"
+		"sign-in process": "x"
 	},{
 		"Comment": " Turkish airline have a rubbish service",
 		"ID": 1784,
@@ -4920,8 +4920,8 @@
 		"ID": 1810,
 		"DATE": "November 23, 2017",
 		"Score": 2,
-		" proceed": "x",
-		"bug": "x"
+		" can't proceed": "x",
+		"too many bugs": "x"
 	},{
 		"Comment": " Your app is complicated and insufficient, for a world class airline to have such a bad app, you better fire this developer. Does not recognize emails, and to book a flight, I my God, it forces you to book with someone else . Just bad",
 		"ID": 1812,
@@ -4937,14 +4937,14 @@
 		"ID": 1816,
 		"DATE": "November 26, 2017",
 		"Score": 2,
-		" proceed": "x",
+		" can't proceed": "x",
 		"country name": "x"
 	},{
 		"Comment": " I update all info and safe it however after I wanna check my earn miles keep asking me to update my city after I update giving same error. Deffenty I don't recommend to any one to use this upp",
 		"ID": 1818,
 		"DATE": "November 20, 2017",
 		"Score": 2,
-		" proceed": "x",
+		" can't proceed": "x",
 		"country name": "x"
 	},{
 		"Comment": " Pay fly da taksit seçeneği kur try olmasına rağmen çalışmıyor.  Blok ederken passenger 0 a dönüyor artıyor book islemifevam etmiyor. İos zaten crash ediyor.",
@@ -4956,38 +4956,38 @@
 		"ID": 1822,
 		"DATE": "November 30, 2017",
 		"Score": 2,
-		" proceed": "x",
-		"efficiant": "x"
+		" can't proceed": "x",
+		"efficient": "x"
 	},{
 		"Comment": " Terrible upgrade.. it is not intuitive, hard to use, hard to understand, keeps sending me back to start page etc.. previous app was way better than this thing..",
 		"ID": 1824,
 		"DATE": "December 1, 2017",
 		"Score": 2,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": "new app doesn't work either. it gives error for choosing return date? it doesn't remember your latest search as default, it resets passenger number to 1 adult everytime when u change date etc. so many frustrating things. you can tell, they never tested it before released it. Old one was bad but this one is worse. Shame on Thy! Some retardeds insult people who rated this app 1 star, before even use the app. You idiot either didn't use the app or you are the desinger of this app. It is so obvious, dammy.",
 		"ID": 1826,
 		"DATE": "November 28, 2017",
 		"Score": 2,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " If i want to check next day prices and flights for returning day in reservation, app tooks me to the first page and forces me to choose the departure days again. You claim this app faster but you are wasting my time..",
 		"ID": 1828,
 		"DATE": "November 21, 2017",
 		"Score": 4,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Could be great but since I booked my flight through an agent like many other people I am not allowed to use it :-( it will the Turkish airline ticket number or the Turkish Airlines code but will not allow you to manage the booking or to check in :-( :-(",
 		"ID": 1830,
 		"DATE": "December 1, 2017",
 		"Score": 4,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Cool app but has some bugs. It shows there are absolutely no flights from Istanbul to Stockholm in like 3 months, while in fact there's flight every day.",
 		"ID": 1832,
 		"DATE": "November 27, 2017",
 		"Score": 8,
-		"bug": "x"
+		"too many bugs": "x"
 	},{
 		"Comment": " On kere aradım müşteri hizmetlerini. Programın çalışmadığından haberleri bile yok. Thy dan kimse kullanmaz mı bu programı. Tam bir fiyasko. Her girdiğiniz şifreye hatalı diyor. Yeni şifre alıyorsunuz kendi gönderdikleri şifreye de hatalı diyor. Yok arkadaş artık bu sahte Thy uygulaması diye düşünmey...Full ReviewOn kere aradım müşteri hizmetlerini. Programın çalışmadığından haberleri bile yok. Thy dan kimse kullanmaz mı bu programı. Tam bir fiyasko. Her girdiğiniz şifreye hatalı diyor. Yeni şifre alıyorsunuz kendi gönderdikleri şifreye de hatalı diyor. Yok arkadaş artık bu sahte Thy uygulaması diye düşünmeye başladım. Sizin hiç mi müdürünüz amiriniz yok kardeşim. Bir Allahın kulu da farketmiyor mu. Yaptığınız uygulama bşr halta yaramıyor. Çünkü giremiyoruz bile.",
 		"ID": 1834,
@@ -5015,8 +5015,8 @@
 		"ID": 1842,
 		"DATE": "November 21, 2017",
 		"Score": 2,
-		" proceed": "x",
-		"bug": "x"
+		" can't proceed": "x",
+		"too many bugs": "x"
 	},{
 		"Comment": " I was in a hurry to check in when I suddenly got forced to download an app with slow wifi connection.  What the hell is your problem????",
 		"ID": 1844,
@@ -5027,7 +5027,7 @@
 		"ID": 1846,
 		"DATE": "December 1, 2017",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Can't make a ticket with a star alliance membership from another company. Useless for me. I can't continue.",
 		"ID": 1848,
@@ -5039,8 +5039,8 @@
 		"ID": 1850,
 		"DATE": "November 30, 2017",
 		"Score": 4,
-		" proceed": "x",
-		"bug": "x"
+		" can't proceed": "x",
+		"too many bugs": "x"
 	},{
 		"Comment": " Web check in doesn't work !! Asks for Surname of second passenger on the ticket, but doesn't accept input !!! 👎",
 		"ID": 1852,
@@ -5058,7 +5058,7 @@
 		"ID": 1856,
 		"DATE": "November 30, 2017",
 		"Score": 2,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " Well I just started using app and it really looks great, it has some bugs but it's a new app so u have to give it some time...",
 		"ID": 1858,
@@ -5113,7 +5113,7 @@
 		"ID": 1876,
 		"DATE": "November 17, 2017",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " No total price for multiple bookings .... need a calculator or wait until the end.. Will use Sky Scanner instead ..",
 		"ID": 1878,
@@ -5151,7 +5151,7 @@
 		"ID": 1890,
 		"DATE": "December 7, 2017",
 		"Score": 10,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " I'm from Indonesia.",
 		"ID": 1892,
@@ -5162,13 +5162,13 @@
 		"ID": 1894,
 		"DATE": "November 20, 2017",
 		"Score": 10,
-		"bug": "x"
+		"too many bugs": "x"
 	},{
 		"Comment": " Useless app",
 		"ID": 1896,
 		"DATE": "December 6, 2017",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Doing good job",
 		"ID": 1898,
@@ -5189,7 +5189,7 @@
 		"ID": 1904,
 		"DATE": "November 1, 2017",
 		"Score": 4,
-		"efficiant": "x"
+		"efficient": "x"
 	},{
 		"Comment": " 77 MB app !!! Hellooo",
 		"ID": 1906,
@@ -5222,26 +5222,26 @@
 		"ID": 1916,
 		"DATE": "June 15, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Loads of nice animations but doesn't get simplest tasks done. Useless.",
 		"ID": 1918,
 		"DATE": "November 14, 2017",
 		"Score": 4,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " I cannot create an account at this app. Every time it shows an error \\nmessage that \"there is not such a person in our system\". why is that so?",
 		"ID": 1920,
 		"DATE": "April 15, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Buffering too long. Waste of time. The app seems didn't work accordingly.",
 		"ID": 1922,
 		"DATE": "November 14, 2017",
 		"Score": 2,
 		"slow": "x",
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Bir onceki app , thy'ye hic yakismiyordu. Son 1.5 yilda 60-65 ucus satin almis biri olarak, bunu cok basarili buldum. Bircok ozelligi iyi dusunulerek tasarlanmis.",
 		"ID": 1924,
@@ -5252,13 +5252,13 @@
 		"ID": 1926,
 		"DATE": "May 13, 2018",
 		"Score": 2,
-		"bug": "x"
+		"too many bugs": "x"
 	},{
 		"Comment": " I cannot install it. It stops at 48% with error 495",
 		"ID": 1928,
 		"DATE": "July 15, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Frequent Flyer is a limited space so cannot add mine",
 		"ID": 1930,
@@ -5269,8 +5269,8 @@
 		"ID": 1932,
 		"DATE": "January 6, 2018",
 		"Score": 4,
-		" proceed": "x",
-		"sign-login": "x"
+		" can't proceed": "x",
+		"sign-in process": "x"
 	},{
 		"Comment": " idk how such a big airline company has such a bad app..",
 		"ID": 1934,
@@ -5345,19 +5345,19 @@
 		"ID": 1960,
 		"DATE": "November 22, 2017",
 		"Score": 2,
-		"sign-login": "x"
+		"sign-in process": "x"
 	},{
 		"Comment": " Locked out again",
 		"ID": 1962,
 		"DATE": "August 28, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " I cant download it.",
 		"ID": 1964,
 		"DATE": "August 1, 2018",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " very bad 😡",
 		"ID": 1966,
@@ -5373,7 +5373,7 @@
 		"ID": 1970,
 		"DATE": "December 20, 2017",
 		"Score": 2,
-		" proceed": "x"
+		" can't proceed": "x"
 	},{
 		"Comment": " Constantinople belongs to the Greeks",
 		"ID": 1972,

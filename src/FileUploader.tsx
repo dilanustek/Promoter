@@ -4,7 +4,7 @@ import "./FileUploader.css";
 import Papa from "papaparse";
 import csvData from "./NPSsample.json";
 import Modal from "@material-ui/core/Modal";
-import { Divider } from "@material-ui/core";
+import demoImg from "./screenshot.png";
 
 interface State {
   isFileUploaded: boolean;
@@ -103,6 +103,7 @@ class FileUploader extends Component<Props, State> {
                 see demo data!
               </button>
             </div>
+            <img className="demoImg" src={demoImg} alt="Demo Screenshot" />
           </section>
         </div>
       </Modal>
