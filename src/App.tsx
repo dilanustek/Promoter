@@ -10,6 +10,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Badge from "@material-ui/core/Badge";
 import MenuIcon from "@material-ui/icons/Menu";
 import NotificationsIcon from "@material-ui/icons/Notifications";
+import BackupIcon from "@material-ui/icons/Backup";
 
 interface State {
   allNPS: NPSEntry[] | null;
@@ -32,13 +33,17 @@ class App extends Component<{}, State> {
             <IconButton edge="start" color="inherit" aria-label="open drawer">
               <MenuIcon />
             </IconButton>
-            <Typography component="h1" variant="h6" color="inherit" noWrap>
+            <Typography
+              className="appbar-title"
+              component="h1"
+              variant="h6"
+              color="inherit"
+              noWrap
+            >
               Dashboard
             </Typography>
             <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
+              <BackupIcon style={{ fontSize: 30 }} />
             </IconButton>
           </Toolbar>
         </AppBar>

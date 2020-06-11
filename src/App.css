@@ -5,3 +5,7 @@
   align-items: center;
   background-color: #fafafa;
 }
+
+.appbar-title {
+  flex-grow: 1;
+}
