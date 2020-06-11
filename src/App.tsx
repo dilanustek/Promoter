@@ -3,8 +3,13 @@ import "./App.css";
 import { NPSEntry } from "./NPSHelpers";
 import FileUploader from "./FileUploader";
 import NPSstats from "./NPSstats";
-// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import CssBaseline from "@material-ui/core/CssBaseline";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import Badge from "@material-ui/core/Badge";
+import MenuIcon from "@material-ui/icons/Menu";
+import NotificationsIcon from "@material-ui/icons/Notifications";
 
 interface State {
   allNPS: NPSEntry[] | null;
@@ -21,16 +26,27 @@ class App extends Component<{}, State> {
 
   render() {
     return (
-      <div className="page">
-        {/* <CssBaseline />
-      <Router>
-        <Switch>
-          <Route path="/home" render={() => <FileUploader />}></Route>
-        </Switch>
-      </Router> */}
-        <FileUploader dataHandler={this.dataHandler} />
-        <NPSstats allNPS={this.state.allNPS} />
-      </div>
+      <section className="app">
+        <AppBar position="absolute">
+          <Toolbar>
+            <IconButton edge="start" color="inherit" aria-label="open drawer">
+              <MenuIcon />
+            </IconButton>
+            <Typography component="h1" variant="h6" color="inherit" noWrap>
+              Dashboard
+            </Typography>
+            <IconButton color="inherit">
+              <Badge badgeContent={4} color="secondary">
+                <NotificationsIcon />
+              </Badge>
+            </IconButton>
+          </Toolbar>
+        </AppBar>
+        <div className="page">
+          <FileUploader dataHandler={this.dataHandler} />
+          <NPSstats allNPS={this.state.allNPS} />
+        </div>
+      </section>
     );
   }
 }

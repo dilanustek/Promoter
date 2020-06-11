@@ -1,12 +1,5 @@
 import React, { Component } from "react";
 import { NPSEntry, bucketFiller, getTagKeys } from "./NPSHelpers";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import Badge from "@material-ui/core/Badge";
-import MenuIcon from "@material-ui/icons/Menu";
-import NotificationsIcon from "@material-ui/icons/Notifications";
 import "./FileUploader.css";
 import Papa from "papaparse";
 import csvData from "./NPSsample.json";
@@ -80,21 +73,6 @@ class FileUploader extends Component<Props, State> {
   render() {
     return (
       <section className="uploadFile">
-        <AppBar position="absolute">
-          <Toolbar>
-            <IconButton edge="start" color="inherit" aria-label="open drawer">
-              <MenuIcon />
-            </IconButton>
-            <Typography component="h1" variant="h6" color="inherit" noWrap>
-              Dashboard
-            </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-          </Toolbar>
-        </AppBar>
         <section className="main">
           <div>
             Upload a CSV of your NPS data. It should have the NPS scare in the
