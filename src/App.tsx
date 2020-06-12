@@ -21,11 +21,11 @@ class App extends Component<{}, State> {
     isUploadOpen: true,
   };
 
-  dataHandler = (allNPS: NPSEntry[]) => {
+  setAllNPSData = (allNPS: NPSEntry[]) => {
     this.setState({ allNPS: allNPS, isUploadOpen: false });
   };
 
-  uploadClickHandler = () => {
+  onUploadClick = () => {
     this.setState({ isUploadOpen: true });
   };
 
@@ -46,14 +46,14 @@ class App extends Component<{}, State> {
             >
               Dashboard
             </Typography>
-            <IconButton color="inherit" onClick={this.uploadClickHandler}>
+            <IconButton color="inherit" onClick={this.onUploadClick}>
               <BackupIcon style={{ fontSize: 30 }} />
             </IconButton>
           </Toolbar>
         </AppBar>
         <div className="page">
           <FileUploader
-            dataHandler={this.dataHandler}
+            dataHandler={this.setAllNPSData}
             isUploadOpen={this.state.isUploadOpen}
           />
           {this.state.allNPS ? <NPSstats allNPS={this.state.allNPS} /> : null}
