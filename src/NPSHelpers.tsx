@@ -83,7 +83,7 @@ function countTags(allNPS: NPSEntry[]) {
   return tagCounts;
 }
 
-export function findCommonTagsinBucket(
+export function findCommonTagsInBucket(
   bucket: Bucket,
   allNPS: NPSEntry[],
   topXTags: number
