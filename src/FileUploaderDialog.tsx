@@ -6,23 +6,13 @@ import csvData from "./NPSsample.json";
 import Modal from "@material-ui/core/Modal";
 import demoImg from "./screenshot.png";
 
-interface State {
-  isFileUploaded: boolean;
-  allNPS: NPSEntry[] | null;
-}
-
 interface Props {
   dataHandler: (allNPS: NPSEntry[]) => void;
   isUploadModalOpen: boolean;
 }
 
-class FileUploaderDialog extends Component<Props, State> {
-  state: State = {
-    isFileUploaded: false,
-    allNPS: null,
-  };
-
-  handleChange = (event: any) => {
+class FileUploaderDialog extends Component<Props, {}> {
+  onFileInputChange = (event: any) => {
     const csvFile = event.target.files[0];
     if (csvFile) {
       Papa.parse(csvFile, {
@@ -41,17 +31,16 @@ class FileUploaderDialog extends Component<Props, State> {
     const commentFullData = data.filter((entry: any) => entry.Comment !== "");
     let parsedData: NPSEntry[] = [];
 
-    for (let i = 0; i < commentFullData.length; i++) {
-      const entry = commentFullData[i];
+    for (let entry of commentFullData) {
       const scoreNum =
-        typeof entry.Score == "number" ? entry.Score : parseInt(entry.Score);
+        typeof entry.Score === "number" ? entry.Score : parseInt(entry.Score);
 
       const availableKeys = Object.keys(entry);
       const tagKeys = getTagKeys(availableKeys, entry);
 
       if (entry.Comment && tagKeys.length > 0) {
         const newEntry: NPSEntry = {
-          id: i,
+          id: entry.Id,
           score: scoreNum,
           comment: entry.Comment,
           bucket: bucketFiller(scoreNum),
@@ -60,10 +49,6 @@ class FileUploaderDialog extends Component<Props, State> {
         parsedData.push(newEntry);
       }
     }
-
-    this.setState({
-      isFileUploaded: true,
-    });
 
     this.props.dataHandler(parsedData);
   }
@@ -75,7 +60,7 @@ class FileUploaderDialog extends Component<Props, State> {
         disableAutoFocus
         className="modalBackdrop"
         open={this.props.isUploadModalOpen}
-        // onClose={this.handleChange}
+        // onClose={this.onFileInputChange}
       >
         <div className="modal">
           <section className="fileUploader">
@@ -90,7 +75,7 @@ class FileUploaderDialog extends Component<Props, State> {
                 type="file"
                 name="file"
                 placeholder={"placeholder text"}
-                onChange={this.handleChange}
+                onChange={this.onFileInputChange}
               />
               <p />
             </div>
