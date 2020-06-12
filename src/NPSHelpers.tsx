@@ -44,18 +44,20 @@ export function scoreCalculator(allNPS: NPSEntry[]) {
 }
 
 export function getTagKeys(availableKeys: string[], entry: any) {
+  const nonTagColumns = [
+    "Score",
+    "Bucket",
+    "Comment",
+    "Id",
+    "Date",
+    "Very Positive",
+    "Somewhat positive",
+    "Neutral",
+    "Negative",
+  ];
+
   return availableKeys.filter(
-    (tag) =>
-      entry[tag] !== "" &&
-      tag !== "Score" &&
-      tag !== "Bucket" &&
-      tag !== "Comment" &&
-      tag !== "Id" &&
-      tag !== "Date" &&
-      tag !== "Very positive" &&
-      tag !== "Somewhat positive" &&
-      tag !== "Neutral" &&
-      tag !== "Negative"
+    (tag) => entry[tag] !== "" && !nonTagColumns.includes(tag)
   );
 }
 
