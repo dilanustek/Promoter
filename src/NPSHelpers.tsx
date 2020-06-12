@@ -73,6 +73,7 @@ function countTags(allNPS: NPSEntry[]) {
 
     if (tags) {
       for (let tag of tags) {
+        tagCounts[tag] = (tagCounts[tag] ?? 0) + 1;
         if (tag in tagCounts) {
           tagCounts[tag]++;
         } else {
