@@ -23,7 +23,7 @@ interface Props {
 }
 
 class PopularTags extends Component<Props, {}> {
-  handlePopularTags = (bucket: Bucket) => {
+  setPopularTagsByBucket = (bucket: Bucket) => {
     const commonTags = findCommonTagsInBucket(bucket, this.props.allNPS, 5);
     if (commonTags) {
       const rows = [];
@@ -68,21 +68,21 @@ class PopularTags extends Component<Props, {}> {
               {titleEmoticonByBucket("Promoter")}
               <h3 className="bucketTitle">Promoters</h3>
             </div>
-            <List>{this.handlePopularTags("Promoter")}</List>
+            <List>{this.setPopularTagsByBucket("Promoter")}</List>
           </div>
           <div className="bucket">
             <div className="bucketHeader">
               {titleEmoticonByBucket("Passive")}
               <h3 className="bucketTitle">Passives </h3>
             </div>
-            <List>{this.handlePopularTags("Passive")}</List>
+            <List>{this.setPopularTagsByBucket("Passive")}</List>
           </div>
           <div className="bucket">
             <div className="bucketHeader">
               {titleEmoticonByBucket("Detractor")}
               <h3 className="bucketTitle">Detractors</h3>
             </div>
-            <List>{this.handlePopularTags("Detractor")}</List>
+            <List>{this.setPopularTagsByBucket("Detractor")}</List>
           </div>
         </div>
       </div>

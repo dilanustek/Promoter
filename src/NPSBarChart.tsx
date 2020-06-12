@@ -9,7 +9,7 @@ interface Props {
 }
 
 class NPSBarChart extends Component<Props, {}> {
-  handleBarChartData() {
+  getBarChartDataBarChartData() {
     if (!this.props.allNPS) return [{}];
     let numPromoters = 0;
     let numPassives = 0;
@@ -46,7 +46,7 @@ class NPSBarChart extends Component<Props, {}> {
     return data;
   }
 
-  barClickHandler = (event: any) => {
+  onBarClick = (event: any) => {
     if (event) {
       const buckets: Bucket[] = ["Promoter", "Passive", "Detractor"];
       console.log(event);
@@ -58,7 +58,7 @@ class NPSBarChart extends Component<Props, {}> {
   render() {
     const options = {
       animation: { duration: 1500 },
-      onClick: this.barClickHandler,
+      onClick: this.onBarClick,
       tooltips: {
         displayColors: true,
         mode: "nearest",
@@ -97,7 +97,7 @@ class NPSBarChart extends Component<Props, {}> {
       <div className="NPSBarChart">
         {this.props.allNPS ? (
           <HorizontalBar
-            data={this.handleBarChartData()}
+            data={this.getBarChartData()}
             width={100}
             height={13}
             options={options}
