@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { NPSEntry } from "./NPSHelpers";
-import FileUploader from "./FileUploader";
+import FileUploaderDialog from "./FileUploaderDialog";
 import NPSstats from "./NPSstats";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -52,7 +52,7 @@ class App extends Component<{}, State> {
           </Toolbar>
         </AppBar>
         <div className="page">
-          <FileUploader
+          <FileUploaderDialog
             dataHandler={this.setAllNPSData}
             isUploadOpen={this.state.isUploadOpen}
           />

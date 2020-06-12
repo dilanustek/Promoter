@@ -27,7 +27,7 @@
   flex-direction: row;
 }
 
-.uploadFile {
+.fileUploader {
   display: flex;
   flex-direction: column;
   justify-content: center;

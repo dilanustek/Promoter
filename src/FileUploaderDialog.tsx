@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NPSEntry, bucketFiller, getTagKeys } from "./NPSHelpers";
-import "./FileUploader.css";
+import "./FileUploaderDialog.css";
 import Papa from "papaparse";
 import csvData from "./NPSsample.json";
 import Modal from "@material-ui/core/Modal";
@@ -16,7 +16,7 @@ interface Props {
   isUploadOpen: boolean;
 }
 
-class FileUploader extends Component<Props, State> {
+class FileUploaderDialog extends Component<Props, State> {
   state: State = {
     isFileUploaded: false,
     allNPS: null,
@@ -78,7 +78,7 @@ class FileUploader extends Component<Props, State> {
         // onClose={this.handleChange}
       >
         <div className="modal">
-          <section className="uploadFile">
+          <section className="fileUploader">
             <div>
               Upload a CSV of your NPS data. It should have the NPS scare in the
               first column, the NPS comments in the second column, and have tags
@@ -111,4 +111,4 @@ class FileUploader extends Component<Props, State> {
   }
 }
 
-export default FileUploader;
+export default FileUploaderDialog;
