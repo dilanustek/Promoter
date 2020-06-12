@@ -7,8 +7,10 @@ import Modal from "@material-ui/core/Modal";
 import demoImg from "./screenshot.png";
 
 interface Props {
-  dataHandler: (allNPS: NPSEntry[]) => void;
+  setAllNPSData: (allNPS: NPSEntry[]) => void;
   isUploadModalOpen: boolean;
+  allNPS: NPSEntry[] | null;
+  setIsUploadModal: (isOpen: boolean) => void;
 }
 
 class FileUploaderDialog extends Component<Props, {}> {
@@ -50,8 +52,16 @@ class FileUploaderDialog extends Component<Props, {}> {
       }
     }
 
-    this.props.dataHandler(parsedData);
+    this.props.setAllNPSData(parsedData);
   }
+
+  onModalClose = () => {
+    console.log("modal closed");
+    // if allNPS is loaded
+    if (this.props.allNPS) {
+      this.props.setIsUploadModal(false);
+    }
+  };
 
   render() {
     return (
@@ -60,7 +70,7 @@ class FileUploaderDialog extends Component<Props, {}> {
         disableAutoFocus
         className="modalBackdrop"
         open={this.props.isUploadModalOpen}
-        // onClose={this.onFileInputChange}
+        onClose={this.onModalClose}
       >
         <div className="modal">
           <section className="fileUploader">

@@ -29,6 +29,10 @@ class App extends Component<{}, State> {
     this.setState({ isUploadModalOpen: true });
   };
 
+  setIsUploadModal = (isOpen: boolean) => {
+    this.setState({ isUploadModalOpen: isOpen });
+  };
+
   render() {
     return (
       <section className="app">
@@ -53,8 +57,10 @@ class App extends Component<{}, State> {
         </AppBar>
         <div className="page">
           <FileUploaderDialog
-            dataHandler={this.setAllNPSData}
+            setAllNPSData={this.setAllNPSData}
             isUploadModalOpen={this.state.isUploadModalOpen}
+            allNPS={this.state.allNPS}
+            setIsUploadModal={this.setIsUploadModal}
           />
           {this.state.allNPS ? <NPSstats allNPS={this.state.allNPS} /> : null}
         </div>
