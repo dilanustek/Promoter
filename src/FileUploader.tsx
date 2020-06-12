@@ -71,11 +71,11 @@ class FileUploader extends Component<Props, State> {
   render() {
     return (
       <Modal
+        disableEnforceFocus
+        disableAutoFocus
         className="modalBackdrop"
         open={this.props.isUploadOpen}
         // onClose={this.handleChange}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
       >
         <div className="modal">
           <section className="uploadFile">

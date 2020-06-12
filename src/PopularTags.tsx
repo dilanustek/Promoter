@@ -16,7 +16,7 @@ import LocalOffer from "@material-ui/icons/LocalOffer";
 import { ListItemSecondaryAction } from "@material-ui/core";
 
 interface Props {
-  allNPS: NPSEntry[] | null;
+  allNPS: NPSEntry[];
   tagBucketHandler: (bucket: Bucket, tag: string) => void;
   clickedBucket: Bucket | null;
   clickedTag: string | null;
@@ -68,27 +68,21 @@ class PopularTags extends Component<Props, {}> {
               {titleEmoticonByBucket("Promoter")}
               <h3 className="bucketTitle">Promoters</h3>
             </div>
-            <List>
-              {this.props.allNPS ? this.handlePopularTags("Promoter") : null}
-            </List>
+            <List>{this.handlePopularTags("Promoter")}</List>
           </div>
           <div className="bucket">
             <div className="bucketHeader">
               {titleEmoticonByBucket("Passive")}
               <h3 className="bucketTitle">Passives </h3>
             </div>
-            <List>
-              {this.props.allNPS ? this.handlePopularTags("Passive") : null}
-            </List>
+            <List>{this.handlePopularTags("Passive")}</List>
           </div>
           <div className="bucket">
             <div className="bucketHeader">
               {titleEmoticonByBucket("Detractor")}
               <h3 className="bucketTitle">Detractors</h3>
             </div>
-            <List>
-              {this.props.allNPS ? this.handlePopularTags("Detractor") : null}
-            </List>
+            <List>{this.handlePopularTags("Detractor")}</List>
           </div>
         </div>
       </div>

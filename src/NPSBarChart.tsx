@@ -4,7 +4,7 @@ import { HorizontalBar } from "react-chartjs-2";
 import { green, red, blue } from "@material-ui/core/colors";
 
 interface Props {
-  allNPS: NPSEntry[] | null;
+  allNPS: NPSEntry[];
   tagBucketHandler: (bucket: Bucket, tag: string | null) => void;
 }
 
@@ -49,6 +49,8 @@ class NPSBarChart extends Component<Props, {}> {
   barClickHandler = (event: any) => {
     if (event) {
       const buckets: Bucket[] = ["Promoter", "Passive", "Detractor"];
+      console.log(event);
+
       this.props.tagBucketHandler(buckets[event._datasetIndex], null);
     }
   };

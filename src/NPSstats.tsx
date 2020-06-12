@@ -23,7 +23,7 @@ const MyPaper = styled(Paper)(({ theme }) => ({
 }));
 
 interface Props {
-  allNPS: NPSEntry[] | null;
+  allNPS: NPSEntry[];
 }
 
 interface State {

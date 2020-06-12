@@ -34,7 +34,7 @@ class App extends Component<{}, State> {
       <section className="app">
         <AppBar position="absolute">
           <Toolbar>
-            <IconButton edge="start" color="inherit" aria-label="open drawer">
+            <IconButton edge="start" color="inherit">
               <MenuIcon />
             </IconButton>
             <Typography
@@ -56,9 +56,7 @@ class App extends Component<{}, State> {
             dataHandler={this.dataHandler}
             isUploadOpen={this.state.isUploadOpen}
           />
-          {this.state.isUploadOpen === false ? (
-            <NPSstats allNPS={this.state.allNPS} />
-          ) : null}
+          {this.state.allNPS ? <NPSstats allNPS={this.state.allNPS} /> : null}
         </div>
       </section>
     );

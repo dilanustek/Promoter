@@ -16,14 +16,14 @@ import { grey } from "@material-ui/core/colors";
 interface Props {
   tag: string | null;
   bucket: Bucket | null;
-  allNPS: NPSEntry[] | null;
+  allNPS: NPSEntry[];
 }
 
 class CustomerComments extends Component<Props, {}> {
   handleComments(
     bucket: Bucket | null,
     tag: string | null,
-    allNPS: NPSEntry[] | null
+    allNPS: NPSEntry[]
   ) {
     const comments = findCommentsFromBucketTag(bucket, tag, allNPS);
 

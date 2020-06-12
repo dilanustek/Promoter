@@ -25,24 +25,22 @@ export function bucketFiller(score: number): Bucket {
   }
 }
 
-export function scoreCalculator(allNPS: NPSEntry[] | null) {
-  if (allNPS) {
-    let numPromoters = 0;
-    let numDetractors = 0;
+export function scoreCalculator(allNPS: NPSEntry[]) {
+  let numPromoters = 0;
+  let numDetractors = 0;
 
-    for (let i = 0; i < allNPS.length; i++) {
-      if (allNPS[i].bucket === "Promoter") {
-        numPromoters++;
-      } else if (allNPS[i].bucket === "Detractor") {
-        numDetractors++;
-      }
+  for (let i = 0; i < allNPS.length; i++) {
+    if (allNPS[i].bucket === "Promoter") {
+      numPromoters++;
+    } else if (allNPS[i].bucket === "Detractor") {
+      numDetractors++;
     }
+  }
 
-    const percentPromoters = (numPromoters / allNPS.length) * 100;
-    const percentDetractors = (numDetractors / allNPS.length) * 100;
+  const percentPromoters = (numPromoters / allNPS.length) * 100;
+  const percentDetractors = (numDetractors / allNPS.length) * 100;
 
-    return Math.round(percentPromoters - percentDetractors);
-  } else return 0;
+  return Math.round(percentPromoters - percentDetractors);
 }
 
 export function getTagKeys(availableKeys: string[], entry: any) {
@@ -67,11 +65,9 @@ function filterByBucket(bucket: Bucket, allNPS: NPSEntry[]) {
 
 export function findCommonTags(
   bucket: Bucket,
-  allNPS: NPSEntry[] | null,
+  allNPS: NPSEntry[],
   topXTags: number
 ) {
-  if (!allNPS) return "";
-
   const filteredBucket = filterByBucket(bucket, allNPS);
 
   const tagCounts: { [tag: string]: number } = {};
@@ -106,9 +102,9 @@ export function findCommonTags(
 export function findCommentsFromBucketTag(
   bucket: Bucket | null,
   tag: string | null,
-  allNPS: NPSEntry[] | null
+  allNPS: NPSEntry[]
 ) {
-  if (allNPS && bucket) {
+  if (bucket) {
     if (tag) {
       return allNPS.filter(
         (entry) => entry.bucket === bucket && entry.tags?.includes(tag)

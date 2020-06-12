@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Title from "./Title";
 
 interface Props {
-  allNPS: NPSEntry[] | null;
+  allNPS: NPSEntry[];
 }
 
 class Score extends Component<Props, {}> {
