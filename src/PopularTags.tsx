@@ -29,7 +29,7 @@ class PopularTags extends Component<Props, {}> {
       const rows = [];
       for (let i = 0; i < commonTags.length; i++) {
         const tag = commonTags[i][0];
-        const frequency = commonTags[i][1];
+        const rate = commonTags[i][1];
 
         rows.push(
           <ListItem
@@ -48,7 +48,7 @@ class PopularTags extends Component<Props, {}> {
             </ListItemIcon>
             <ListItemText>{tag}</ListItemText>
             <ListItemSecondaryAction className="freqText">
-              {frequency}%
+              {Math.round(rate * 100)}%
             </ListItemSecondaryAction>
           </ListItem>
         );

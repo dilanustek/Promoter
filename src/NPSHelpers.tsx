@@ -37,10 +37,10 @@ export function scoreCalculator(allNPS: NPSEntry[]) {
     }
   }
 
-  const percentPromoters = (numPromoters / allNPS.length) * 100;
-  const percentDetractors = (numDetractors / allNPS.length) * 100;
+  const ratePromoters = numPromoters / allNPS.length;
+  const rateDetractors = numDetractors / allNPS.length;
 
-  return Math.round(percentPromoters - percentDetractors);
+  return Math.round((ratePromoters - rateDetractors) * 100);
 }
 
 export function getTagKeys(availableKeys: string[], entry: any) {
@@ -93,10 +93,8 @@ export function findCommonTagsInBucket(
 
   let sortable: [string, number][] = [];
   for (let tag in tagCounts) {
-    const percentCountInBucket = Math.round(
-      (tagCounts[tag] / filteredByBucket.length) * 100
-    );
-    sortable.push([tag, percentCountInBucket]);
+    const rateInBucket = tagCounts[tag] / filteredByBucket.length;
+    sortable.push([tag, rateInBucket]);
   }
 
   sortable.sort((a, b) => b[1] - a[1]);
