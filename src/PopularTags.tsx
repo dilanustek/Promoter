@@ -24,7 +24,7 @@ interface Props {
 
 class PopularTags extends Component<Props, {}> {
   handlePopularTags = (bucket: Bucket) => {
-    const commonTags = findCommonTags(bucket, this.props.allNPS, 5);
+    const commonTags = findCommonTagsinBucket(bucket, this.props.allNPS, 5);
     if (commonTags) {
       const rows = [];
       for (let i = 0; i < commonTags.length; i++) {

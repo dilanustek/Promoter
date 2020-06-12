@@ -63,33 +63,38 @@ function filterByBucket(bucket: Bucket, allNPS: NPSEntry[]) {
   return allNPS.filter((entry) => entry.bucket === bucket);
 }
 
-export function findCommonTags(
-  bucket: Bucket,
-  allNPS: NPSEntry[],
-  topXTags: number
-) {
-  const filteredBucket = filterByBucket(bucket, allNPS);
-
+function countTags(allNPS: NPSEntry[]) {
   const tagCounts: { [tag: string]: number } = {};
-  for (let entryIndex in filteredBucket) {
-    const tags = filteredBucket[entryIndex].tags;
+
+  for (let entry of allNPS) {
+    const tags = entry.tags;
 
     if (tags) {
-      for (let tagIndex in tags) {
-        const currentTag = tags[tagIndex];
-        if (currentTag in tagCounts) {
-          tagCounts[currentTag]++;
+      for (let tag of tags) {
+        if (tag in tagCounts) {
+          tagCounts[tag]++;
         } else {
-          tagCounts[currentTag] = 1;
+          tagCounts[tag] = 1;
         }
       }
     }
   }
 
+  return tagCounts;
+}
+
+export function findCommonTagsinBucket(
+  bucket: Bucket,
+  allNPS: NPSEntry[],
+  topXTags: number
+) {
+  const filteredByBucket = filterByBucket(bucket, allNPS);
+  const tagCounts = countTags(filteredByBucket);
+
   let sortable: [string, number][] = [];
   for (let tag in tagCounts) {
     const percentCountInBucket = Math.round(
-      (tagCounts[tag] / filteredBucket.length) * 100
+      (tagCounts[tag] / filteredByBucket.length) * 100
     );
     sortable.push([tag, percentCountInBucket]);
   }
