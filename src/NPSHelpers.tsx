@@ -122,13 +122,16 @@ export function findCommentsFromBucketTag(
 }
 
 export function styleIconByBucket(bucket: Bucket | null) {
-  if (bucket === "Promoter") {
-    return { color: green[400] };
-  } else if (bucket === "Passive") {
-    return { color: blue[300] };
-  } else if (bucket === "Detractor") {
-    return { color: red[400] };
-  } else return { color: grey[500] };
+  switch (bucket) {
+    case "Promoter":
+      return { color: green[400] };
+    case "Passive":
+      return { color: blue[300] };
+    case "Detractor":
+      return { color: red[400] };
+    default:
+      return { color: grey[500] };
+  }
 }
 
 export function titleEmoticonByBucket(bucket: Bucket | null) {
