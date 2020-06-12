@@ -17,7 +17,7 @@ import { ListItemSecondaryAction } from "@material-ui/core";
 
 interface Props {
   allNPS: NPSEntry[];
-  tagBucketHandler: (bucket: Bucket, tag: string) => void;
+  setTagAndMaybeBucket: (bucket: Bucket, tag: string) => void;
   clickedBucket: Bucket | null;
   clickedTag: string | null;
 }
@@ -40,7 +40,7 @@ class PopularTags extends Component<Props, {}> {
               this.props.clickedBucket === bucket
             }
             onClick={() => {
-              this.props.tagBucketHandler(bucket, tag);
+              this.props.setTagAndMaybeBucket(bucket, tag);
             }}
           >
             <ListItemIcon>

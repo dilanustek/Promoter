@@ -10,18 +10,6 @@ import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
 import NPSBarChart from "./NPSBarChart";
 
-const MyContainer = styled(Container)({
-  paddingTop: 4 * 8,
-  paddingBottom: 4 * 8,
-});
-
-const MyPaper = styled(Paper)(({ theme }) => ({
-  padding: theme.spacing(2),
-  display: "flex",
-  overflow: "auto",
-  flexDirection: "column",
-}));
-
 interface Props {
   allNPS: NPSEntry[];
 }
@@ -31,13 +19,25 @@ interface State {
   clickedTag: string | null;
 }
 
+const MyContainer = styled(Container)(({ theme }) => ({
+  paddingTop: theme.spacing(4),
+  paddingBottom: theme.spacing(4),
+}));
+
+const MyPaper = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(2),
+  display: "flex",
+  overflow: "auto",
+  flexDirection: "column",
+}));
+
 class NPSstats extends Component<Props, {}> {
   state: State = {
     clickedBucket: null,
     clickedTag: null,
   };
 
-  tagBucketHandler = (bucket: Bucket, tag: string | null) => {
+  setTagAndMaybeBucket = (bucket: Bucket, tag: string | null) => {
     this.setState({
       clickedBucket: bucket,
       clickedTag: tag,
@@ -60,7 +60,7 @@ class NPSstats extends Component<Props, {}> {
             <MyPaper className="fixedHeightPaper">
               <NPSBarChart
                 allNPS={this.props.allNPS}
-                tagBucketHandler={this.tagBucketHandler}
+                setTagAndMaybeBucket={this.setTagAndMaybeBucket}
               />
             </MyPaper>
           </Grid>
@@ -68,7 +68,7 @@ class NPSstats extends Component<Props, {}> {
             <MyPaper>
               <PopularTags
                 allNPS={this.props.allNPS}
-                tagBucketHandler={this.tagBucketHandler}
+                setTagAndMaybeBucket={this.setTagAndMaybeBucket}
                 clickedBucket={this.state.clickedBucket}
                 clickedTag={this.state.clickedTag}
               />
