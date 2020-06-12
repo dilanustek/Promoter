@@ -12,21 +12,21 @@ import BackupIcon from "@material-ui/icons/Backup";
 
 interface State {
   allNPS: NPSEntry[] | null;
-  isUploadOpen: boolean;
+  isUploadModalOpen: boolean;
 }
 
 class App extends Component<{}, State> {
   state: State = {
     allNPS: null,
-    isUploadOpen: true,
+    isUploadModalOpen: true,
   };
 
   setAllNPSData = (allNPS: NPSEntry[]) => {
-    this.setState({ allNPS: allNPS, isUploadOpen: false });
+    this.setState({ allNPS: allNPS, isUploadModalOpen: false });
   };
 
   onUploadClick = () => {
-    this.setState({ isUploadOpen: true });
+    this.setState({ isUploadModalOpen: true });
   };
 
   render() {
@@ -54,7 +54,7 @@ class App extends Component<{}, State> {
         <div className="page">
           <FileUploaderDialog
             dataHandler={this.setAllNPSData}
-            isUploadOpen={this.state.isUploadOpen}
+            isUploadModalOpen={this.state.isUploadModalOpen}
           />
           {this.state.allNPS ? <NPSstats allNPS={this.state.allNPS} /> : null}
         </div>

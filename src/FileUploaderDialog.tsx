@@ -13,7 +13,7 @@ interface State {
 
 interface Props {
   dataHandler: (allNPS: NPSEntry[]) => void;
-  isUploadOpen: boolean;
+  isUploadModalOpen: boolean;
 }
 
 class FileUploaderDialog extends Component<Props, State> {
@@ -74,7 +74,7 @@ class FileUploaderDialog extends Component<Props, State> {
         disableEnforceFocus
         disableAutoFocus
         className="modalBackdrop"
-        open={this.props.isUploadOpen}
+        open={this.props.isUploadModalOpen}
         // onClose={this.handleChange}
       >
         <div className="modal">
