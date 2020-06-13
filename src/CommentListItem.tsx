@@ -25,29 +25,33 @@ class CommentListItem extends Component<Props, State> {
     });
   };
 
-  getCommentWithButton() {
+  getComment() {
+    if (this.props.entry.comment.length > this.maxCommentLen) {
+      if (this.state.showLong) {
+        return this.props.entry.comment;
+      } else {
+        return this.props.entry.comment.slice(0, this.maxCommentLen) + "...";
+      }
+    } else {
+      return this.props.entry.comment;
+    }
+  }
+
+  getExpandButton() {
     if (this.props.entry.comment.length > this.maxCommentLen) {
       if (this.state.showLong) {
         return (
-          <ListItemText>
-            {this.props.entry.comment}
-            <span className="expand" onClick={this.onExpandClick}>
-              Show less
-            </span>
-          </ListItemText>
+          <span className="expand" onClick={this.onExpandClick}>
+            Show less
+          </span>
         );
       } else {
         return (
-          <ListItemText>
-            {this.props.entry.comment.slice(0, this.maxCommentLen)}...
-            <span className="expand" onClick={this.onExpandClick}>
-              Show more
-            </span>
-          </ListItemText>
+          <span className="expand" onClick={this.onExpandClick}>
+            Show more
+          </span>
         );
       }
-    } else {
-      return <ListItemText>{this.props.entry.comment}</ListItemText>;
     }
   }
 
@@ -57,7 +61,9 @@ class CommentListItem extends Component<Props, State> {
         <ListItemIcon>
           <ChatOutlinedIcon />
         </ListItemIcon>
-        {this.getCommentWithButton()}
+        <ListItemText>
+          {this.getComment()} {this.getExpandButton()}
+        </ListItemText>
       </ListItem>
     );
   }
