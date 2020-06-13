@@ -20,11 +20,7 @@ interface Props {
 }
 
 class CustomerComments extends Component<Props, {}> {
-  handleComments(
-    bucket: Bucket | null,
-    tag: string | null,
-    allNPS: NPSEntry[]
-  ) {
+  getComments(bucket: Bucket | null, tag: string | null, allNPS: NPSEntry[]) {
     const comments = findCommentsFromBucketTag(bucket, tag, allNPS);
 
     const maxCommentsShown = 5;
@@ -45,7 +41,7 @@ class CustomerComments extends Component<Props, {}> {
     }
   }
 
-  getStringByEmptyState(stringToShow: Bucket | string | null) {
+  getEmptyStateText(stringToShow: Bucket | string | null) {
     if (stringToShow) {
       return (
         <span>
@@ -69,7 +65,7 @@ class CustomerComments extends Component<Props, {}> {
           <div className="rowIcon">{emoticonByBucket(this.props.bucket)}</div>
           Customer type:
           <div className="filterRowSpace">
-            {this.getStringByEmptyState(this.props.bucket)}
+            {this.getEmptyStateText(this.props.bucket)}
           </div>
         </div>
         <div className="filterRow">
@@ -78,11 +74,11 @@ class CustomerComments extends Component<Props, {}> {
           </div>
           Feedback tag:
           <div className="filterRowSpace">
-            {this.getStringByEmptyState(this.props.tag)}
+            {this.getEmptyStateText(this.props.tag)}
           </div>
         </div>
         <List>
-          {this.handleComments(
+          {this.getComments(
             this.props.bucket,
             this.props.tag,
             this.props.allNPS

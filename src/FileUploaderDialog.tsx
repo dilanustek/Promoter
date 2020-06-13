@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NPSEntry, bucketFiller, getTagKeys } from "./NPSHelpers";
+import { NPSEntry, scoreToBucket, getTagKeys } from "./NPSHelpers";
 import "./FileUploaderDialog.css";
 import Papa from "papaparse";
 import csvData from "./NPSsample.json";
@@ -26,15 +26,16 @@ class FileUploaderDialog extends Component<Props, {}> {
   };
 
   papaParseData = (result: Papa.ParseResult) => {
-    const data = result.data;
-    this.parseData(data);
+    this.parseData(result.data);
   };
 
   parseData(data: any) {
-    const commentFullData = data.filter((entry: any) => entry.Comment !== "");
+    const entriesWithComments = data.filter(
+      (entry: any) => entry.Comment !== ""
+    );
     let parsedData: NPSEntry[] = [];
 
-    for (let entry of commentFullData) {
+    for (let entry of entriesWithComments) {
       const scoreNum =
         typeof entry.Score === "number" ? entry.Score : parseInt(entry.Score);
 
@@ -46,7 +47,7 @@ class FileUploaderDialog extends Component<Props, {}> {
           id: entry.Id,
           score: scoreNum,
           comment: entry.Comment,
-          bucket: bucketFiller(scoreNum),
+          bucket: scoreToBucket(scoreNum),
           tags: tagKeys,
         };
         parsedData.push(newEntry);

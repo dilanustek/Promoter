@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NPSEntry, scoreCalculator } from "./NPSHelpers";
+import { NPSEntry, npsScoreCalculator } from "./NPSHelpers";
 import Typography from "@material-ui/core/Typography";
 import Title from "./Title";
 
@@ -13,7 +13,7 @@ class Score extends Component<Props, {}> {
       <div>
         <Title>NPS score</Title>
         <Typography component="p" variant="h4">
-          {scoreCalculator(this.props.allNPS)}
+          {npsScoreCalculator(this.props.allNPS)}
         </Typography>
         <Typography>{this.props.allNPS.length} entries analyzed</Typography>
       </div>

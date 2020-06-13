@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NPSEntry, Bucket } from "./NPSHelpers";
+import { NPSEntry, Bucket, scoreCounter } from "./NPSHelpers";
 import { HorizontalBar } from "react-chartjs-2";
 import { green, red, blue } from "@material-ui/core/colors";
 
@@ -10,35 +10,24 @@ interface Props {
 
 class NPSBarChart extends Component<Props, {}> {
   getBarChartData() {
-    if (!this.props.allNPS) return [{}];
-    let numPromoters = 0;
-    let numPassives = 0;
-    let numDetractors = 0;
-
-    for (let entry of this.props.allNPS) {
-      if (entry.bucket === "Promoter") {
-        numPromoters++;
-      } else if (entry.bucket === "Passive") {
-        numPassives++;
-      } else numDetractors++;
-    }
+    const scores = scoreCounter(this.props.allNPS);
 
     const data = {
       datasets: [
         {
           label: "Promoters",
           backgroundColor: green[400],
-          data: [numPromoters],
+          data: [scores.numPromoters],
         },
         {
           label: "Passives",
           backgroundColor: blue[200],
-          data: [numPassives],
+          data: [scores.numPassives],
         },
         {
           label: "Detractors",
           backgroundColor: red[400],
-          data: [numDetractors],
+          data: [scores.numDetractors],
         },
       ],
     };

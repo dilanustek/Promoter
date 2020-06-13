@@ -16,7 +16,7 @@ export interface NPSEntry {
 export type Bucket = "Promoter" | "Passive" | "Detractor";
 export const bucketNames: Bucket[] = ["Promoter", "Passive", "Detractor"];
 
-export function bucketFiller(score: number): Bucket {
+export function scoreToBucket(score: number): Bucket {
   if (score >= 9) {
     return "Promoter";
   } else if (score >= 7) {
@@ -26,20 +26,30 @@ export function bucketFiller(score: number): Bucket {
   }
 }
 
-export function scoreCalculator(allNPS: NPSEntry[]) {
+export function scoreCounter(allNPS: NPSEntry[]) {
   let numPromoters = 0;
   let numDetractors = 0;
+  let numPassives = 0;
 
   for (let i = 0; i < allNPS.length; i++) {
     if (allNPS[i].bucket === "Promoter") {
       numPromoters++;
     } else if (allNPS[i].bucket === "Detractor") {
       numDetractors++;
-    }
+    } else numPassives++;
   }
 
-  const ratePromoters = numPromoters / allNPS.length;
-  const rateDetractors = numDetractors / allNPS.length;
+  return {
+    numPromoters: numPromoters,
+    numPassives: numPassives,
+    numDetractors: numDetractors,
+  };
+}
+
+export function npsScoreCalculator(allNPS: NPSEntry[]) {
+  const scores = scoreCounter(allNPS);
+  const ratePromoters = scores.numPromoters / allNPS.length;
+  const rateDetractors = scores.numDetractors / allNPS.length;
 
   return Math.round((ratePromoters - rateDetractors) * 100);
 }
