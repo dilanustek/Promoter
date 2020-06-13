@@ -81,15 +81,13 @@ class NPSBarChart extends Component<Props, {}> {
 
     return (
       <div className="NPSBarChart">
-        {this.props.allNPS ? (
-          <HorizontalBar
-            data={this.getBarChartData()}
-            width={100}
-            height={13}
-            options={options}
-            getElementAtEvent={this.onBarClick}
-          />
-        ) : null}
+        <HorizontalBar
+          data={this.getBarChartData()}
+          width={100}
+          height={13}
+          options={options}
+          getElementAtEvent={this.onBarClick}
+        />
       </div>
     );
   }
