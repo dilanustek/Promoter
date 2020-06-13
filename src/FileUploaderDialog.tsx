@@ -42,7 +42,7 @@ class FileUploaderDialog extends Component<Props, {}> {
       const availableKeys = Object.keys(entry);
       const tagKeys = getTagKeys(availableKeys, entry);
 
-      if (entry.Comment && tagKeys.length > 0) {
+      if (entry.Comment) {
         const newEntry: NPSEntry = {
           id: entry.Id,
           score: scoreNum,

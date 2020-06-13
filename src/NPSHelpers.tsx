@@ -85,11 +85,6 @@ function countTags(allNPS: NPSEntry[]) {
     if (tags) {
       for (let tag of tags) {
         tagCounts[tag] = (tagCounts[tag] ?? 0) + 1;
-        if (tag in tagCounts) {
-          tagCounts[tag]++;
-        } else {
-          tagCounts[tag] = 1;
-        }
       }
     }
   }
@@ -116,15 +111,15 @@ export function findCommonTagsInBucket(
   return sortable.slice(0, topXTags);
 }
 
-export function findCommentsFromBucketTag(
+export function findCommentsFromBucketAndMaybeTag(
   bucket: Bucket | null,
   tag: string | null,
   allNPS: NPSEntry[]
 ) {
   if (bucket) {
     if (tag) {
-      return allNPS.filter(
-        (entry) => entry.bucket === bucket && entry.tags?.includes(tag)
+      return allNPS.filter((entry) =>
+        entry.bucket === bucket && entry.tags ? entry.tags.includes(tag) : !tag
       );
     } else {
       return filterByBucket(bucket, allNPS);

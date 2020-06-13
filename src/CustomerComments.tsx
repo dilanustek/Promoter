@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import {
   NPSEntry,
   Bucket,
-  findCommentsFromBucketTag,
+  findCommentsFromBucketAndMaybeTag,
   styleIconByBucket,
   emoticonByBucket,
 } from "./NPSHelpers";
@@ -21,7 +21,7 @@ interface Props {
 
 class CustomerComments extends Component<Props, {}> {
   getComments(bucket: Bucket | null, tag: string | null, allNPS: NPSEntry[]) {
-    const comments = findCommentsFromBucketTag(bucket, tag, allNPS);
+    const comments = findCommentsFromBucketAndMaybeTag(bucket, tag, allNPS);
 
     const maxCommentsShown = 5;
     const topXComments = comments?.slice(0, maxCommentsShown);
