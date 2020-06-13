@@ -24,10 +24,9 @@ interface Props {
   clickedTag: string | null;
 }
 
-const MyTitle = styled(Typography)({
+const PopularTagsTitle = styled(Typography)({
   fontSize: 20,
   fontWeight: 600,
-  padding: "5px 10px 5px 10px",
 });
 
 const MySecondaryListItem = styled(ListItemSecondaryAction)({
@@ -39,13 +38,10 @@ class PopularTags extends Component<Props, {}> {
     const commonTags = findCommonTagsInBucket(bucket, this.props.allNPS, 5);
     if (commonTags) {
       const rows = [];
-      for (let i = 0; i < commonTags.length; i++) {
-        const tag = commonTags[i][0];
-        const rate = commonTags[i][1];
-
+      for (let [tag, rate] of commonTags) {
         rows.push(
           <ListItem
-            key={i}
+            key={tag}
             button
             selected={
               this.props.clickedTag === tag &&
@@ -77,14 +73,20 @@ class PopularTags extends Component<Props, {}> {
   getBucketDiv(bucket: Bucket) {
     return (
       <div className="bucket" key={bucket}>
-        <div
-          className={this.getBucketHeaderClassName(bucket)}
-          onClick={() => this.props.setBucketAndMaybeTag(bucket, null)}
-        >
-          {titleEmoticonByBucket(bucket)}
-          <MyTitle className="bucketTitle">{bucket}</MyTitle>
-        </div>
-        <List>{this.setPopularTagsByBucket(bucket)}</List>
+        <List>
+          <ListItem
+            key="title"
+            button
+            selected={this.props.clickedBucket === bucket}
+            onClick={() => this.props.setBucketAndMaybeTag(bucket, null)}
+          >
+            {titleEmoticonByBucket(bucket)}
+            <PopularTagsTitle className="bucketTitle">
+              {bucket}
+            </PopularTagsTitle>
+          </ListItem>
+          {this.setPopularTagsByBucket(bucket)}
+        </List>
       </div>
     );
   }
