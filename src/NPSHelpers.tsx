@@ -14,6 +14,7 @@ export interface NPSEntry {
 }
 
 export type Bucket = "Promoter" | "Passive" | "Detractor";
+export const bucketNames: Bucket[] = ["Promoter", "Passive", "Detractor"];
 
 export function bucketFiller(score: number): Bucket {
   if (score >= 9) {

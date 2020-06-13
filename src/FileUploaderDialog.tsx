@@ -10,7 +10,7 @@ import Button from "@material-ui/core/Button";
 interface Props {
   setAllNPSData: (allNPS: NPSEntry[]) => void;
   isUploadModalOpen: boolean;
-  isAllNPSSet: booleam;
+  isAllNPSSet: boolean;
   setIsUploadModal: (isOpen: boolean) => void;
 }
 
@@ -59,7 +59,7 @@ class FileUploaderDialog extends Component<Props, {}> {
   onModalClose = () => {
     console.log("modal closed");
     // if allNPS is loaded
-    if (this.props.allNPS) {
+    if (this.props.isAllNPSSet) {
       this.props.setIsUploadModal(false);
     }
   };

@@ -5,6 +5,7 @@ import {
   findCommonTagsInBucket,
   styleIconByBucket,
   titleEmoticonByBucket,
+  bucketNames,
 } from "./NPSHelpers";
 import "./popularTags.css";
 import Title from "./Title";
@@ -18,7 +19,7 @@ import { styled } from "@material-ui/core/styles";
 
 interface Props {
   allNPS: NPSEntry[];
-  setTagAndMaybeBucket: (bucket: Bucket, tag: string) => void;
+  setTagAndMaybeBucket: (bucket: Bucket, tag: string | null) => void;
   clickedBucket: Bucket | null;
   clickedTag: string | null;
 }
@@ -73,32 +74,29 @@ class PopularTags extends Component<Props, {}> {
       : "nonselectedBucketHeader";
   }
 
+  getBucketDiv(bucket: Bucket) {
+    return (
+      <div className="bucket">
+        <div className={this.getBucketHeaderClassName(bucket)}>
+          {titleEmoticonByBucket(bucket)}
+          <MyTitle
+            className="bucketTitle"
+            onClick={() => this.props.setTagAndMaybeBucket(bucket, null)}
+          >
+            {bucket}
+          </MyTitle>
+        </div>
+        <List>{this.setPopularTagsByBucket(bucket)}</List>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div>
         <Title> Popular Tags </Title>
         <div className="bucketSections">
-          <div className="bucket">
-            <div className={this.getBucketHeaderClassName("Promoter")}>
-              {titleEmoticonByBucket("Promoter")}
-              <MyTitle className="bucketTitle">Promoters</MyTitle>
-            </div>
-            <List>{this.setPopularTagsByBucket("Promoter")}</List>
-          </div>
-          <div className="bucket">
-            <div className={this.getBucketHeaderClassName("Passive")}>
-              {titleEmoticonByBucket("Passive")}
-              <MyTitle className="bucketTitle">Passives</MyTitle>
-            </div>
-            <List>{this.setPopularTagsByBucket("Passive")}</List>
-          </div>
-          <div className="bucket">
-            <div className={this.getBucketHeaderClassName("Detractor")}>
-              {titleEmoticonByBucket("Detractor")}
-              <MyTitle className="bucketTitle">Detractors</MyTitle>
-            </div>
-            <List>{this.setPopularTagsByBucket("Detractor")}</List>
-          </div>
+          {bucketNames.map((bucket) => this.getBucketDiv(bucket))}
         </div>
       </div>
     );
