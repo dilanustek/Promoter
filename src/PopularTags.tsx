@@ -19,7 +19,7 @@ import { styled } from "@material-ui/core/styles";
 
 interface Props {
   allNPS: NPSEntry[];
-  setTagAndMaybeBucket: (bucket: Bucket, tag: string | null) => void;
+  setBucketAndMaybeTag: (bucket: Bucket, tag: string | null) => void;
   clickedBucket: Bucket | null;
   clickedTag: string | null;
 }
@@ -52,7 +52,7 @@ class PopularTags extends Component<Props, {}> {
               this.props.clickedBucket === bucket
             }
             onClick={() => {
-              this.props.setTagAndMaybeBucket(bucket, tag);
+              this.props.setBucketAndMaybeTag(bucket, tag);
             }}
           >
             <ListItemIcon>
@@ -81,7 +81,7 @@ class PopularTags extends Component<Props, {}> {
           {titleEmoticonByBucket(bucket)}
           <MyTitle
             className="bucketTitle"
-            onClick={() => this.props.setTagAndMaybeBucket(bucket, null)}
+            onClick={() => this.props.setBucketAndMaybeTag(bucket, null)}
           >
             {bucket}
           </MyTitle>

@@ -37,7 +37,7 @@ class NPSstats extends Component<Props, {}> {
     clickedTag: null,
   };
 
-  setTagAndMaybeBucket = (bucket: Bucket, tag: string | null) => {
+  setBucketAndMaybeTag = (bucket: Bucket, tag: string | null) => {
     this.setState({
       clickedBucket: bucket,
       clickedTag: tag,
@@ -60,7 +60,7 @@ class NPSstats extends Component<Props, {}> {
             <MyPaper className="fixedHeightPaper">
               <NPSBarChart
                 allNPS={this.props.allNPS}
-                setTagAndMaybeBucket={this.setTagAndMaybeBucket}
+                setBucketAndMaybeTag={this.setBucketAndMaybeTag}
               />
             </MyPaper>
           </Grid>
@@ -68,7 +68,7 @@ class NPSstats extends Component<Props, {}> {
             <MyPaper>
               <PopularTags
                 allNPS={this.props.allNPS}
-                setTagAndMaybeBucket={this.setTagAndMaybeBucket}
+                setBucketAndMaybeTag={this.setBucketAndMaybeTag}
                 clickedBucket={this.state.clickedBucket}
                 clickedTag={this.state.clickedTag}
               />

@@ -5,7 +5,7 @@ import { green, red, blue } from "@material-ui/core/colors";
 
 interface Props {
   allNPS: NPSEntry[];
-  setTagAndMaybeBucket: (bucket: Bucket, tag: string | null) => void;
+  setBucketAndMaybeTag: (bucket: Bucket, tag: string | null) => void;
 }
 
 class NPSBarChart extends Component<Props, {}> {
@@ -49,7 +49,7 @@ class NPSBarChart extends Component<Props, {}> {
   onBarClick = (event: any) => {
     const buckets: Bucket[] = ["Promoter", "Passive", "Detractor"];
     if (event[0]) {
-      this.props.setTagAndMaybeBucket(buckets[event[0]._datasetIndex], null);
+      this.props.setBucketAndMaybeTag(buckets[event[0]._datasetIndex], null);
     }
   };
 
