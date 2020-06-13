@@ -1,12 +1,19 @@
 .bucketSections {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .bucket {
   width: 30%;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 400px) {
+  .bucket {
+    width: 100%;
+  }
 }
 
 .nonselectedBucketHeader:hover {
