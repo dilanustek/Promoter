@@ -76,15 +76,13 @@ class PopularTags extends Component<Props, {}> {
 
   getBucketDiv(bucket: Bucket) {
     return (
-      <div className="bucket">
-        <div className={this.getBucketHeaderClassName(bucket)}>
+      <div className="bucket" key={bucket}>
+        <div
+          className={this.getBucketHeaderClassName(bucket)}
+          onClick={() => this.props.setBucketAndMaybeTag(bucket, null)}
+        >
           {titleEmoticonByBucket(bucket)}
-          <MyTitle
-            className="bucketTitle"
-            onClick={() => this.props.setBucketAndMaybeTag(bucket, null)}
-          >
-            {bucket}
-          </MyTitle>
+          <MyTitle className="bucketTitle">{bucket}</MyTitle>
         </div>
         <List>{this.setPopularTagsByBucket(bucket)}</List>
       </div>

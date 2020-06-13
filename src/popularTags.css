@@ -12,12 +12,17 @@
   display: flex;
   align-items: center;
   padding: 5px;
+  cursor: pointer;
 }
 
 .nonselectedBucketHeader {
   display: flex;
   align-items: center;
   padding: 5px;
+  cursor: pointer;
+}
+.nonselectedBucketHeader:hover {
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .titleIcon {
