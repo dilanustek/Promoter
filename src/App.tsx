@@ -48,7 +48,7 @@ class App extends Component<{}, State> {
               color="inherit"
               noWrap
             >
-              Dashboard
+              Promoter
             </Typography>
             <IconButton color="inherit" onClick={this.onUploadClick}>
               <BackupIcon style={{ fontSize: 30 }} />

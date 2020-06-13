@@ -1,9 +1,12 @@
+.app {
+  background-color: #fafafa;
+}
+
 .page {
   margin-top: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fafafa;
 }
 
 .appbar-title {

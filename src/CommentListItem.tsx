@@ -19,7 +19,7 @@ class CommentListItem extends Component<Props, State> {
   };
   maxCommentLen = 330;
 
-  handleExpandClick = () => {
+  onExpandClick = () => {
     this.setState({
       showLong: !this.state.showLong,
     });
@@ -31,7 +31,7 @@ class CommentListItem extends Component<Props, State> {
         return (
           <ListItemText>
             {this.props.entry.comment}
-            <span className="expand" onClick={this.handleExpandClick}>
+            <span className="expand" onClick={this.onExpandClick}>
               Show less
             </span>
           </ListItemText>
@@ -40,7 +40,7 @@ class CommentListItem extends Component<Props, State> {
         return (
           <ListItemText>
             {this.props.entry.comment.slice(0, this.maxCommentLen)}...
-            <span className="expand" onClick={this.handleExpandClick}>
+            <span className="expand" onClick={this.onExpandClick}>
               Show more
             </span>
           </ListItemText>

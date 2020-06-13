@@ -5,6 +5,7 @@ import Papa from "papaparse";
 import csvData from "./NPSsample.json";
 import Modal from "@material-ui/core/Modal";
 import demoImg from "./screenshot.png";
+import Button from "@material-ui/core/Button";
 
 interface Props {
   setAllNPSData: (allNPS: NPSEntry[]) => void;
@@ -73,32 +74,39 @@ class FileUploaderDialog extends Component<Props, {}> {
         onClose={this.onModalClose}
       >
         <div className="modal">
-          <section className="fileUploader">
-            <div>
-              Upload a CSV of your NPS data. It should have the NPS scare in the
-              first column, the NPS comments in the second column, and have tags
-              in the other columns.
+          <section className="fileUploaderSection">
+            <div className="uploadText">
+              <div className="modalTitle">Upload a CSV of your NPS data. </div>
+              <div className="modalText">
+                Your file should have the NPS score and comments in seperate
+                columns titled "Score" and "Comment". Tags should each have
+                their own columns.
+              </div>
             </div>
-            <div className="uploadSection">
-              <input
-                className="csv-input"
-                type="file"
-                name="file"
-                placeholder={"placeholder text"}
-                onChange={this.onFileInputChange}
-              />
-              <p />
+            <div>
+              <Button variant="contained" component="label" color="primary">
+                Upload CSV
+                <input
+                  className="csv-input"
+                  type="file"
+                  name="file"
+                  placeholder={"placeholder text"}
+                  style={{ display: "none" }}
+                  onChange={this.onFileInputChange}
+                />
+              </Button>
             </div>
           </section>
-          <div className="vl"></div>
-          <section className="demo">
-            <div>
-              <div>Or </div>
-              <button onClick={() => this.parseData(csvData)}>
-                see demo data!
-              </button>
-            </div>
+          <section className="demoSection">
             <img className="demoImg" src={demoImg} alt="Demo Screenshot" />
+            <div>
+              <Button
+                variant="contained"
+                onClick={() => this.parseData(csvData)}
+              >
+                Explore demo
+              </Button>
+            </div>
           </section>
         </div>
       </Modal>
