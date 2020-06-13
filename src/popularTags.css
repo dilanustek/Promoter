@@ -1,24 +1,28 @@
 .bucketSections {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
-.bucketHeader {
+.bucket {
+  width: 30%;
+}
+
+.selectedBucketHeader {
+  background: rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
+  padding: 5px;
 }
 
-.tagIcon {
-  padding-left: 10px;
-  display: inline-flex;
+.nonselectedBucketHeader {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.titleIcon {
+  padding-right: 18px;
+  padding-left: 5px;
   flex-shrink: 0;
-}
-
-.bucketTitle {
-  padding-left: 32px;
-  font-size: 22px;
-}
-
-.freqText {
-  color: #818181;
+  display: inline-flex;
 }

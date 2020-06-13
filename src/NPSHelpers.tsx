@@ -139,21 +139,21 @@ export function titleEmoticonByBucket(bucket: Bucket | null) {
   if (bucket === "Promoter") {
     return (
       <InsertEmoticonIcon
-        className="tagIcon"
+        className="titleIcon"
         style={{ color: green[400], fontSize: 32 }}
       />
     );
   } else if (bucket === "Passive") {
     return (
       <SentimentSatisfiedIcon
-        className="tagIcon"
+        className="titleIcon"
         style={{ color: blue[200], fontSize: 32 }}
       />
     );
   } else if (bucket === "Detractor") {
     return (
       <MoodBadIcon
-        className="tagIcon"
+        className="titleIcon"
         style={{ color: red[400], fontSize: 32 }}
       />
     );

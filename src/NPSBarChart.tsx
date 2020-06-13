@@ -48,8 +48,9 @@ class NPSBarChart extends Component<Props, {}> {
 
   onBarClick = (event: any) => {
     const buckets: Bucket[] = ["Promoter", "Passive", "Detractor"];
-    console.log(event);
-    this.props.setTagAndMaybeBucket(buckets[event[0]._datasetIndex], null);
+    if (event[0]) {
+      this.props.setTagAndMaybeBucket(buckets[event[0]._datasetIndex], null);
+    }
   };
 
   render() {

@@ -13,7 +13,8 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import LocalOffer from "@material-ui/icons/LocalOffer";
-import { ListItemSecondaryAction } from "@material-ui/core";
+import { ListItemSecondaryAction, Typography } from "@material-ui/core";
+import { styled } from "@material-ui/core/styles";
 
 interface Props {
   allNPS: NPSEntry[];
@@ -21,6 +22,16 @@ interface Props {
   clickedBucket: Bucket | null;
   clickedTag: string | null;
 }
+
+const MyTitle = styled(Typography)({
+  fontSize: 20,
+  fontWeight: 600,
+  padding: "5px 10px 5px 10px",
+});
+
+const MySecondaryListItem = styled(ListItemSecondaryAction)({
+  color: "#818181",
+});
 
 class PopularTags extends Component<Props, {}> {
   setPopularTagsByBucket = (bucket: Bucket) => {
@@ -47,9 +58,7 @@ class PopularTags extends Component<Props, {}> {
               <LocalOffer style={styleIconByBucket(bucket)} />
             </ListItemIcon>
             <ListItemText>{tag}</ListItemText>
-            <ListItemSecondaryAction className="freqText">
-              {Math.round(rate * 100)}%
-            </ListItemSecondaryAction>
+            <MySecondaryListItem>{Math.round(rate * 100)}%</MySecondaryListItem>
           </ListItem>
         );
       }
@@ -58,29 +67,35 @@ class PopularTags extends Component<Props, {}> {
     }
   };
 
+  getBucketHeaderClassName(bucket: Bucket) {
+    return this.props.clickedBucket === bucket
+      ? "selectedBucketHeader"
+      : "nonselectedBucketHeader";
+  }
+
   render() {
     return (
       <div>
         <Title> Popular Tags </Title>
         <div className="bucketSections">
           <div className="bucket">
-            <div className="bucketHeader">
+            <div className={this.getBucketHeaderClassName("Promoter")}>
               {titleEmoticonByBucket("Promoter")}
-              <h3 className="bucketTitle">Promoters</h3>
+              <MyTitle className="bucketTitle">Promoters</MyTitle>
             </div>
             <List>{this.setPopularTagsByBucket("Promoter")}</List>
           </div>
           <div className="bucket">
-            <div className="bucketHeader">
+            <div className={this.getBucketHeaderClassName("Passive")}>
               {titleEmoticonByBucket("Passive")}
-              <h3 className="bucketTitle">Passives </h3>
+              <MyTitle className="bucketTitle">Passives</MyTitle>
             </div>
             <List>{this.setPopularTagsByBucket("Passive")}</List>
           </div>
           <div className="bucket">
-            <div className="bucketHeader">
+            <div className={this.getBucketHeaderClassName("Detractor")}>
               {titleEmoticonByBucket("Detractor")}
-              <h3 className="bucketTitle">Detractors</h3>
+              <MyTitle className="bucketTitle">Detractors</MyTitle>
             </div>
             <List>{this.setPopularTagsByBucket("Detractor")}</List>
           </div>
