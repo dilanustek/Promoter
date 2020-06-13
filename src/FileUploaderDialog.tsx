@@ -10,7 +10,7 @@ import Button from "@material-ui/core/Button";
 interface Props {
   setAllNPSData: (allNPS: NPSEntry[]) => void;
   isUploadModalOpen: boolean;
-  allNPS: NPSEntry[] | null;
+  isAllNPSSet: booleam;
   setIsUploadModal: (isOpen: boolean) => void;
 }
 

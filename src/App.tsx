@@ -59,7 +59,7 @@ class App extends Component<{}, State> {
           <FileUploaderDialog
             setAllNPSData={this.setAllNPSData}
             isUploadModalOpen={this.state.isUploadModalOpen}
-            allNPS={this.state.allNPS}
+            isAllNPSSet={this.state.allNPS ? true : false}
             setIsUploadModal={this.setIsUploadModal}
           />
           {this.state.allNPS ? <NPSstats allNPS={this.state.allNPS} /> : null}
