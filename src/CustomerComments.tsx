@@ -3,7 +3,7 @@ import {
   NPSEntry,
   Bucket,
   findCommentsFromBucketAndMaybeTag,
-  styleIconByBucket,
+  colorIconByBucket,
   emoticonByBucket,
 } from "./NPSHelpers";
 import Title from "./Title";
@@ -70,7 +70,9 @@ class CustomerComments extends Component<Props, {}> {
         </div>
         <div className="filterRow">
           <div className="rowIcon">
-            <LocalOffer style={styleIconByBucket(this.props.bucket)} />
+            <LocalOffer
+              style={{ color: colorIconByBucket(this.props.bucket) }}
+            />
           </div>
           Feedback tag:
           <div className="filterRowSpace">

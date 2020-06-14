@@ -128,53 +128,60 @@ export function findCommentsFromBucketAndMaybeTag(
   return null;
 }
 
-export function styleIconByBucket(bucket: Bucket | null) {
+export function colorIconByBucket(bucket: Bucket | null) {
   switch (bucket) {
     case "Promoter":
-      return { color: green[400] };
+      return green[400];
     case "Passive":
-      return { color: blue[300] };
+      return blue[300];
     case "Detractor":
-      return { color: red[400] };
+      return red[400];
     default:
-      return { color: grey[500] };
+      return grey[500];
   }
+}
+
+export function getEmoticonStyle(
+  EmoticonComponent:
+    | typeof InsertEmoticonIcon
+    | typeof SentimentSatisfiedIcon
+    | typeof MoodBadIcon
+    | typeof Face,
+  isTitle: boolean,
+  bucket: Bucket | null
+) {
+  const styles: { color: string; fontSize?: number } = {
+    color: colorIconByBucket(bucket),
+  };
+
+  if (isTitle) {
+    styles.fontSize = 32;
+  }
+
+  return (
+    <EmoticonComponent
+      className={isTitle ? "titleIcon" : "smallIcon"}
+      style={styles}
+    />
+  );
 }
 
 export function titleEmoticonByBucket(bucket: Bucket | null) {
   if (bucket === "Promoter") {
-    return (
-      <InsertEmoticonIcon
-        className="titleIcon"
-        style={{ color: green[400], fontSize: 32 }}
-      />
-    );
+    return getEmoticonStyle(InsertEmoticonIcon, true, bucket);
   } else if (bucket === "Passive") {
-    return (
-      <SentimentSatisfiedIcon
-        className="titleIcon"
-        style={{ color: blue[200], fontSize: 32 }}
-      />
-    );
+    return getEmoticonStyle(SentimentSatisfiedIcon, true, bucket);
   } else if (bucket === "Detractor") {
-    return (
-      <MoodBadIcon
-        className="titleIcon"
-        style={{ color: red[400], fontSize: 32 }}
-      />
-    );
-  } else
-    return (
-      <Face className="tagIcon" style={{ color: grey[500], fontSize: 32 }} />
-    );
+    return getEmoticonStyle(MoodBadIcon, true, bucket);
+  } else return getEmoticonStyle(Face, true, bucket);
 }
 
 export function emoticonByBucket(bucket: Bucket | null) {
   if (bucket === "Promoter") {
-    return <InsertEmoticonIcon style={styleIconByBucket(bucket)} />;
+    return getEmoticonStyle(InsertEmoticonIcon, false, bucket);
   } else if (bucket === "Passive") {
-    return <SentimentSatisfiedIcon style={styleIconByBucket(bucket)} />;
+    return getEmoticonStyle(SentimentSatisfiedIcon, false, bucket);
   } else if (bucket === "Detractor") {
-    return <MoodBadIcon style={styleIconByBucket(bucket)} />;
-  } else return <Face style={styleIconByBucket(bucket)} />;
+    return getEmoticonStyle(MoodBadIcon, false, bucket);
+  } else return getEmoticonStyle(Face, false, bucket);
 }

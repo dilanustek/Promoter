@@ -3,7 +3,7 @@ import {
   NPSEntry,
   Bucket,
   findCommonTagsInBucket,
-  styleIconByBucket,
+  colorIconByBucket,
   titleEmoticonByBucket,
   bucketNames,
 } from "./NPSHelpers";
@@ -52,7 +52,7 @@ class PopularTags extends Component<Props, {}> {
             }}
           >
             <ListItemIcon>
-              <LocalOffer style={styleIconByBucket(bucket)} />
+              <LocalOffer style={{ color: colorIconByBucket(bucket) }} />
             </ListItemIcon>
             <ListItemText>{tag}</ListItemText>
             <MySecondaryListItem>{Math.round(rate * 100)}%</MySecondaryListItem>
