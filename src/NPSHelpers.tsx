@@ -166,22 +166,12 @@ export function getEmoticonStyle(
   );
 }
 
-export function titleEmoticonByBucket(bucket: Bucket | null) {
+export function getEmoticonByBucket(bucket: Bucket | null, isTitle: boolean) {
   if (bucket === "Promoter") {
-    return getEmoticonStyle(InsertEmoticonIcon, true, bucket);
+    return getEmoticonStyle(InsertEmoticonIcon, isTitle, bucket);
   } else if (bucket === "Passive") {
-    return getEmoticonStyle(SentimentSatisfiedIcon, true, bucket);
+    return getEmoticonStyle(SentimentSatisfiedIcon, isTitle, bucket);
   } else if (bucket === "Detractor") {
-    return getEmoticonStyle(MoodBadIcon, true, bucket);
-  } else return getEmoticonStyle(Face, true, bucket);
-}
-
-export function emoticonByBucket(bucket: Bucket | null) {
-  if (bucket === "Promoter") {
-    return getEmoticonStyle(InsertEmoticonIcon, false, bucket);
-  } else if (bucket === "Passive") {
-    return getEmoticonStyle(SentimentSatisfiedIcon, false, bucket);
-  } else if (bucket === "Detractor") {
-    return getEmoticonStyle(MoodBadIcon, false, bucket);
-  } else return getEmoticonStyle(Face, false, bucket);
+    return getEmoticonStyle(MoodBadIcon, isTitle, bucket);
+  } else return getEmoticonStyle(Face, isTitle, bucket);
 }

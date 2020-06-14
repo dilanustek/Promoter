@@ -4,7 +4,7 @@ import {
   Bucket,
   findCommentsFromBucketAndMaybeTag,
   colorIconByBucket,
-  emoticonByBucket,
+  getEmoticonByBucket,
 } from "./NPSHelpers";
 import Title from "./Title";
 import CommentListItem from "./CommentListItem";
@@ -62,7 +62,9 @@ class CustomerComments extends Component<Props, {}> {
       <div className="customerComments">
         <Title> Customer Comments </Title>
         <div className="filterRow">
-          <div className="rowIcon">{emoticonByBucket(this.props.bucket)}</div>
+          <div className="rowIcon">
+            {getEmoticonByBucket(this.props.bucket, false)}
+          </div>
           Customer type:
           <div className="filterRowSpace">
             {this.getEmptyStateText(this.props.bucket)}

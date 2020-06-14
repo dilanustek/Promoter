@@ -4,7 +4,7 @@ import {
   Bucket,
   findCommonTagsInBucket,
   colorIconByBucket,
-  titleEmoticonByBucket,
+  getEmoticonByBucket,
   bucketNames,
 } from "./NPSHelpers";
 import "./popularTags.css";
@@ -80,7 +80,7 @@ class PopularTags extends Component<Props, {}> {
             selected={this.props.clickedBucket === bucket}
             onClick={() => this.props.setBucketAndMaybeTag(bucket, null)}
           >
-            {titleEmoticonByBucket(bucket)}
+            {getEmoticonByBucket(bucket, true)}
             <PopularTagsTitle className="bucketTitle">
               {bucket}
             </PopularTagsTitle>
