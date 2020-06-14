@@ -18,27 +18,22 @@ interface Props {
   bucket: Bucket | null;
   allNPS: NPSEntry[];
 }
+const MAX_COMMENTS_SHOWN = 5;
 
 class CustomerComments extends Component<Props, {}> {
   getComments(bucket: Bucket | null, tag: string | null, allNPS: NPSEntry[]) {
     const comments = findCommentsFromBucketAndMaybeTag(bucket, tag, allNPS);
+    if (!comments) return null;
 
-    const maxCommentsShown = 5;
-    const topXComments = comments?.slice(0, maxCommentsShown);
+    const topXComments = comments.slice(0, MAX_COMMENTS_SHOWN);
 
-    if (topXComments) {
-      const rows = [];
-      for (let i = 0; i < topXComments?.length; i++) {
-        rows.push(
-          <div key={topXComments[i].id}>
-            <Divider variant="inset" component="li" />
-            <CommentListItem entry={topXComments[i]} />
-          </div>
-        );
-      }
-
-      return rows;
-    }
+    const rows = topXComments.map((entry) => (
+      <div key={entry.id}>
+        <Divider variant="inset" component="li" />
+        <CommentListItem entry={entry} />
+      </div>
+    ));
+    return rows;
   }
 
   getEmptyStateText(stringToShow: Bucket | string | null) {

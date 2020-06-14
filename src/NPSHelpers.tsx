@@ -141,7 +141,7 @@ export function colorIconByBucket(bucket: Bucket | null) {
   }
 }
 
-export function getEmoticonStyle(
+export function getStyledEmoticon(
   EmoticonComponent:
     | typeof InsertEmoticonIcon
     | typeof SentimentSatisfiedIcon
@@ -167,11 +167,20 @@ export function getEmoticonStyle(
 }
 
 export function getEmoticonByBucket(bucket: Bucket | null, isTitle: boolean) {
-  if (bucket === "Promoter") {
-    return getEmoticonStyle(InsertEmoticonIcon, isTitle, bucket);
-  } else if (bucket === "Passive") {
-    return getEmoticonStyle(SentimentSatisfiedIcon, isTitle, bucket);
-  } else if (bucket === "Detractor") {
-    return getEmoticonStyle(MoodBadIcon, isTitle, bucket);
-  } else return getEmoticonStyle(Face, isTitle, bucket);
+  let icon;
+  switch (bucket) {
+    case "Promoter":
+      icon = InsertEmoticonIcon;
+      break;
+    case "Passive":
+      icon = SentimentSatisfiedIcon;
+      break;
+    case "Detractor":
+      icon = MoodBadIcon;
+      break;
+    default:
+      icon = Face;
+  }
+
+  return getStyledEmoticon(icon, isTitle, bucket);
 }
