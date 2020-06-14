@@ -36,7 +36,7 @@ class App extends Component<{}, State> {
   render() {
     return (
       <section className="app">
-        <AppBar position="absolute">
+        <AppBar position="fixed">
           <Toolbar>
             <IconButton edge="start" color="inherit">
               <MenuIcon />
