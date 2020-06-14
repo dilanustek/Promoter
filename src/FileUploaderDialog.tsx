@@ -29,7 +29,7 @@ class FileUploaderDialog extends Component<Props, {}> {
     this.parseData(result.data);
   };
 
-  parseData(data: any) {
+  parseData(data: any[]) {
     const entriesWithComments = data.filter(
       (entry: any) => entry.Comment !== ""
     );
