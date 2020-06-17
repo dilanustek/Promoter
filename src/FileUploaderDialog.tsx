@@ -95,7 +95,7 @@ class FileUploaderDialog extends Component<Props, {}> {
                 <a href="https://docs.google.com/spreadsheets/d/1KEeHoyMpfOyoJkhsU8VFCutSp0CTeEjYl1mQKygAJOo/edit?usp=sharing">
                   this template
                 </a>{" "}
-                and download it as a CSV.
+                &amp; download it as a CSV.
               </div>
               <div className="modalText">
                 <b>Step 2:</b> Upload the CSV below.
