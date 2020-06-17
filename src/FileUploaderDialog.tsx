@@ -65,9 +65,9 @@ class FileUploaderDialog extends Component<Props, {}> {
     }
   };
 
-  componentDidMount() {
-    this.parseData(csvData);
-  }
+  // componentDidMount() {
+  //   this.parseData(csvData);
+  // }
 
   render() {
     return (
