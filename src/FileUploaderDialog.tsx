@@ -81,11 +81,27 @@ class FileUploaderDialog extends Component<Props, {}> {
         <div className="modal">
           <section className="fileUploaderSection">
             <div className="uploadText">
-              <div className="modalTitle">Upload a CSV of your NPS data. </div>
+              {/* <div className="modalTitle">Upload a CSV of your NPS data. </div>
               <div className="modalText">
                 Your file should have the NPS score and comments in seperate
                 columns titled "Score" and "Comment". Tags should each have
                 their own columns.
+              </div> */}
+              <div className="modalTitle">
+                Get Insights from your Net Promoter Score Comments
+              </div>
+              <div className="modalText">
+                <b>Step 1:</b> Tag the Net Promoter Score comments using{" "}
+                <a href="https://docs.google.com/spreadsheets/d/1KEeHoyMpfOyoJkhsU8VFCutSp0CTeEjYl1mQKygAJOo/edit?usp=sharing">
+                  this template
+                </a>{" "}
+                and download it as a CSV.
+              </div>
+              <div className="modalText">
+                <b>Step 2:</b> Upload the CSV below.
+              </div>
+              <div className="modalText">
+                <b>Step 3:</b> Explore the interactive charts!
               </div>
             </div>
             <div>
