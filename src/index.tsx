@@ -7,7 +7,8 @@ import ReactGA from "react-ga";
 
 const trackingId = "UA-169836060-1"; // Replace with your Google Analytics tracking ID
 ReactGA.initialize(trackingId);
-ReactGA.set({});
+ReactGA.pageview(window.location.pathname + window.location.search);
+// ReactGA.set({});
 
 ReactDOM.render(
   <React.StrictMode>
