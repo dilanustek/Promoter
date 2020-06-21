@@ -8,7 +8,7 @@ import DateFnsUtils from "@date-io/date-fns";
 import { styled } from "@material-ui/core/styles";
 
 interface Props {
-  setTimeRange: (start: number, end: number) => void;
+  setTimeRange: (timeStamp: number, minOrMax: "min" | "max") => void;
   allNPS: NPSEntry[];
 }
 
@@ -54,7 +54,6 @@ class TimeRangePicker extends Component<Props, State> {
   }
 
   setDate = (date: Date | null, minOrMax: "min" | "max") => {
-    console.log(date);
     if (date) {
       const newTime = date.getTime();
       if (minOrMax === "min") {
@@ -62,6 +61,8 @@ class TimeRangePicker extends Component<Props, State> {
       } else if (minOrMax === "max") {
         this.setState({ selectedMaxDate: newTime });
       }
+
+      this.props.setTimeRange(newTime, minOrMax);
     }
   };
 

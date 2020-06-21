@@ -54,10 +54,14 @@ class NPSstats extends Component<Props, {}> {
     else return "empty";
   }
 
-  setTimeFilteredNPS = (start: number, end: number) => {
-    const timeFilteredNPS = this.props.allNPS.filter(
-      (entry) => entry.timestamp > start && entry.timestamp < end
-    );
+  setTimeFilteredNPS = (timeStamp: number, minOrMax: "min" | "max") => {
+    const timeFilteredNPS = this.props.allNPS.filter((entry) => {
+      if (minOrMax === "min") {
+        return entry.timestamp >= timeStamp;
+      } else {
+        return entry.timestamp <= timeStamp;
+      }
+    });
     this.setState({ timeFilteredNPS: timeFilteredNPS });
   };
 
