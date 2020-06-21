@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import BackupIcon from "@material-ui/icons/Backup";
+import FeedbackButton from "./FeedbackButton";
 
 interface State {
   allNPS: NPSEntry[] | null;
@@ -63,6 +64,7 @@ class App extends Component<{}, State> {
             setIsUploadModal={this.setIsUploadModal}
           />
           {this.state.allNPS ? <NPSstats allNPS={this.state.allNPS} /> : null}
+          <FeedbackButton />
         </div>
       </section>
     );
