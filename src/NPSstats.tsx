@@ -44,6 +44,13 @@ class NPSstats extends Component<Props, {}> {
     });
   };
 
+  getCommentSectionKey(tag: string | null, bucket: Bucket | null) {
+    if (tag) {
+      return bucket + tag;
+    } else if (bucket) return bucket;
+    else return "empty";
+  }
+
   render() {
     return (
       <MyContainer maxWidth="lg">
@@ -77,6 +84,10 @@ class NPSstats extends Component<Props, {}> {
           <Grid item xs={12}>
             <MyPaper>
               <CustomerComments
+                key={this.getCommentSectionKey(
+                  this.state.clickedTag,
+                  this.state.clickedBucket
+                )}
                 tag={this.state.clickedTag}
                 bucket={this.state.clickedBucket}
                 allNPS={this.props.allNPS}
