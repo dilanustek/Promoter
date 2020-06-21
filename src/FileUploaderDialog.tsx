@@ -49,6 +49,7 @@ class FileUploaderDialog extends Component<Props, {}> {
           comment: entry.Comment,
           bucket: scoreToBucket(scoreNum),
           tags: tagKeys,
+          timestamp: Math.round(new Date(entry.Date).getTime()),
         };
         parsedData.push(newEntry);
       }

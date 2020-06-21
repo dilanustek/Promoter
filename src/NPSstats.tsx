@@ -9,6 +9,7 @@ import Grid from "@material-ui/core/Grid";
 import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
 import NPSBarChart from "./NPSBarChart";
+import TimeRangePicker from "./TimeRangePicker";
 
 interface Props {
   allNPS: NPSEntry[];
@@ -17,6 +18,7 @@ interface Props {
 interface State {
   clickedBucket: Bucket | null;
   clickedTag: string | null;
+  timeFilteredNPS: NPSEntry[];
 }
 
 const MyContainer = styled(Container)(({ theme }) => ({
@@ -35,6 +37,7 @@ class NPSstats extends Component<Props, {}> {
   state: State = {
     clickedBucket: null,
     clickedTag: null,
+    timeFilteredNPS: this.props.allNPS,
   };
 
   setBucketAndMaybeTag = (bucket: Bucket, tag: string | null) => {
@@ -51,22 +54,33 @@ class NPSstats extends Component<Props, {}> {
     else return "empty";
   }
 
+  setTimeFilteredNPS = (start: number, end: number) => {
+    const timeFilteredNPS = this.props.allNPS.filter(
+      (entry) => entry.timestamp > start && entry.timestamp < end
+    );
+    this.setState({ timeFilteredNPS: timeFilteredNPS });
+  };
+
   render() {
     return (
       <MyContainer maxWidth="lg">
         <Grid container spacing={3}>
-          <Grid item xs={12}>
+          <Grid item xs={12} className="NPSstatsHeader">
             <h1>NPS Analysis Results</h1>
+            <TimeRangePicker
+              setTimeRange={this.setTimeFilteredNPS}
+              allNPS={this.props.allNPS}
+            />
           </Grid>
           <Grid item xs={12} md={3} lg={3}>
             <MyPaper className="fixedHeightPaper">
-              <Score allNPS={this.props.allNPS} />
+              <Score allNPS={this.state.timeFilteredNPS} />
             </MyPaper>
           </Grid>
           <Grid item xs={12} md={9} lg={9}>
             <MyPaper className="fixedHeightPaper">
               <NPSBarChart
-                allNPS={this.props.allNPS}
+                allNPS={this.state.timeFilteredNPS}
                 setBucketAndMaybeTag={this.setBucketAndMaybeTag}
               />
             </MyPaper>
@@ -74,7 +88,7 @@ class NPSstats extends Component<Props, {}> {
           <Grid item xs={12}>
             <MyPaper>
               <PopularTags
-                allNPS={this.props.allNPS}
+                allNPS={this.state.timeFilteredNPS}
                 setBucketAndMaybeTag={this.setBucketAndMaybeTag}
                 clickedBucket={this.state.clickedBucket}
                 clickedTag={this.state.clickedTag}

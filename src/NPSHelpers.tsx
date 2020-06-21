@@ -11,6 +11,7 @@ export interface NPSEntry {
   bucket: Bucket;
   comment: string;
   tags: string[] | null;
+  timestamp: number;
 }
 
 export type Bucket = "Promoter" | "Passive" | "Detractor";

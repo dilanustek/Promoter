@@ -49,7 +49,6 @@ class CustomerComments extends Component<Props, State> {
         this.props.tag,
         this.props.allNPS
       );
-      console.log("getting ALL COMMENTS");
       this.cachedComments = allComments;
       return allComments;
     } else return this.cachedComments;
