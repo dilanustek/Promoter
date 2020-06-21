@@ -36,9 +36,6 @@ class TimeRangePicker extends Component<Props, State> {
       (min, p) => (p.timestamp < min ? p.timestamp : min),
       data[0].timestamp
     );
-    console.log("min " + minTime);
-    console.log(new Date(minTime));
-
     return minTime;
   }
 
@@ -48,13 +45,16 @@ class TimeRangePicker extends Component<Props, State> {
       (max, p) => (p.timestamp > max ? p.timestamp : max),
       data[0].timestamp
     );
-    console.log("max= " + maxTime);
-    console.log(new Date(maxTime));
     return maxTime;
   }
 
+  isValidDate(date: Date) {
+    return !isNaN(date.getTime());
+  }
+
   setDate = (date: Date | null, minOrMax: "min" | "max") => {
-    if (date) {
+    if (date && this.isValidDate(date)) {
+      console.log("date = " + date);
       const newTime = date.getTime();
       if (minOrMax === "min") {
         this.setState({ selectedMinDate: newTime });
