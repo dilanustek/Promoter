@@ -59,16 +59,14 @@ class FileUploaderDialog extends Component<Props, {}> {
   }
 
   onModalClose = () => {
-    console.log("modal closed");
-    // if allNPS is loaded
     if (this.props.isAllNPSSet) {
       this.props.setIsUploadModal(false);
     }
   };
 
-  componentDidMount() {
-    this.parseData(csvData);
-  }
+  // componentDidMount() {
+  //   this.parseData(csvData);
+  // }
 
   render() {
     return (
@@ -82,12 +80,6 @@ class FileUploaderDialog extends Component<Props, {}> {
         <div className="modal">
           <section className="fileUploaderSection">
             <div className="uploadText">
-              {/* <div className="modalTitle">Upload a CSV of your NPS data. </div>
-              <div className="modalText">
-                Your file should have the NPS score and comments in seperate
-                columns titled "Score" and "Comment". Tags should each have
-                their own columns.
-              </div> */}
               <div className="modalTitle">
                 Get Insights from your Net Promoter Score Comments
               </div>
@@ -112,6 +104,7 @@ class FileUploaderDialog extends Component<Props, {}> {
                   className="csv-input"
                   type="file"
                   name="file"
+                  accept=".csv"
                   placeholder={"placeholder text"}
                   style={{ display: "none" }}
                   onChange={this.onFileInputChange}
