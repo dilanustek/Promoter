@@ -49,7 +49,7 @@ class FileUploaderDialog extends Component<Props, {}> {
           comment: entry.Comment,
           bucket: scoreToBucket(scoreNum),
           tags: tagKeys,
-          timestamp: Math.round(new Date(entry.Date).getTime()),
+          timestamp: new Date(entry.Date).getTime(),
         };
         parsedData.push(newEntry);
       }
@@ -81,20 +81,27 @@ class FileUploaderDialog extends Component<Props, {}> {
           <section className="fileUploaderSection">
             <div className="uploadText">
               <div className="modalTitle">
-                Get Insights from your Net Promoter Score Comments
+                <h3> Get Insights from your Net Promoter Score Comments </h3>
               </div>
-              <div className="modalText">
-                <b>Step 1:</b> Tag the Net Promoter Score comments using{" "}
-                <a href="https://docs.google.com/spreadsheets/d/1KEeHoyMpfOyoJkhsU8VFCutSp0CTeEjYl1mQKygAJOo/edit?usp=sharing">
-                  this template
-                </a>{" "}
-                &amp; download it as a CSV.
+              <div className="modalRow">
+                <div className="step"> Step 1:</div>
+                <div className="description">
+                  Tag the Net Promoter Score comments using{" "}
+                  <a href="https://docs.google.com/spreadsheets/d/1KEeHoyMpfOyoJkhsU8VFCutSp0CTeEjYl1mQKygAJOo/edit?usp=sharing">
+                    this template
+                  </a>{" "}
+                  &amp; download it as a CSV.
+                </div>
               </div>
-              <div className="modalText">
-                <b>Step 2:</b> Upload the CSV below.
+              <div className="modalRow">
+                <div className="step"> Step 2:</div>
+                <div className="description">Upload the CSV below.</div>
               </div>
-              <div className="modalText">
-                <b>Step 3:</b> Explore the interactive charts!
+              <div className="modalRow">
+                <div className="step"> Step 3:</div>
+                <div className="description">
+                  Explore the interactive charts!
+                </div>
               </div>
             </div>
             <div>

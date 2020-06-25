@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NPSEntry } from "./NPSHelpers";
+import { NPSEntry, getMinTime, getMaxTime } from "./NPSHelpers";
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
@@ -8,7 +8,7 @@ import DateFnsUtils from "@date-io/date-fns";
 import { styled } from "@material-ui/core/styles";
 
 interface Props {
-  setTimeRange: (timeStamp: number, minOrMax: "min" | "max") => void;
+  setNPSEntiesByTimeRange: (timeStamp: number, minOrMax: "min" | "max") => void;
   allNPS: NPSEntry[];
 }
 
@@ -17,36 +17,18 @@ interface State {
   selectedMaxDate: number;
 }
 
-const MyKeyboardPicker = styled(KeyboardDatePicker)(({ theme }) => ({
+const StartDatePicker = styled(KeyboardDatePicker)(({ theme }) => ({
   paddingRight: "20px",
 }));
 
 class TimeRangePicker extends Component<Props, State> {
-  minTime = this.getMinTime();
-  maxTime = this.getMaxTime();
+  minTime = getMinTime(this.props.allNPS);
+  maxTime = getMaxTime(this.props.allNPS);
 
   state: State = {
     selectedMinDate: this.minTime,
     selectedMaxDate: this.maxTime,
   };
-
-  getMinTime() {
-    const data = this.props.allNPS;
-    const minTime = data.reduce(
-      (min, p) => (p.timestamp < min ? p.timestamp : min),
-      data[0].timestamp
-    );
-    return minTime;
-  }
-
-  getMaxTime() {
-    const data = this.props.allNPS;
-    const maxTime = data.reduce(
-      (max, p) => (p.timestamp > max ? p.timestamp : max),
-      data[0].timestamp
-    );
-    return maxTime;
-  }
 
   isValidDate(date: Date) {
     return !isNaN(date.getTime());
@@ -54,7 +36,6 @@ class TimeRangePicker extends Component<Props, State> {
 
   setDate = (date: Date | null, minOrMax: "min" | "max") => {
     if (date && this.isValidDate(date)) {
-      console.log("date = " + date);
       const newTime = date.getTime();
       if (minOrMax === "min") {
         this.setState({ selectedMinDate: newTime });
@@ -62,7 +43,7 @@ class TimeRangePicker extends Component<Props, State> {
         this.setState({ selectedMaxDate: newTime });
       }
 
-      this.props.setTimeRange(newTime, minOrMax);
+      this.props.setNPSEntiesByTimeRange(newTime, minOrMax);
     }
   };
 
@@ -70,7 +51,7 @@ class TimeRangePicker extends Component<Props, State> {
     return (
       <div className="timeRangePicker">
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <MyKeyboardPicker
+          <StartDatePicker
             disableToolbar
             variant="inline"
             format="MM/dd/yyyy"

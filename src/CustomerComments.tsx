@@ -24,7 +24,7 @@ interface State {
   commentsPaginationIndex: number;
 }
 
-const MAX_COMMENTS_SHOWN = 5;
+const COMMENTS_PER_PAGE = 5;
 
 class CustomerComments extends Component<Props, State> {
   state: State = {
@@ -33,32 +33,30 @@ class CustomerComments extends Component<Props, State> {
 
   cachedComments: NPSEntry[] | null = null;
 
-  incrementPaginationIndex = (
-    event: React.ChangeEvent<unknown>,
-    value: number
-  ) => {
+  setPaginationIndex = (event: React.ChangeEvent<unknown>, value: number) => {
     this.setState({
-      commentsPaginationIndex: (value - 1) * MAX_COMMENTS_SHOWN,
+      commentsPaginationIndex: (value - 1) * COMMENTS_PER_PAGE,
     });
   };
 
   getFilteredComments() {
-    if (!this.cachedComments) {
-      const allComments = findCommentsFromBucketAndMaybeTag(
-        this.props.bucket,
-        this.props.tag,
-        this.props.allNPS
-      );
-      this.cachedComments = allComments;
-      return allComments;
-    } else return this.cachedComments;
+    if (this.cachedComments) {
+      return this.cachedComments;
+    }
+
+    this.cachedComments = findCommentsFromBucketAndMaybeTag(
+      this.props.bucket,
+      this.props.tag,
+      this.props.allNPS
+    );
+    return this.cachedComments;
   }
 
   getComments() {
     const allComments = this.getFilteredComments();
     return allComments?.slice(
       this.state.commentsPaginationIndex,
-      this.state.commentsPaginationIndex + MAX_COMMENTS_SHOWN
+      this.state.commentsPaginationIndex + COMMENTS_PER_PAGE
     );
   }
 
@@ -94,7 +92,7 @@ class CustomerComments extends Component<Props, State> {
   getNumberOfPages(allFilteredComments: NPSEntry[] | null) {
     if (!allFilteredComments) return 0;
 
-    return Math.ceil(allFilteredComments.length / MAX_COMMENTS_SHOWN);
+    return Math.ceil(allFilteredComments.length / COMMENTS_PER_PAGE);
   }
 
   render() {
@@ -122,12 +120,14 @@ class CustomerComments extends Component<Props, State> {
           </div>
         </div>
         <List>{this.getCommentRows()}</List>
-        <Pagination
-          count={this.getNumberOfPages(this.cachedComments)}
-          variant="outlined"
-          color="primary"
-          onChange={this.incrementPaginationIndex}
-        />
+        {this.cachedComments ? (
+          <Pagination
+            count={this.getNumberOfPages(this.cachedComments)}
+            variant="outlined"
+            color="primary"
+            onChange={this.setPaginationIndex}
+          />
+        ) : null}
       </div>
     );
   }

@@ -5,8 +5,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import ReactGA from "react-ga";
 
-const trackingId = "UA-169836060-1"; // Replace with your Google Analytics tracking ID
-ReactGA.initialize(trackingId);
+ReactGA.initialize("UA-169836060-1");
 ReactGA.pageview(window.location.pathname + window.location.search);
 // ReactGA.set({});
 

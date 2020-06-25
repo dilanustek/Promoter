@@ -8,8 +8,8 @@ import "./App.css";
 
 const MyFabButton = styled(Fab)(({ theme }) => ({
   position: "fixed",
-  bottom: 16,
-  right: 16,
+  bottom: theme.spacing(4),
+  right: theme.spacing(4),
 }));
 
 const MyPopover = styled(Popover)(({ theme }) => ({}));

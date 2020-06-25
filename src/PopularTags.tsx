@@ -34,7 +34,7 @@ const MySecondaryListItem = styled(ListItemSecondaryAction)({
 });
 
 class PopularTags extends Component<Props, {}> {
-  setPopularTagsByBucket = (bucket: Bucket) => {
+  getPopularTagsByBucket = (bucket: Bucket) => {
     const commonTags = findCommonTagsInBucket(bucket, this.props.allNPS, 5);
     if (commonTags) {
       const rows = [];
@@ -70,7 +70,7 @@ class PopularTags extends Component<Props, {}> {
       : "nonselectedBucketHeader";
   }
 
-  getBucketDiv(bucket: Bucket) {
+  getBucketList(bucket: Bucket) {
     return (
       <div className="bucket" key={bucket}>
         <List>
@@ -85,7 +85,7 @@ class PopularTags extends Component<Props, {}> {
               {bucket}
             </PopularTagsTitle>
           </ListItem>
-          {this.setPopularTagsByBucket(bucket)}
+          {this.getPopularTagsByBucket(bucket)}
         </List>
       </div>
     );
@@ -96,7 +96,7 @@ class PopularTags extends Component<Props, {}> {
       <div>
         <Title> Popular Tags </Title>
         <div className="bucketSections">
-          {bucketNames.map((bucket) => this.getBucketDiv(bucket))}
+          {bucketNames.map((bucket) => this.getBucketList(bucket))}
         </div>
       </div>
     );

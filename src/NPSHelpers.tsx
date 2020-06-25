@@ -40,11 +40,7 @@ export function scoreCounter(allNPS: NPSEntry[]) {
     } else numPassives++;
   }
 
-  return {
-    numPromoters: numPromoters,
-    numPassives: numPassives,
-    numDetractors: numDetractors,
-  };
+  return { numPromoters, numPassives, numDetractors };
 }
 
 export function npsScoreCalculator(allNPS: NPSEntry[]) {
@@ -184,4 +180,20 @@ export function getEmoticonByBucket(bucket: Bucket | null, isTitle: boolean) {
   }
 
   return getStyledEmoticon(icon, isTitle, bucket);
+}
+
+export function getMinTime(data: NPSEntry[]) {
+  const minTime = data.reduce(
+    (minTime, entry) => Math.min(entry.timestamp, minTime),
+    data[0].timestamp
+  );
+  return minTime;
+}
+
+export function getMaxTime(data: NPSEntry[]) {
+  const maxTime = data.reduce(
+    (maxTime, entry) => Math.max(entry.timestamp, maxTime),
+    data[0].timestamp
+  );
+  return maxTime;
 }
