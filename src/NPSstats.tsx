@@ -87,7 +87,8 @@ class NPSstats extends Component<Props, {}> {
             <h1>NPS Analysis Results</h1>
             <TimeRangePicker
               setNPSEntiesByTimeRange={this.setTimeFilteredNPSEntries}
-              allNPS={this.props.allNPS}
+              minDate={this.state.minDate}
+              maxDate={this.state.maxDate}
             />
           </Grid>
         </Grid>
