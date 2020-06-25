@@ -4,7 +4,8 @@ import Typography from "@material-ui/core/Typography";
 import Title from "./Title";
 
 interface Props {
-  allNPS: NPSEntry[];
+  npsScore: number;
+  numAnalyzedEntries: number;
 }
 
 class Score extends Component<Props, {}> {
@@ -13,9 +14,11 @@ class Score extends Component<Props, {}> {
       <div>
         <Title>NPS score</Title>
         <Typography component="p" variant="h4">
-          {npsScoreCalculator(this.props.allNPS)}
+          {this.props.npsScore}
         </Typography>
-        <Typography>{this.props.allNPS.length} entries analyzed</Typography>
+        <Typography>
+          {this.props.numAnalyzedEntries} entries analyzed
+        </Typography>
       </div>
     );
   }

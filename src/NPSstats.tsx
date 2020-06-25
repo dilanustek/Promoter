@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import Score from "./Score";
-import { NPSEntry, Bucket, getMinTime, getMaxTime } from "./NPSHelpers";
+import {
+  NPSEntry,
+  Bucket,
+  getMinTime,
+  getMaxTime,
+  npsScoreCalculator,
+  scoreCounter,
+  findCommonTagsInBucket,
+} from "./NPSHelpers";
 import "./NPSstats.css";
 import PopularTags from "./PopularTags";
 import CustomerComments from "./CustomerComments";
@@ -97,13 +105,16 @@ class NPSstats extends Component<Props, {}> {
           <Grid container spacing={3}>
             <Grid item xs={12} md={3} lg={3}>
               <MyPaper className="fixedHeightPaper">
-                <Score allNPS={this.state.timeFilteredNPS} />
+                <Score
+                  npsScore={npsScoreCalculator(this.props.allNPS)}
+                  numAnalyzedEntries={this.props.allNPS.length}
+                />
               </MyPaper>
             </Grid>
             <Grid item xs={12} md={9} lg={9}>
               <MyPaper className="fixedHeightPaper">
                 <NPSBarChart
-                  allNPS={this.state.timeFilteredNPS}
+                  scores={scoreCounter(this.props.allNPS)}
                   setBucket={this.setBucketAndMaybeTag}
                 />
               </MyPaper>
@@ -111,7 +122,7 @@ class NPSstats extends Component<Props, {}> {
             <Grid item xs={12}>
               <MyPaper>
                 <PopularTags
-                  allNPS={this.state.timeFilteredNPS}
+                  allNPS={this.props.allNPS}
                   setBucketAndMaybeTag={this.setBucketAndMaybeTag}
                   clickedBucket={this.state.clickedBucket}
                   clickedTag={this.state.clickedTag}

@@ -4,30 +4,28 @@ import { HorizontalBar } from "react-chartjs-2";
 import { green, red, blue } from "@material-ui/core/colors";
 
 interface Props {
-  allNPS: NPSEntry[];
   setBucket: (bucket: Bucket, tag: string | null) => void;
+  scores: { numPromoters: number; numPassives: number; numDetractors: number };
 }
 
 class NPSBarChart extends Component<Props, {}> {
   getBarChartData() {
-    const scores = scoreCounter(this.props.allNPS);
-
     const data = {
       datasets: [
         {
           label: "Promoters",
           backgroundColor: green[400],
-          data: [scores.numPromoters],
+          data: [this.props.scores.numPromoters],
         },
         {
           label: "Passives",
           backgroundColor: blue[200],
-          data: [scores.numPassives],
+          data: [this.props.scores.numPassives],
         },
         {
           label: "Detractors",
           backgroundColor: red[400],
-          data: [scores.numDetractors],
+          data: [this.props.scores.numDetractors],
         },
       ],
     };
