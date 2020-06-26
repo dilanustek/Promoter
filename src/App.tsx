@@ -10,20 +10,47 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import BackupIcon from "@material-ui/icons/Backup";
 import FeedbackButton from "./FeedbackButton";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import { styled } from "@material-ui/core/styles";
 
 interface State {
   allNPS: NPSEntry[] | null;
   isUploadModalOpen: boolean;
+  isLoading: boolean;
 }
+
+const MyLoader = styled(CircularProgress)(({ theme }) => ({
+  position: "fixed",
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  margin: "auto",
+  width: "60px",
+  height: "60px",
+}));
 
 class App extends Component<{}, State> {
   state: State = {
     allNPS: null,
     isUploadModalOpen: true,
+    isLoading: false,
   };
 
   setAllNPSData = (allNPS: NPSEntry[]) => {
-    this.setState({ allNPS: allNPS, isUploadModalOpen: false });
+    this.setState({ allNPS: null, isUploadModalOpen: false, isLoading: true });
+
+    window.setTimeout(
+      (allNPS: NPSEntry[]) => {
+        console.log("hello");
+        this.setState({
+          allNPS: allNPS,
+          isLoading: false,
+        });
+      },
+      2 * 1000,
+      allNPS
+    );
   };
 
   onUploadClick = () => {
@@ -64,6 +91,11 @@ class App extends Component<{}, State> {
             setIsUploadModal={this.setIsUploadModal}
           />
           {this.state.allNPS ? <NPSstats allNPS={this.state.allNPS} /> : null}
+          {this.state.isLoading ? (
+            <div className="loading">
+              <MyLoader />
+            </div>
+          ) : null}
           <FeedbackButton />
         </div>
       </section>

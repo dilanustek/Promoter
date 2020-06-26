@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { NPSEntry, npsScoreCalculator } from "./NPSHelpers";
 import Typography from "@material-ui/core/Typography";
 import Title from "./Title";
 

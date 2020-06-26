@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NPSEntry, Bucket, scoreCounter } from "./NPSHelpers";
+import { Bucket } from "./NPSHelpers";
 import { HorizontalBar } from "react-chartjs-2";
 import { green, red, blue } from "@material-ui/core/colors";
 

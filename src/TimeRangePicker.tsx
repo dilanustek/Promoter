@@ -1,16 +1,15 @@
 import React, { Component } from "react";
-import { NPSEntry, getMinTime, getMaxTime } from "./NPSHelpers";
 import {
   MuiPickersUtilsProvider,
   KeyboardDatePicker,
 } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import { styled } from "@material-ui/core/styles";
+import { NPSEntry, getMinTime, getMaxTime } from "./NPSHelpers";
 
 interface Props {
   setNPSEntiesByTimeRange: (timeStamp: number, minOrMax: "min" | "max") => void;
-  minDate: number;
-  maxDate: number;
+  allNPS: NPSEntry[];
 }
 
 interface State {
@@ -23,9 +22,12 @@ const StartDatePicker = styled(KeyboardDatePicker)(({ theme }) => ({
 }));
 
 class TimeRangePicker extends Component<Props, State> {
+  minTime = getMinTime(this.props.allNPS);
+  maxTime = getMaxTime(this.props.allNPS);
+
   state: State = {
-    selectedMinDate: this.props.maxDate,
-    selectedMaxDate: this.props.maxDate,
+    selectedMinDate: this.minTime,
+    selectedMaxDate: this.maxTime,
   };
 
   isValidDate(date: Date) {
@@ -57,8 +59,8 @@ class TimeRangePicker extends Component<Props, State> {
             id="date-picker-inline-1"
             label="Start date"
             value={this.state.selectedMinDate}
-            minDate={this.props.minDate}
-            maxDate={this.props.maxDate}
+            minDate={this.minTime}
+            maxDate={this.maxTime}
             onChange={(date) => this.setDate(date, "min")}
             KeyboardButtonProps={{
               "aria-label": "change date",
@@ -72,10 +74,12 @@ class TimeRangePicker extends Component<Props, State> {
             id="date-picker-inline-2"
             label="End date"
             value={this.state.selectedMaxDate}
-            minDate={this.props.minDate}
-            maxDate={this.props.maxDate}
+            minDate={this.minTime}
+            maxDate={this.maxTime}
             invalidLabel={
-              this.props.minDate < this.props.maxDate ? "invalid" : undefined
+              this.state.selectedMinDate > this.state.selectedMaxDate
+                ? "invalid"
+                : undefined
             }
             onChange={(date) => this.setDate(date, "max")}
             KeyboardButtonProps={{

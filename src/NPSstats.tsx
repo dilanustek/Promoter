@@ -7,7 +7,6 @@ import {
   getMaxTime,
   npsScoreCalculator,
   scoreCounter,
-  findCommonTagsInBucket,
 } from "./NPSHelpers";
 import "./NPSstats.css";
 import PopularTags from "./PopularTags";
@@ -94,9 +93,8 @@ class NPSstats extends Component<Props, {}> {
           <Grid item xs={12} className="NPSstatsHeader">
             <h1>NPS Analysis Results</h1>
             <TimeRangePicker
+              allNPS={this.props.allNPS}
               setNPSEntiesByTimeRange={this.setTimeFilteredNPSEntries}
-              minDate={this.state.minDate}
-              maxDate={this.state.maxDate}
             />
           </Grid>
         </Grid>
@@ -106,15 +104,15 @@ class NPSstats extends Component<Props, {}> {
             <Grid item xs={12} md={3} lg={3}>
               <MyPaper className="fixedHeightPaper">
                 <Score
-                  npsScore={npsScoreCalculator(this.props.allNPS)}
-                  numAnalyzedEntries={this.props.allNPS.length}
+                  npsScore={npsScoreCalculator(this.state.timeFilteredNPS)}
+                  numAnalyzedEntries={this.state.timeFilteredNPS.length}
                 />
               </MyPaper>
             </Grid>
             <Grid item xs={12} md={9} lg={9}>
               <MyPaper className="fixedHeightPaper">
                 <NPSBarChart
-                  scores={scoreCounter(this.props.allNPS)}
+                  scores={scoreCounter(this.state.timeFilteredNPS)}
                   setBucket={this.setBucketAndMaybeTag}
                 />
               </MyPaper>
@@ -122,7 +120,7 @@ class NPSstats extends Component<Props, {}> {
             <Grid item xs={12}>
               <MyPaper>
                 <PopularTags
-                  allNPS={this.props.allNPS}
+                  allNPS={this.state.timeFilteredNPS}
                   setBucketAndMaybeTag={this.setBucketAndMaybeTag}
                   clickedBucket={this.state.clickedBucket}
                   clickedTag={this.state.clickedTag}
@@ -141,7 +139,7 @@ class NPSstats extends Component<Props, {}> {
                   )}
                   tag={this.state.clickedTag}
                   bucket={this.state.clickedBucket}
-                  allNPS={this.props.allNPS}
+                  allNPS={this.state.timeFilteredNPS}
                 />
               </MyPaper>
             </Grid>
