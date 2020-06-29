@@ -3,7 +3,6 @@ import Fab from "@material-ui/core/Fab";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import { styled } from "@material-ui/core/styles";
 import Popover from "@material-ui/core/Popover";
-import Typography from "@material-ui/core/Typography";
 import "./App.css";
 
 const MyFabButton = styled(Fab)(({ theme }) => ({
