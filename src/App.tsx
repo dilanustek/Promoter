@@ -47,7 +47,7 @@ class App extends Component<{}, State> {
           isLoading: false,
         });
       },
-      2 * 1000,
+      1 * 1000,
       allNPS
     );
   };
