@@ -31,12 +31,16 @@
   padding: 40px;
 }
 
+@media (max-width: 400px) {
+  .fileUploaderSection {
+    display: none;
+  }
+}
+
 .uploadText {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  text-align: center;
   margin: auto;
 }
 
@@ -52,14 +56,25 @@
 
 .demoImg {
   width: 250px;
+  height: 233px;
   padding-bottom: 35px;
 }
 
 .modalTitle {
-  padding-bottom: 14px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-.modalText {
-  font-weight: 200;
+.modalRow {
+  padding-bottom: 8px;
+  display: flex;
+}
+
+.step {
+  width: 60px;
+  font-weight: 700;
+}
+
+.description {
+  width: 250px;
+  color: rgba(0, 0, 0, 0.75);
 }

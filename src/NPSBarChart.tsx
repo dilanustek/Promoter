@@ -1,44 +1,31 @@
 import React, { Component } from "react";
-import { NPSEntry, Bucket } from "./NPSHelpers";
+import { Bucket } from "./NPSHelpers";
 import { HorizontalBar } from "react-chartjs-2";
 import { green, red, blue } from "@material-ui/core/colors";
 
 interface Props {
-  allNPS: NPSEntry[];
-  setTagAndMaybeBucket: (bucket: Bucket, tag: string | null) => void;
+  setBucket: (bucket: Bucket, tag: string | null) => void;
+  scores: { numPromoters: number; numPassives: number; numDetractors: number };
 }
 
 class NPSBarChart extends Component<Props, {}> {
   getBarChartData() {
-    if (!this.props.allNPS) return [{}];
-    let numPromoters = 0;
-    let numPassives = 0;
-    let numDetractors = 0;
-
-    for (let entry of this.props.allNPS) {
-      if (entry.bucket === "Promoter") {
-        numPromoters++;
-      } else if (entry.bucket === "Passive") {
-        numPassives++;
-      } else numDetractors++;
-    }
-
     const data = {
       datasets: [
         {
           label: "Promoters",
           backgroundColor: green[400],
-          data: [numPromoters],
+          data: [this.props.scores.numPromoters],
         },
         {
           label: "Passives",
           backgroundColor: blue[200],
-          data: [numPassives],
+          data: [this.props.scores.numPassives],
         },
         {
           label: "Detractors",
           backgroundColor: red[400],
-          data: [numDetractors],
+          data: [this.props.scores.numDetractors],
         },
       ],
     };
@@ -49,7 +36,7 @@ class NPSBarChart extends Component<Props, {}> {
   onBarClick = (event: any) => {
     const buckets: Bucket[] = ["Promoter", "Passive", "Detractor"];
     if (event[0]) {
-      this.props.setTagAndMaybeBucket(buckets[event[0]._datasetIndex], null);
+      this.props.setBucket(buckets[event[0]._datasetIndex], null);
     }
   };
 
@@ -92,15 +79,13 @@ class NPSBarChart extends Component<Props, {}> {
 
     return (
       <div className="NPSBarChart">
-        {this.props.allNPS ? (
-          <HorizontalBar
-            data={this.getBarChartData()}
-            width={100}
-            height={13}
-            options={options}
-            getElementAtEvent={this.onBarClick}
-          />
-        ) : null}
+        <HorizontalBar
+          data={this.getBarChartData()}
+          width={100}
+          height={13}
+          options={options}
+          getElementAtEvent={this.onBarClick}
+        />
       </div>
     );
   }

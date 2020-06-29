@@ -3,3 +3,9 @@
   display: flex;
   justify-content: center;
 }
+
+.NPSstatsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

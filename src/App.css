@@ -1,14 +1,23 @@
-.app {
-  background-color: #fafafa;
-}
-
 .page {
-  margin-top: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 50px;
+  box-sizing: border-box;
 }
 
 .appbar-title {
   flex-grow: 1;
+}
+
+.popover-txt {
+  padding: 24px;
+  padding-bottom: 36px;
+  border: 16px solid #3f51b5;
+  width: 340px;
+}
+
+.loading {
+  height: 100%;
+  display: flex;
 }

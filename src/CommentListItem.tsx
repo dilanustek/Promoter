@@ -13,11 +13,12 @@ interface State {
   showLong: boolean;
 }
 
+const MAX_COMMENT_LENGTH = 330;
+
 class CommentListItem extends Component<Props, State> {
   state: State = {
     showLong: false,
   };
-  maxCommentLen = 330;
 
   onExpandClick = () => {
     this.setState({
@@ -25,30 +26,24 @@ class CommentListItem extends Component<Props, State> {
     });
   };
 
-  getCommentWithButton() {
-    if (this.props.entry.comment.length > this.maxCommentLen) {
-      if (this.state.showLong) {
-        return (
-          <ListItemText>
-            {this.props.entry.comment}
-            <span className="expand" onClick={this.onExpandClick}>
-              Show less
-            </span>
-          </ListItemText>
-        );
-      } else {
-        return (
-          <ListItemText>
-            {this.props.entry.comment.slice(0, this.maxCommentLen)}...
-            <span className="expand" onClick={this.onExpandClick}>
-              Show more
-            </span>
-          </ListItemText>
-        );
-      }
+  getComment() {
+    if (this.isCommentTooLong() && !this.state.showLong) {
+      return this.props.entry.comment.slice(0, MAX_COMMENT_LENGTH) + "...";
     } else {
-      return <ListItemText>{this.props.entry.comment}</ListItemText>;
+      return this.props.entry.comment;
     }
+  }
+
+  getExpandButton() {
+    return (
+      <span className="expand" onClick={this.onExpandClick}>
+        {this.state.showLong ? "Show less" : "Show more"}
+      </span>
+    );
+  }
+
+  isCommentTooLong() {
+    return this.props.entry.comment.length > MAX_COMMENT_LENGTH;
   }
 
   render() {
@@ -57,7 +52,10 @@ class CommentListItem extends Component<Props, State> {
         <ListItemIcon>
           <ChatOutlinedIcon />
         </ListItemIcon>
-        {this.getCommentWithButton()}
+        <ListItemText>
+          {this.getComment()}
+          {this.isCommentTooLong() ? this.getExpandButton() : null}
+        </ListItemText>
       </ListItem>
     );
   }

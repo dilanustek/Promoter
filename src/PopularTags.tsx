@@ -3,8 +3,9 @@ import {
   NPSEntry,
   Bucket,
   findCommonTagsInBucket,
-  styleIconByBucket,
-  titleEmoticonByBucket,
+  colorIconByBucket,
+  getEmoticonByBucket,
+  bucketNames,
 } from "./NPSHelpers";
 import "./popularTags.css";
 import Title from "./Title";
@@ -18,15 +19,14 @@ import { styled } from "@material-ui/core/styles";
 
 interface Props {
   allNPS: NPSEntry[];
-  setTagAndMaybeBucket: (bucket: Bucket, tag: string) => void;
+  setBucketAndMaybeTag: (bucket: Bucket, tag: string | null) => void;
   clickedBucket: Bucket | null;
   clickedTag: string | null;
 }
 
-const MyTitle = styled(Typography)({
+const PopularTagsTitle = styled(Typography)({
   fontSize: 20,
   fontWeight: 600,
-  padding: "5px 10px 5px 10px",
 });
 
 const MySecondaryListItem = styled(ListItemSecondaryAction)({
@@ -34,28 +34,25 @@ const MySecondaryListItem = styled(ListItemSecondaryAction)({
 });
 
 class PopularTags extends Component<Props, {}> {
-  setPopularTagsByBucket = (bucket: Bucket) => {
+  getPopularTagsByBucket = (bucket: Bucket) => {
     const commonTags = findCommonTagsInBucket(bucket, this.props.allNPS, 5);
     if (commonTags) {
       const rows = [];
-      for (let i = 0; i < commonTags.length; i++) {
-        const tag = commonTags[i][0];
-        const rate = commonTags[i][1];
-
+      for (let [tag, rate] of commonTags) {
         rows.push(
           <ListItem
-            key={i}
+            key={tag}
             button
             selected={
               this.props.clickedTag === tag &&
               this.props.clickedBucket === bucket
             }
             onClick={() => {
-              this.props.setTagAndMaybeBucket(bucket, tag);
+              this.props.setBucketAndMaybeTag(bucket, tag);
             }}
           >
             <ListItemIcon>
-              <LocalOffer style={styleIconByBucket(bucket)} />
+              <LocalOffer style={{ color: colorIconByBucket(bucket) }} />
             </ListItemIcon>
             <ListItemText>{tag}</ListItemText>
             <MySecondaryListItem>{Math.round(rate * 100)}%</MySecondaryListItem>
@@ -73,32 +70,33 @@ class PopularTags extends Component<Props, {}> {
       : "nonselectedBucketHeader";
   }
 
+  getBucketList(bucket: Bucket) {
+    return (
+      <div className="bucket" key={bucket}>
+        <List>
+          <ListItem
+            key="title"
+            button
+            selected={this.props.clickedBucket === bucket}
+            onClick={() => this.props.setBucketAndMaybeTag(bucket, null)}
+          >
+            {getEmoticonByBucket(bucket, true)}
+            <PopularTagsTitle className="bucketTitle">
+              {bucket}
+            </PopularTagsTitle>
+          </ListItem>
+          {this.getPopularTagsByBucket(bucket)}
+        </List>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div>
         <Title> Popular Tags </Title>
         <div className="bucketSections">
-          <div className="bucket">
-            <div className={this.getBucketHeaderClassName("Promoter")}>
-              {titleEmoticonByBucket("Promoter")}
-              <MyTitle className="bucketTitle">Promoters</MyTitle>
-            </div>
-            <List>{this.setPopularTagsByBucket("Promoter")}</List>
-          </div>
-          <div className="bucket">
-            <div className={this.getBucketHeaderClassName("Passive")}>
-              {titleEmoticonByBucket("Passive")}
-              <MyTitle className="bucketTitle">Passives</MyTitle>
-            </div>
-            <List>{this.setPopularTagsByBucket("Passive")}</List>
-          </div>
-          <div className="bucket">
-            <div className={this.getBucketHeaderClassName("Detractor")}>
-              {titleEmoticonByBucket("Detractor")}
-              <MyTitle className="bucketTitle">Detractors</MyTitle>
-            </div>
-            <List>{this.setPopularTagsByBucket("Detractor")}</List>
-          </div>
+          {bucketNames.map((bucket) => this.getBucketList(bucket))}
         </div>
       </div>
     );

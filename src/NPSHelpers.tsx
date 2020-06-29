@@ -11,11 +11,13 @@ export interface NPSEntry {
   bucket: Bucket;
   comment: string;
   tags: string[] | null;
+  timestamp: number;
 }
 
 export type Bucket = "Promoter" | "Passive" | "Detractor";
+export const bucketNames: Bucket[] = ["Promoter", "Passive", "Detractor"];
 
-export function bucketFiller(score: number): Bucket {
+export function scoreToBucket(score: number): Bucket {
   if (score >= 9) {
     return "Promoter";
   } else if (score >= 7) {
@@ -25,20 +27,26 @@ export function bucketFiller(score: number): Bucket {
   }
 }
 
-export function scoreCalculator(allNPS: NPSEntry[]) {
+export function scoreCounter(allNPS: NPSEntry[]) {
   let numPromoters = 0;
   let numDetractors = 0;
+  let numPassives = 0;
 
   for (let i = 0; i < allNPS.length; i++) {
     if (allNPS[i].bucket === "Promoter") {
       numPromoters++;
     } else if (allNPS[i].bucket === "Detractor") {
       numDetractors++;
-    }
+    } else numPassives++;
   }
 
-  const ratePromoters = numPromoters / allNPS.length;
-  const rateDetractors = numDetractors / allNPS.length;
+  return { numPromoters, numPassives, numDetractors };
+}
+
+export function npsScoreCalculator(allNPS: NPSEntry[]) {
+  const scores = scoreCounter(allNPS);
+  const ratePromoters = scores.numPromoters / allNPS.length;
+  const rateDetractors = scores.numDetractors / allNPS.length;
 
   return Math.round((ratePromoters - rateDetractors) * 100);
 }
@@ -74,11 +82,6 @@ function countTags(allNPS: NPSEntry[]) {
     if (tags) {
       for (let tag of tags) {
         tagCounts[tag] = (tagCounts[tag] ?? 0) + 1;
-        if (tag in tagCounts) {
-          tagCounts[tag]++;
-        } else {
-          tagCounts[tag] = 1;
-        }
       }
     }
   }
@@ -105,15 +108,15 @@ export function findCommonTagsInBucket(
   return sortable.slice(0, topXTags);
 }
 
-export function findCommentsFromBucketTag(
+export function findCommentsFromBucketAndMaybeTag(
   bucket: Bucket | null,
   tag: string | null,
   allNPS: NPSEntry[]
 ) {
   if (bucket) {
     if (tag) {
-      return allNPS.filter(
-        (entry) => entry.bucket === bucket && entry.tags?.includes(tag)
+      return allNPS.filter((entry) =>
+        entry.bucket === bucket && entry.tags ? entry.tags.includes(tag) : !tag
       );
     } else {
       return filterByBucket(bucket, allNPS);
@@ -122,53 +125,75 @@ export function findCommentsFromBucketTag(
   return null;
 }
 
-export function styleIconByBucket(bucket: Bucket | null) {
+export function colorIconByBucket(bucket: Bucket | null) {
   switch (bucket) {
     case "Promoter":
-      return { color: green[400] };
+      return green[400];
     case "Passive":
-      return { color: blue[300] };
+      return blue[300];
     case "Detractor":
-      return { color: red[400] };
+      return red[400];
     default:
-      return { color: grey[500] };
+      return grey[500];
   }
 }
 
-export function titleEmoticonByBucket(bucket: Bucket | null) {
-  if (bucket === "Promoter") {
-    return (
-      <InsertEmoticonIcon
-        className="titleIcon"
-        style={{ color: green[400], fontSize: 32 }}
-      />
-    );
-  } else if (bucket === "Passive") {
-    return (
-      <SentimentSatisfiedIcon
-        className="titleIcon"
-        style={{ color: blue[200], fontSize: 32 }}
-      />
-    );
-  } else if (bucket === "Detractor") {
-    return (
-      <MoodBadIcon
-        className="titleIcon"
-        style={{ color: red[400], fontSize: 32 }}
-      />
-    );
-  } else
-    return (
-      <Face className="tagIcon" style={{ color: grey[500], fontSize: 32 }} />
-    );
+export function getStyledEmoticon(
+  EmoticonComponent:
+    | typeof InsertEmoticonIcon
+    | typeof SentimentSatisfiedIcon
+    | typeof MoodBadIcon
+    | typeof Face,
+  isTitle: boolean,
+  bucket: Bucket | null
+) {
+  const styles: { color: string; fontSize?: number } = {
+    color: colorIconByBucket(bucket),
+  };
+
+  if (isTitle) {
+    styles.fontSize = 32;
+  }
+
+  return (
+    <EmoticonComponent
+      className={isTitle ? "titleIcon" : "smallIcon"}
+      style={styles}
+    />
+  );
 }
 
-export function emoticonByBucket(bucket: Bucket | null) {
-  if (bucket === "Promoter") {
-    return <InsertEmoticonIcon style={styleIconByBucket(bucket)} />;
-  } else if (bucket === "Passive") {
-    return <SentimentSatisfiedIcon style={styleIconByBucket(bucket)} />;
-  } else if (bucket === "Detractor") {
-    return <MoodBadIcon style={styleIconByBucket(bucket)} />;
-  } else return <Face style={styleIconByBucket(bucket)} />;
+export function getEmoticonByBucket(bucket: Bucket | null, isTitle: boolean) {
+  let icon;
+  switch (bucket) {
+    case "Promoter":
+      icon = InsertEmoticonIcon;
+      break;
+    case "Passive":
+      icon = SentimentSatisfiedIcon;
+      break;
+    case "Detractor":
+      icon = MoodBadIcon;
+      break;
+    default:
+      icon = Face;
+  }
+
+  return getStyledEmoticon(icon, isTitle, bucket);
+}
+
+export function getMinTime(data: NPSEntry[]) {
+  const minTime = data.reduce(
+    (minTime, entry) => Math.min(entry.timestamp, minTime),
+    data[0].timestamp
+  );
+  return minTime;
+}
+
+export function getMaxTime(data: NPSEntry[]) {
+  const maxTime = data.reduce(
+    (maxTime, entry) => Math.max(entry.timestamp, maxTime),
+    data[0].timestamp
+  );
+  return maxTime;
 }
