@@ -42,7 +42,6 @@ class App extends Component<{}, State> {
 
     window.setTimeout(
       (allNPS: NPSEntry[]) => {
-        console.log("hello");
         this.setState({
           allNPS: allNPS,
           isLoading: false,
@@ -84,12 +83,13 @@ class App extends Component<{}, State> {
           </Toolbar>
         </AppBar>
         <div className="page">
-          <FileUploaderDialog
-            setAllNPSData={this.setAllNPSData}
-            isUploadModalOpen={this.state.isUploadModalOpen}
-            isAllNPSSet={this.state.allNPS ? true : false}
-            setIsUploadModal={this.setIsUploadModal}
-          />
+          {this.state.isUploadModalOpen ? (
+            <FileUploaderDialog
+              setAllNPSData={this.setAllNPSData}
+              allowModalClose={this.state.allNPS ? true : false}
+              setIsUploadModal={this.setIsUploadModal}
+            />
+          ) : null}
           {this.state.allNPS ? <NPSstats allNPS={this.state.allNPS} /> : null}
           {this.state.isLoading ? (
             <div className="loading">

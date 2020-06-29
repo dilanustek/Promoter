@@ -54,7 +54,7 @@ class FeedbackButton extends Component<{}, State> {
             horizontal: "right",
           }}
         >
-          <Typography className="popover-txt">
+          <div className="popover-txt">
             <h3> Hi!</h3>
             <div>
               If you have any feedback or questions on Net-Promoter, feel free
@@ -71,7 +71,7 @@ class FeedbackButton extends Component<{}, State> {
               interested in this happening, drop me a email to indicate your
               interest!
             </div>
-          </Typography>
+          </div>
         </MyPopover>
       </div>
     );

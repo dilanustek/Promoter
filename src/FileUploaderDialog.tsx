@@ -6,11 +6,11 @@ import csvData from "./NPSsample.json";
 import Modal from "@material-ui/core/Modal";
 import demoImg from "./screenshot.png";
 import Button from "@material-ui/core/Button";
+import ReactGA from "react-ga";
 
 interface Props {
   setAllNPSData: (allNPS: NPSEntry[]) => void;
-  isUploadModalOpen: boolean;
-  isAllNPSSet: boolean;
+  allowModalClose: boolean;
   setIsUploadModal: (isOpen: boolean) => void;
 }
 
@@ -59,14 +59,17 @@ class FileUploaderDialog extends Component<Props, {}> {
   }
 
   onModalClose = () => {
-    if (this.props.isAllNPSSet) {
+    if (this.props.allowModalClose) {
       this.props.setIsUploadModal(false);
     }
   };
 
-  // componentDidMount() {
-  //   this.parseData(csvData);
-  // }
+  componentDidMount() {
+    ReactGA.modalview("/uploader-modal");
+
+    // uncomment this to initialize the app without the Upload modal
+    // this.parseData(csvData);
+  }
 
   render() {
     return (
@@ -74,7 +77,7 @@ class FileUploaderDialog extends Component<Props, {}> {
         disableEnforceFocus
         disableAutoFocus
         className="modalBackdrop"
-        open={this.props.isUploadModalOpen}
+        open
         onClose={this.onModalClose}
       >
         <div className="modal">

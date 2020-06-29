@@ -7,7 +7,6 @@ import ReactGA from "react-ga";
 
 ReactGA.initialize("UA-169836060-1");
 ReactGA.pageview(window.location.pathname + window.location.search);
-// ReactGA.set({});
 
 ReactDOM.render(
   <React.StrictMode>
